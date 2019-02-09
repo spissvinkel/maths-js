@@ -1,0 +1,20 @@
+{
+  "name": "@spissvinkel/maths-js",
+  "version": "0.1.0",
+  "description": "Maths library for JS/TS",
+  "license": "MIT",
+  "author": "Simen Storsveen",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://simenstorsveen.no/edb/git/maths-js.git"
+  }
+}
