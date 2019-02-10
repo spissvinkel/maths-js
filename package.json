@@ -1,20 +1,21 @@
 {
-  "name": "@spissvinkel/maths-js",
-  "version": "0.1.0",
+  "name": "@spissvinkel/maths",
+  "version": "0.8.0",
   "description": "Maths library for JS/TS",
+  "keywords": [
+    "vector",
+    "matrix",
+    "mathematics",
+    "typescript"
+  ],
+  "author": "Simen Storsveen <code@simenstorsveen.no>",
   "license": "MIT",
-  "author": "Simen Storsveen",
+  "repository": "github:spissvinkel/maths-js",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://simenstorsveen.no/edb/git/maths-js.git"
-  }
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "*.map",
+    "lib"
+  ]
 }

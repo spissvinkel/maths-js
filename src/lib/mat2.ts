@@ -8,6 +8,13 @@ interface Mat2 {
 
 namespace Mat2 {
 
+  export const of: (r0c0: number, r0c1: number,
+                    r1c0: number, r1c1: number) => Mat2
+  = (r0c0, r0c1, r1c0, r1c1) => ({
+    r0c0, r0c1,
+    r1c0, r1c1
+  });
+
   export const zero: () => Mat2 = () => setZero({ } as Mat2);
   export const id:   () => Mat2 = () => setId({ } as Mat2);
 
@@ -40,7 +47,8 @@ namespace Mat2 {
 
   export const set: (r0c0: number, r0c1: number,
                      r1c0: number, r1c1: number,
-                     m: Mat2) => Mat2 = (r0c0, r0c1, r1c0, r1c1, m) => {
+                     m: Mat2) => Mat2
+  = (r0c0, r0c1, r1c0, r1c1, m) => {
     m.r0c0 = r0c0;  m.r0c1 = r0c1;
     m.r1c0 = r1c0;  m.r1c1 = r1c1;
     return m;
@@ -78,8 +86,8 @@ namespace Mat2 {
   };
 
   export const toString: (m: Mat2) => string
-      = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)}\n`
-           + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`;
+  = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)}\n`
+       + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`;
 }
 
 export default Mat2;

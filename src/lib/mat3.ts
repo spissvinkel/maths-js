@@ -11,6 +11,15 @@ interface Mat3 {
 
 namespace Mat3 {
 
+  export const of: (r0c0: number, r0c1: number, r0c2: number,
+                    r1c0: number, r1c1: number, r1c2: number,
+                    r2c0: number, r2c1: number, r2c2: number) => Mat3
+  = (r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2) => ({
+    r0c0, r0c1, r0c2,
+    r1c0, r1c1, r1c2,
+    r2c0, r2c1, r2c2
+  });
+
   export const zero: () => Mat3 = () => setZero({ } as Mat3);
   export const id:   () => Mat3 = () => setId({ } as Mat3);
 
@@ -98,7 +107,8 @@ namespace Mat3 {
   export const set: (r0c0: number, r0c1: number, r0c2: number,
                      r1c0: number, r1c1: number, r1c2: number,
                      r2c0: number, r2c1: number, r2c2: number,
-                     m: Mat3) => Mat3 = (r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2, m) => {
+                     m: Mat3) => Mat3
+  = (r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2, m) => {
     m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;
     m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;
     m.r2c0 = r2c0;  m.r2c1 = r2c1;  m.r2c2 = r2c2;
@@ -163,9 +173,9 @@ namespace Mat3 {
   };
 
   export const toString: (m: Mat3) => string
-      = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)}\n`
-           + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
-           + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`;
+  = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)}\n`
+       + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
+       + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`;
 }
 
 export default Mat3;

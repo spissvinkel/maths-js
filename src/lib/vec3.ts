@@ -4,6 +4,8 @@ interface Vec3 { x: number;  y: number;  z: number; }
 
 namespace Vec3 {
 
+  export const of: (x: number, y: number, z: number) => Vec3 = (x, y, z) => ({ x, y, z });
+
   export const zero:  () => Vec3 = () => setZero({ } as Vec3);
   export const unit:  () => Vec3 = () => setUnit({ } as Vec3);
   export const unitX: () => Vec3 = () => setUnitX({ } as Vec3);
@@ -21,18 +23,16 @@ namespace Vec3 {
   export const setV: (b: Vec3, a: Vec3) => Vec3 = (b, a) => { a.x = b.x;  a.y = b.y;  a.z = b.z;  return a; };
 
   export const set: (x: number, y: number, z: number, a: Vec3) => Vec3
-      = (x, y, z, a) => { a.x = x;  a.y = y;  a.z = z;  return a; };
+  = (x, y, z, a) => { a.x = x;  a.y = y;  a.z = z;  return a; };
 
   export const add: (b: Vec3, a: Vec3) => Vec3 = (b, a) => { a.x += b.x;  a.y += b.y;  a.z += b.z;  return a; };
-
   export const sub: (b: Vec3, a: Vec3) => Vec3 = (b, a) => { a.x -= b.x;  a.y -= b.y;  a.z -= b.z;  return a; };
 
   export const addMul: (b: Vec3, s: number, a: Vec3) => Vec3
-      = (b, s, a) => { a.x += b.x * s;  a.y += b.y * s;  a.z += b.z * s;  return a; };
+  = (b, s, a) => { a.x += b.x * s;  a.y += b.y * s;  a.z += b.z * s;  return a; };
 
-  export const mulV: (b: Vec3, a: Vec3) => Vec3 = (b, a) => { a.x *= b.x;  a.y *= b.y;  a.z *= b.z;  return a; };
-
-  export const mulS: (s: number, a: Vec3) => Vec3 = (s, a) => { a.x *= s;  a.y *= s;  a.z *= s;  return a; };
+  export const mulV: (b: Vec3  , a: Vec3) => Vec3 = (b, a) => { a.x *= b.x;  a.y *= b.y;  a.z *= b.z;  return a; };
+  export const mulS: (s: number, a: Vec3) => Vec3 = (s, a) => { a.x *= s;    a.y *= s;    a.z *= s;    return a; };
 
   export const inv: (a: Vec3) => Vec3 = a => { a.x = -a.x;  a.y = -a.y;  a.z = -a.z;  return a; };
 
@@ -40,10 +40,7 @@ namespace Vec3 {
   export const mag:    (a: Vec3) => number = a => Math.sqrt(sqrMag(a));
   export const norm:   (a: Vec3) => Vec3   = a => normTo(mag(a), a);
 
-  export const normTo: (mag: number, a: Vec3) => Vec3 = (mag, a) => {
-    if (mag > 0.0) mulS(1.0 / mag, a);
-    return a;
-  };
+  export const normTo: (mag: number, a: Vec3) => Vec3 = (mag, a) => mag > 0.0 ? mulS(1.0 / mag, a) : a;
 
   export const dot: (b: Vec3, a: Vec3) => number = (b, a) => a.x * b.x  +  a.y * b.y  +  a.z * b.z;
 

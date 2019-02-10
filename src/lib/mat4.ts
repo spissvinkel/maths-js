@@ -12,6 +12,17 @@ interface Mat4 {
 
 namespace Mat4 {
 
+  export const of: (r0c0: number, r0c1: number, r0c2: number, r0c3: number,
+                    r1c0: number, r1c1: number, r1c2: number, r1c3: number,
+                    r2c0: number, r2c1: number, r2c2: number, r2c3: number,
+                    r3c0: number, r3c1: number, r3c2: number, r3c3: number) => Mat4
+  = (r0c0, r0c1, r0c2, r0c3, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r3c0, r3c1, r3c2, r3c3) => ({
+    r0c0, r0c1, r0c2, r0c3,
+    r1c0, r1c1, r1c2, r1c3,
+    r2c0, r2c1, r2c2, r2c3,
+    r3c0, r3c1, r3c2, r3c3
+  });
+
   export const zero: () => Mat4 = () => setZero({ } as Mat4);
   export const id:   () => Mat4 = () => setId({ } as Mat4);
 
@@ -110,11 +121,8 @@ namespace Mat4 {
                      r1c0: number, r1c1: number, r1c2: number, r1c3: number,
                      r2c0: number, r2c1: number, r2c2: number, r2c3: number,
                      r3c0: number, r3c1: number, r3c2: number, r3c3: number,
-                     m: Mat4) => Mat4 = (r0c0, r0c1, r0c2, r0c3,
-                                         r1c0, r1c1, r1c2, r1c3,
-                                         r2c0, r2c1, r2c2, r2c3,
-                                         r3c0, r3c1, r3c2, r3c3,
-                                         m) => {
+                     m: Mat4) => Mat4
+  = (r0c0, r0c1, r0c2, r0c3, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r3c0, r3c1, r3c2, r3c3, m) => {
     m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;  m.r0c3 = r0c3;
     m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;  m.r1c3 = r1c3;
     m.r2c0 = r2c0;  m.r2c1 = r2c1;  m.r2c2 = r2c2;  m.r2c3 = r2c3;
@@ -197,10 +205,10 @@ namespace Mat4 {
   };
 
   export const toString: (m: Mat4) => string
-      = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)} ${pad(m.r0c3)}\n`
-          + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
-          + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
-          + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`;
+  = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)} ${pad(m.r0c3)}\n`
+       + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
+       + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
+       + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`;
 }
 
 export default Mat4;

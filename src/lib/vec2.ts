@@ -4,6 +4,8 @@ interface Vec2 { x: number;  y: number; }
 
 namespace Vec2 {
 
+  export const of: (x: number, y: number) => Vec2 = (x, y) => ({ x, y });
+
   export const zero:  () => Vec2 = () => setZero({ } as Vec2);
   export const unit:  () => Vec2 = () => setUnit({ } as Vec2);
   export const unitX: () => Vec2 = () => setUnitX({ } as Vec2);
@@ -24,7 +26,7 @@ namespace Vec2 {
   export const sub: (b: Vec2, a: Vec2) => Vec2 = (b, a) => { a.x -= b.x;  a.y -= b.y;  return a; };
 
   export const addMul: (b: Vec2, s: number, a: Vec2) => Vec2
-      = (b, s, a) => { a.x += b.x * s;  a.y += b.y * s;  return a; };
+  = (b, s, a) => { a.x += b.x * s;  a.y += b.y * s;  return a; };
 
   export const mulV: (b: Vec2,   a: Vec2) => Vec2 = (b, a) => { a.x *= b.x;  a.y *= b.y;  return a; };
   export const mulS: (s: number, a: Vec2) => Vec2 = (s, a) => { a.x *= s;    a.y *= s;    return a; };
