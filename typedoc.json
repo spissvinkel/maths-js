@@ -1,0 +1,6 @@
+{
+  "mode": "file",
+  "readme": "none",
+  "exclude": "**/index.ts",
+  "out": "./docs/api"
+}

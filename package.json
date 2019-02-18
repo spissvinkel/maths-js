@@ -1,6 +1,6 @@
 {
   "name": "@spissvinkel/maths",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Maths library for JS/TS",
   "keywords": [
     "vector",
@@ -11,11 +11,16 @@
   "author": "Simen Storsveen <code@simenstorsveen.no>",
   "license": "MIT",
   "repository": "github:spissvinkel/maths-js",
+  "homepage": "https://spissvinkel.github.io/maths-js/",
   "main": "index.js",
   "files": [
     "*.js",
     "*.d.ts",
     "*.map",
     "lib"
-  ]
+  ],
+  "devDependencies": {
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3333"
+  }
 }

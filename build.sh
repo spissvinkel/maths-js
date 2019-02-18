@@ -2,6 +2,6 @@
 
 rm -rf ./*.d.ts ./*.js ./*.map ./lib/* ./build/*
 
-tsc
+./node_modules/.bin/tsc
 
 cp -r ./build/* .
