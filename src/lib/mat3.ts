@@ -6,6 +6,8 @@ import Vec3 from './vec3';
 /**
  * `Mat3` is an interface for 3x3 matrix objects, and a collection of functions to operate on them.
  *
+ * The primary use for a `Mat3` object is as a 2D transformation matrix or a 3D rotation matrix.
+ *
  * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL
  */
 interface Mat3 {
@@ -223,7 +225,7 @@ namespace Mat3 {
    * Multiplying the resulting matrix by a column vector will scale the given vector by `a` (see [[mulV]])
    *
    * @param m - a 3x3 matrix object
-   * @param a - a 2-element vector specifying the scaling factor
+   * @param a - a 2-element vector specifying the scaling factors
    * @returns `m` set to be a 2D scaling matrix
    */
   export const setScaleV: (m: Mat3, a: Vec2) => Mat3 = (m, a) => {
@@ -280,7 +282,7 @@ namespace Mat3 {
    * (see [[mulV]])
    *
    * @param m - a 3x3 matrix object
-   * @param a - a 2-element vector specifying the scaling factor
+   * @param a - a 2-element vector specifying the scaling factors
    * @param b - a 2-element vector specifying the amount of translation
    * @returns `m` set to be a 2D transformation matrix
    */
@@ -385,8 +387,9 @@ namespace Mat3 {
   /**
    * `b = m * a`
    *
-   * Multiplies the 3x3 matrix `m` by the 3-element column vector `a` and stores the result in the 3-element vector
-   * `b`
+   * Multiplies the 3x3 matrix `m` by the 3-element column vector `a` and stores the result in the 3-element vector `b`
+   *
+   * The vector `a` can be updated directly by invoking `mulV(m, a, a)`
    *
    * @param m - the 3x3 matrix multiplication operand
    * @param a - the 3-element vector multiplication operand

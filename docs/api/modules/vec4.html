@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p><code>Vec4</code> is an interface for 4-element vector objects, and a collection of functions to operate on them.</p>
+					</div>
+					<p>The primary use for a <code>Vec4</code> object is as homogeneous coordinates in 3D geometry, or to represent e.g. RGBA colours.</p>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -84,6 +92,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#of" class="tsd-kind-icon">of</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#ofv" class="tsd-kind-icon">ofV</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#ofv3" class="tsd-kind-icon">of<wbr>V3</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#one" class="tsd-kind-icon">one</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#set" class="tsd-kind-icon">set</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setone" class="tsd-kind-icon">set<wbr>One</a></li>
@@ -92,6 +101,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setunity" class="tsd-kind-icon">set<wbr>UnitY</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setunitz" class="tsd-kind-icon">set<wbr>UnitZ</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setv" class="tsd-kind-icon">setV</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setv3" class="tsd-kind-icon">set<wbr>V3</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#setzero" class="tsd-kind-icon">set<wbr>Zero</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="vec4.html#unitw" class="tsd-kind-icon">unitW</a></li>
@@ -112,9 +122,14 @@
 					<div class="tsd-signature tsd-kind-icon">w<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec4.ts:3</li>
+							<li>Defined in vec4.ts:13</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The fourth element</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="x" class="tsd-anchor"></a>
@@ -122,9 +137,14 @@
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec4.ts:3</li>
+							<li>Defined in vec4.ts:10</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The first element</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="y" class="tsd-anchor"></a>
@@ -132,9 +152,14 @@
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec4.ts:3</li>
+							<li>Defined in vec4.ts:11</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The second element</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="z" class="tsd-anchor"></a>
@@ -142,9 +167,14 @@
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec4.ts:3</li>
+							<li>Defined in vec4.ts:12</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The third element</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -159,25 +189,51 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:10</li>
+									<li>Defined in vec4.ts:30</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4-element vector object initialized with the given values</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>z: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the third element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>w: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the fourth element</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -191,16 +247,69 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:12</li>
+									<li>Defined in vec4.ts:38</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new copy of the 4-element vector <code>b</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>b: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4-element vector object</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="ofv3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> of<wbr>V3</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">of<wbr>V3<span class="tsd-signature-symbol">(</span>b<span class="tsd-signature-symbol">: </span><a href="vec3.html" class="tsd-signature-type">Vec3</a>, w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vec4.html" class="tsd-signature-type">Vec4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in vec4.ts:47</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4-element vector object initialized to the values of the 3-element vector <code>b</code> and the value <code>w</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>b: <a href="vec3.html" class="tsd-signature-type">Vec3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 3-element vector object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>w: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the fourth element</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -214,10 +323,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:15</li>
+									<li>Defined in vec4.ts:61</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4-element vector object with all elements set to one</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -231,28 +346,59 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:32</li>
+									<li>Defined in vec4.ts:171</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 4-element vector <code>a</code> to the given values</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>z: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the third element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>w: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the fourth element</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> with elements set to the given values</p>
 						</li>
 					</ul>
 				</section>
@@ -266,16 +412,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:22</li>
+									<li>Defined in vec4.ts:105</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets all elements of the 4-element vector <code>a</code> to one</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> with all elements set to one</p>
 						</li>
 					</ul>
 				</section>
@@ -289,16 +446,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:26</li>
+									<li>Defined in vec4.ts:137</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 4D vector <code>a</code> so it becomes a unit vector along the w-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> set to be a unit vector along the w-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -312,16 +480,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:23</li>
+									<li>Defined in vec4.ts:113</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 4D vector <code>a</code> so it becomes a unit vector along the x-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> set to be a unit vector along the x-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -335,16 +514,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:24</li>
+									<li>Defined in vec4.ts:121</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 4D vector <code>a</code> so it becomes a unit vector along the y-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> set to be a unit vector along the y-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -358,16 +548,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:25</li>
+									<li>Defined in vec4.ts:129</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 4D vector <code>a</code> so it becomes a unit vector along the z-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> set to be a unit vector along the z-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -381,19 +582,85 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:29</li>
+									<li>Defined in vec4.ts:147</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies the 4-element vector <code>b</code> into the 4-element vector <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> set to be a copy of <code>b</code></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="setv3" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> set<wbr>V3</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>V3<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="vec4.html" class="tsd-signature-type">Vec4</a>, b<span class="tsd-signature-symbol">: </span><a href="vec3.html" class="tsd-signature-type">Vec3</a>, w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="vec4.html" class="tsd-signature-type">Vec4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in vec4.ts:158</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies the 3-element vector <code>b</code> and the value <code>w</code> into the 4-element vector <code>a</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b: <a href="vec3.html" class="tsd-signature-type">Vec3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 3-element vector object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>w: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the fourth element</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> with its first three elements set to be a copy of <code>b</code> and the fourth set to <code>w</code></p>
 						</li>
 					</ul>
 				</section>
@@ -407,16 +674,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:21</li>
+									<li>Defined in vec4.ts:97</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets all elements of the 4-element vector <code>a</code> to zero</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p><code>a</code> with all elements set to zero</p>
 						</li>
 					</ul>
 				</section>
@@ -430,16 +708,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:34</li>
+									<li>Defined in vec4.ts:179</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a (single-line) string representation of the 4-element vector <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec4.html" class="tsd-signature-type">Vec4</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 4-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a string representation of <code>a</code></p>
 						</li>
 					</ul>
 				</section>
@@ -453,10 +742,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:19</li>
+									<li>Defined in vec4.ts:89</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4D unit vector along the w-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -470,10 +765,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:16</li>
+									<li>Defined in vec4.ts:68</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4D unit vector along the x-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -487,10 +788,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:17</li>
+									<li>Defined in vec4.ts:75</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4D unit vector along the y-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -504,10 +811,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:18</li>
+									<li>Defined in vec4.ts:82</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4D unit vector along the z-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -521,10 +834,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec4.ts:14</li>
+									<li>Defined in vec4.ts:54</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 4-element vector object with all elements set to zero</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec4.html" class="tsd-signature-type">Vec4</a></h4>
+							<p>the new 4-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -580,6 +899,9 @@
 						<a href="vec4.html#ofv" class="tsd-kind-icon">ofV</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="vec4.html#ofv3" class="tsd-kind-icon">of<wbr>V3</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="vec4.html#one" class="tsd-kind-icon">one</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -602,6 +924,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="vec4.html#setv" class="tsd-kind-icon">setV</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="vec4.html#setv3" class="tsd-kind-icon">set<wbr>V3</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="vec4.html#setzero" class="tsd-kind-icon">set<wbr>Zero</a>

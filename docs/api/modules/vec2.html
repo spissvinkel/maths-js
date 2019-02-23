@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p><code>Vec2</code> is an interface for 2-element vector objects, and a collection of functions to operate on them.</p>
+					</div>
+					<p>The primary use for a <code>Vec2</code> object is in 2D geometry.</p>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -122,9 +130,14 @@
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec2.ts:3</li>
+							<li>Defined in vec2.ts:9</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The first element</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="y" class="tsd-anchor"></a>
@@ -132,9 +145,14 @@
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in vec2.ts:3</li>
+							<li>Defined in vec2.ts:10</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The second element</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -149,22 +167,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:32</li>
+									<li>Defined in vec2.ts:147</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a + b * s</code></p>
+								</div>
+								<p>Adds the 2-element vector <code>b</code> multiplied by the scalar <code>s</code> to the 2-element vector <code>a</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>s: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a scalar value</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of <code>a + b * s</code></p>
 						</li>
 					</ul>
 				</section>
@@ -178,19 +218,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:28</li>
+									<li>Defined in vec2.ts:123</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a + b</code></p>
+								</div>
+								<p>Adds the 2-element vector <code>b</code> to the 2-element vector <code>a</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of <code>a + b</code></p>
 						</li>
 					</ul>
 				</section>
@@ -204,22 +261,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:55</li>
+									<li>Defined in vec2.ts:278</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clamps the values of the two-element vector <code>a</code> so that they are not less than <code>min</code> and not greater than <code>max</code>,
+									and stores the result in <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the minimum value allowed</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>max: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the maximum value allowed</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> clamped to <code>[min, max]</code></p>
 						</li>
 					</ul>
 				</section>
@@ -233,16 +312,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:61</li>
+									<li>Defined in vec2.ts:291</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clamps the values of the two-element vector <code>a</code> so that they are not less than <code>0.0</code> and not greater than <code>1.0</code>,
+									and stores the result in <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> clamped to <code>[0.0, 1.0]</code></p>
 						</li>
 					</ul>
 				</section>
@@ -256,22 +347,45 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:49</li>
+									<li>Defined in vec2.ts:263</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Element-wise clamping of the values of the two-element vector <code>a</code> so that they are not less than the values of the
+										two-element vector <code>min</code> and not greater than the values of the two-element vector <code>max</code>.
+									The result is stored in <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>min: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector specifying the minimum values</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>max: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector specifying the maximum values</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> clamped to <code>[min, max]</code></p>
 						</li>
 					</ul>
 				</section>
@@ -285,19 +399,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:37</li>
+									<li>Defined in vec2.ts:191</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a / s</code></p>
+								</div>
+								<p>Divides the two-element vector <code>a</code> by the scalar <code>s</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>s: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a scalar value</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of <code>a / s</code></p>
 						</li>
 					</ul>
 				</section>
@@ -311,19 +442,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:36</li>
+									<li>Defined in vec2.ts:180</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a / b</code></p>
+								</div>
+								<p>Element-wise division of the 2-element vector <code>a</code> by the 2-element vector <code>b</code>, with the result stored in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of the division</p>
 						</li>
 					</ul>
 				</section>
@@ -337,19 +485,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:47</li>
+									<li>Defined in vec2.ts:251</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a · b</code></p>
+								</div>
+								<p>Calculates the dot product of the two-element vectors <code>a</code> and <code>b</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the dot product of <code>a</code> and <code>b</code></p>
 						</li>
 					</ul>
 				</section>
@@ -363,16 +528,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:39</li>
+									<li>Defined in vec2.ts:201</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = -a</code></p>
+								</div>
+								<p>Calculates the inverse of the two-element vector <code>a</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as its inverse</p>
 						</li>
 					</ul>
 				</section>
@@ -386,16 +563,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:42</li>
+									<li>Defined in vec2.ts:221</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calculates the magnitude of the two-element vector <code>a</code></p>
+								</div>
+								<p>(See also <a href="vec2.html#sqrmag">sqrMag</a>)</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p><code>|a|</code></p>
 						</li>
 					</ul>
 				</section>
@@ -409,19 +598,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:35</li>
+									<li>Defined in vec2.ts:169</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a * s</code></p>
+								</div>
+								<p>Multiplies the two-element vector <code>a</code> by the scalar <code>s</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>s: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a scalar value</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of <code>a * s</code></p>
 						</li>
 					</ul>
 				</section>
@@ -435,19 +641,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:34</li>
+									<li>Defined in vec2.ts:158</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a * b</code></p>
+								</div>
+								<p>Element-wise multiplication of the 2-element vector <code>a</code> by the 2-element vector <code>b</code>, with the result stored in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of the multiplication</p>
 						</li>
 					</ul>
 				</section>
@@ -461,16 +684,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:43</li>
+									<li>Defined in vec2.ts:231</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = â</code></p>
+								</div>
+								<p>Normalises the two-element vector <code>a</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> normalised</p>
 						</li>
 					</ul>
 				</section>
@@ -484,19 +719,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:45</li>
+									<li>Defined in vec2.ts:240</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Normalises the two-element vector <code>a</code> based on the given magnitude <code>mag</code>, and stores the result in <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>mag: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the magnitude</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> normalised (based on <code>mag</code>)</p>
 						</li>
 					</ul>
 				</section>
@@ -510,19 +761,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:10</li>
+									<li>Defined in vec2.ts:25</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 2-element vector object initialized with the given values</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second element</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -536,16 +803,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:12</li>
+									<li>Defined in vec2.ts:33</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new copy of the 2-element vector <code>b</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -559,10 +837,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:15</li>
+									<li>Defined in vec2.ts:47</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 2-element vector object with all elements set to one</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2-element vector object</p>
 						</li>
 					</ul>
 				</section>
@@ -576,22 +860,43 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:26</li>
+									<li>Defined in vec2.ts:112</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 2-element vector <code>a</code> to the given values</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first element</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second element</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> with elements set to the given values</p>
 						</li>
 					</ul>
 				</section>
@@ -605,16 +910,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:20</li>
+									<li>Defined in vec2.ts:77</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets all elements of the 2-element vector <code>a</code> to one</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> with all elements set to one</p>
 						</li>
 					</ul>
 				</section>
@@ -628,16 +944,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:21</li>
+									<li>Defined in vec2.ts:85</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 2D vector <code>a</code> so it becomes a unit vector along the x-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> set to be a unit vector along the x-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -651,16 +978,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:22</li>
+									<li>Defined in vec2.ts:93</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the elements of the 2D vector <code>a</code> so it becomes a unit vector along the y-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> set to be a unit vector along the y-axis</p>
 						</li>
 					</ul>
 				</section>
@@ -674,19 +1012,35 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:24</li>
+									<li>Defined in vec2.ts:102</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Copies the 2-element vector <code>b</code> into the 2-element vector <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> set to be a copy of <code>b</code></p>
 						</li>
 					</ul>
 				</section>
@@ -700,16 +1054,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:19</li>
+									<li>Defined in vec2.ts:69</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets all elements of the 2-element vector <code>a</code> to zero</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> with all elements set to zero</p>
 						</li>
 					</ul>
 				</section>
@@ -723,16 +1088,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:41</li>
+									<li>Defined in vec2.ts:211</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calculates the square of the magnitude of the two-element vector <code>a</code></p>
+								</div>
+								<p>(This is cheaper than calculating the actual magnitude and is useful e.g. when comparing two vectors)</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p><code>|a|²</code></p>
 						</li>
 					</ul>
 				</section>
@@ -746,19 +1123,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:29</li>
+									<li>Defined in vec2.ts:134</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>a = a - b</code></p>
+								</div>
+								<p>Subtracts the 2-element vector <code>b</code> from the 2-element vector <code>a</code> and stores the result in <code>a</code></p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>b: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>a</code> as the result of <code>a - b</code></p>
 						</li>
 					</ul>
 				</section>
@@ -772,16 +1166,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:67</li>
+									<li>Defined in vec2.ts:299</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates a (single-line) string representation of the 2-element vector <code>a</code></p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector object</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a string representation of <code>a</code></p>
 						</li>
 					</ul>
 				</section>
@@ -795,10 +1200,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:16</li>
+									<li>Defined in vec2.ts:54</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 2D unit vector along the x-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -812,10 +1223,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:17</li>
+									<li>Defined in vec2.ts:61</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 2D unit vector along the y-axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2D unit vector</p>
 						</li>
 					</ul>
 				</section>
@@ -829,10 +1246,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:14</li>
+									<li>Defined in vec2.ts:40</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new 2-element vector object with all elements set to zero</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p>the new 2-element vector object</p>
 						</li>
 					</ul>
 				</section>

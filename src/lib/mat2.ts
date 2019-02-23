@@ -4,6 +4,8 @@ import Vec2 from './vec2';
 /**
  * `Mat2` is an interface for 2x2 matrix objects, and a collection of functions to operate on them.
  *
+ * The primary use for a `Mat2` object is as a 2D rotation matrix.
+ *
  * A "column-major" ordering is assumed, suitable for e.g. WebGL
  */
 interface Mat2 {
