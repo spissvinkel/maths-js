@@ -4,10 +4,10 @@ A small TypeScript/JavaScript library of mathematical functions, mainly vector a
 
 ## Installation
 
-As an npm module:
+As an npm package:
 
 ```bash
-npm install @spissvinkel/maths
+> npm install @spissvinkel/maths
 ```
 
 ## Documentation

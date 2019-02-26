@@ -180,7 +180,7 @@ namespace Vec3 {
   /**
    * `a = a * s`
    *
-   * Multiplies the two-element vector `a` by the scalar `s` and stores the result in `a`
+   * Multiplies the 3-element vector `a` by the scalar `s` and stores the result in `a`
    *
    * @param a - a 3-element vector object
    * @param s - a scalar value
@@ -191,7 +191,7 @@ namespace Vec3 {
   /**
    * `a = -a`
    *
-   * Calculates the inverse of the two-element vector `a` and stores the result in `a`
+   * Calculates the inverse of the 3-element vector `a` and stores the result in `a`
    *
    * @param a - a 3-element vector object
    * @returns `a` as its inverse
@@ -199,7 +199,7 @@ namespace Vec3 {
   export const inv: (a: Vec3) => Vec3 = a => { a.x = -a.x;  a.y = -a.y;  a.z = -a.z;  return a; };
 
   /**
-   * Calculates the square of the magnitude of the two-element vector `a`
+   * Calculates the square of the magnitude of the 3-element vector `a`
    *
    * (This is cheaper than calculating the actual magnitude and is useful e.g. when comparing two vectors)
    *
@@ -209,7 +209,7 @@ namespace Vec3 {
   export const sqrMag: (a: Vec3) => number = a => a.x * a.x  +  a.y * a.y  +  a.z * a.z;
 
   /**
-   * Calculates the magnitude of the two-element vector `a`
+   * Calculates the magnitude of the 3-element vector `a`
    *
    * (See also [[sqrMag]])
    *
@@ -221,7 +221,7 @@ namespace Vec3 {
   /**
    * `a = â`
    *
-   * Normalises the two-element vector `a` and stores the result in `a`
+   * Normalises the 3-element vector `a` and stores the result in `a`
    *
    * @param a - a 3-element vector object
    * @returns `a` normalised
@@ -229,7 +229,7 @@ namespace Vec3 {
   export const norm: (a: Vec3) => Vec3   = a => normTo(a, mag(a));
 
   /**
-   * Normalises the two-element vector `a` based on the given magnitude `mag`, and stores the result in `a`
+   * Normalises the 3-element vector `a` based on the given magnitude `mag`, and stores the result in `a`
    *
    * @param a - a 3-element vector object
    * @param mag - the magnitude
@@ -240,7 +240,7 @@ namespace Vec3 {
   /**
    * `a · b`
    *
-   * Calculates the dot product of the two-element vectors `a` and `b`
+   * Calculates the dot product of the 3-element vectors `a` and `b`
    *
    * @param a - a 3-element vector object
    * @param b - a 3-element vector object
@@ -251,7 +251,7 @@ namespace Vec3 {
   /**
    * `c = a × b`
    *
-   * Calculates the cross product of the two-element vectors `a` and `b`, and stores the result in the 3-element
+   * Calculates the cross product of the 3-element vectors `a` and `b`, and stores the result in the 3-element
    * vector `c`
    *
    * @param a - a 3-element vector object
@@ -265,8 +265,8 @@ namespace Vec3 {
   };
 
   /**
-   * Element-wise clamping of the values of the two-element vector `a` so that they are not less than the values of the
-   * two-element vector `min` and not greater than the values of the two-element vector `max`.
+   * Element-wise clamping of the values of the 3-element vector `a` so that they are not less than the values of the
+   * 3-element vector `min` and not greater than the values of the 3-element vector `max`.
    * The result is stored in `a`
    *
    * @param a - a 3-element vector object
@@ -282,7 +282,7 @@ namespace Vec3 {
   };
 
   /**
-   * Clamps the values of the two-element vector `a` so that they are not less than `min` and not greater than `max`,
+   * Clamps the values of the 3-element vector `a` so that they are not less than `min` and not greater than `max`,
    * and stores the result in `a`
    *
    * @param a - a 3-element vector object
@@ -298,7 +298,7 @@ namespace Vec3 {
   };
 
   /**
-   * Clamps the values of the two-element vector `a` so that they are not less than `0.0` and not greater than `1.0`,
+   * Clamps the values of the 3-element vector `a` so that they are not less than `0.0` and not greater than `1.0`,
    * and stores the result in `a`
    *
    * @param a - a 3-element vector object
