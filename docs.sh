@@ -3,5 +3,3 @@
 rm -rf ./docs/api/*
 
 ./node_modules/.bin/typedoc ./src
-
-cp ./README.md ./docs

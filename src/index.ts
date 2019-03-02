@@ -11,7 +11,9 @@
  *
  * The primary use for a `Mat2` object is as a 2D rotation matrix.
  *
- * A "column-major" ordering is assumed, suitable for e.g. WebGL
+ * A "column-major" ordering is assumed, suitable for e.g. WebGL.
+ *
+ * The module [mat2](../modules/_mat2_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Mat2 {
   /** The value at row 0, column 0 */ r0c0: number,
@@ -25,7 +27,9 @@ export interface Mat2 {
  *
  * The primary use for a `Mat3` object is as a 2D transformation matrix or a 3D rotation matrix.
  *
- * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL
+ * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL.
+ *
+ * The module [mat3](../modules/_mat3_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Mat3 {
   /** The value at row 0, column 0 */ r0c0: number,
@@ -44,7 +48,9 @@ export interface Mat3 {
  *
  * The primary use for a `Mat4` object is as a 3D transformation matrix.
  *
- * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL
+ * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL.
+ *
+ * The module [mat4](../modules/_mat4_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Mat4 {
   /** The value at row 0, column 0 */ r0c0: number,
@@ -69,6 +75,8 @@ export interface Mat4 {
  * `Vec2` is an interface for 2-element vector objects.
  *
  * The primary use for a `Vec2` object is in 2D geometry.
+ *
+ * The module [vec2](../modules/_vec2_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Vec2 {
   /** The first element  */ x: number;
@@ -80,6 +88,8 @@ export interface Vec2 {
  *
  * The primary use for a `Vec3` object is in 3D geometry, as homogeneous coordinates in 2D geometry, or to represent
  * e.g. RGB colours.
+ *
+ * The module [vec3](../modules/_vec3_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Vec3 {
   /** The first element  */ x: number;
@@ -91,6 +101,8 @@ export interface Vec3 {
  * `Vec4` is an interface for 4-element vector objects.
  *
  * The primary use for a `Vec4` object is as homogeneous coordinates in 3D geometry, or to represent e.g. RGBA colours.
+ *
+ * The module [vec4](../modules/_vec4_.html) contains functions to manipulate objects conforming to this interface
  */
 export interface Vec4 {
   /** The first element  */ x: number;
@@ -98,8 +110,3 @@ export interface Vec4 {
   /** The third element  */ z: number;
   /** The fourth element */ w: number;
 }
-
-// /**
-//  * @ignore
-//  */
-// export const dummy: string = '';
