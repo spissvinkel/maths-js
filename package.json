@@ -1,6 +1,6 @@
 {
   "name": "@spissvinkel/maths",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Maths library for JS/TS",
   "keywords": [
     "vector",
