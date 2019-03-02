@@ -2,8 +2,6 @@
 
 A small TypeScript/JavaScript library of mathematical functions, mainly vector and matrix utilities.
 
-Visit https://spissvinkel.github.io/maths-js/ for more information
-
 
 ## Documentation
 

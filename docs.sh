@@ -1,9 +1,8 @@
 #!/bin/bash
 
-rm -rf ./docs/api/* ./docs/api/.nojekyll
+rm -rf ./docs/*.html ./docs/api/*
 
+./node_modules/.bin/showdown makehtml -i ./docs/index.md -o ./docs/index.html
 ./node_modules/.bin/typedoc ./src
 
-touch ./docs/api/.nojekyll
-touch ./docs/api/modules/.nojekyll
-touch ./docs/api/interfaces/.nojekyll
+touch ./docs/.nojekyll

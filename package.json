@@ -1,6 +1,6 @@
 {
   "name": "@spissvinkel/maths",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "Maths library for JS/TS",
   "keywords": [
     "vector",
@@ -18,6 +18,7 @@
     "*.map"
   ],
   "devDependencies": {
+    "showdown": "^1.9.0",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
   }
