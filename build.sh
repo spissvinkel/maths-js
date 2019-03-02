@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm -rf ./*.d.ts ./*.js ./*.map ./lib/* ./build/*
+rm -rf ./*.d.ts ./*.js ./*.map ./build/*
 
 ./node_modules/.bin/tsc
-
-cp -r ./build/* .

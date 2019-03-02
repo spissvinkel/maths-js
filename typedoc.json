@@ -1,6 +1,5 @@
 {
-  "mode": "file",
+  "mode": "modules",
   "readme": "none",
-  "exclude": "**/index.ts",
   "out": "./docs/api"
 }
