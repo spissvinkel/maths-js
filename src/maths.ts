@@ -23,6 +23,11 @@ export const PI_BY_180 = Math.PI / 180.0;
 export const TWO_PI_ROOT = Math.sqrt(TWO_PI);
 
 /**
+ * An array of floating point numbers
+ */
+export type FloatArray = number[] | Float32Array | Float64Array;
+
+/**
  * Calculates the cotangent of the given angle
  *
  * @param angle - an angle in radians
@@ -74,3 +79,41 @@ export const fpad: (n: number) => string = n => {
   while (s.length < w) s = c + s;
   return s;
 };
+
+/**
+ * Linear interpolation between `a` and `b` based on `t`, where `t` is a number between `0.0` and `1.0`.
+ *
+ * The result will be equal to `a` when `t` is `0.0`,
+ * equal to `b` when `t` is `1.0`,
+ * and halfway between `a` and `b` when `t` is `0.5`
+ *
+ * @param a - the start value - a floating point number
+ * @param b - the end value - a floating point number
+ * @param t - a floating point number in the interval `[0.0, 1.0]`
+ * @returns a value between `a` and `b`
+ */
+export const lerp: (a: number, b: number, t: number) => number = (a, b, t) => (1 - t) * a + t * b;
+
+/**
+ * Bilinear interpolation between `a1`, `b1`, `a2` and `b2` based on `s` and `t`, where `s` and `t` are numbers
+ * between `0.0` and `1.0`.
+ *
+ * The calculation is as follows: `a1` and `b1` are interpolated based on `s` to give `p`,
+ * `a2` and `b2` are interpolated based on `s` to give `q`,
+ * and then the final result is obtained by interpolating `p` and `q` based on `t`.
+ *
+ * The result will be equal to `a1` when both `s` and `t` is `0.0`,
+ * equal to `a2` when `s` is `0.0` and `t` is `1.0`,
+ * equal to `b1` when `s` is `1.0` and `t` is `0.0`,
+ * and equal to `b2` when both `s` and `t` is `1.0`
+ *
+ * @param a1 - the first start value - a floating point number
+ * @param b1 - the first end value - a floating point number
+ * @param a2 - the second start value - a floating point number
+ * @param b2 - the second end value - a floating point number
+ * @param s - a floating point number in the interval `[0.0, 1.0]`
+ * @param t - a floating point number in the interval `[0.0, 1.0]`
+ * @returns a value between `a1`, `b1`, `a2` and `b2`
+ */
+export const lerp2: (a1: number, b1: number, a2: number, b2: number, s: number, t: number) => number
+= (a1, b1, a2, b2, s, t) => lerp(lerp(a1, b1, s), lerp(a2, b2, s), t);

@@ -8,7 +8,7 @@
 
 /** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat3, Mat4, Vec3, Vec4 } from './';
-import { fpad as pad } from './maths';
+import { fpad as pad, FloatArray } from './maths';
 import * as vec4 from './vec4';
 
 /**
@@ -441,7 +441,7 @@ export const mulV: (m: Mat4, a: Vec4, b: Vec4) => Vec4 = (m, a, b) => vec4.set(
  *
  * **Type parameters**
  *
- * * **B**: _number[] | Float32Array_
+ * * **B**: *[[FloatArray]]*
  *
  *    the type of the buffer; an array of numbers or (more typically) a `Float32Array`
  *
@@ -449,7 +449,7 @@ export const mulV: (m: Mat4, a: Vec4, b: Vec4) => Vec4 = (m, a, b) => vec4.set(
  * @param buffer - the buffer to be filled
  * @return `buffer`, filled with the elemenets of `m`
  */
-export const fill: <B extends number[] | Float32Array>(m: Mat4, buffer: B) => B = (m, buffer) => {
+export const fill: <B extends FloatArray>(m: Mat4, buffer: B) => B = (m, buffer) => {
   buffer[ 0] = m.r0c0;  buffer[ 1] = m.r1c0;  buffer[ 2] = m.r2c0;  buffer[ 3] = m.r3c0;
   buffer[ 4] = m.r0c1;  buffer[ 5] = m.r1c1;  buffer[ 6] = m.r2c1;  buffer[ 7] = m.r3c1;
   buffer[ 8] = m.r0c2;  buffer[ 9] = m.r1c2;  buffer[10] = m.r2c2;  buffer[11] = m.r3c2;

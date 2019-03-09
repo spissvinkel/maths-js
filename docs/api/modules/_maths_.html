@@ -78,6 +78,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_maths_.html#floatarray" class="tsd-kind-icon">Float<wbr>Array</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_maths_.html#pi_by_180" class="tsd-kind-icon">PI_<wbr>BY_<wbr>180</a></li>
@@ -94,8 +100,28 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_maths_.html#cotan" class="tsd-kind-icon">cotan</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_maths_.html#deg2rad" class="tsd-kind-icon">deg2rad</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_maths_.html#fpad" class="tsd-kind-icon">fpad</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_maths_.html#lerp" class="tsd-kind-icon">lerp</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_maths_.html#lerp2" class="tsd-kind-icon">lerp2</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+					<a name="floatarray" class="tsd-anchor"></a>
+					<h3>Float<wbr>Array</h3>
+					<div class="tsd-signature tsd-kind-icon">Float<wbr>Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float64Array</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in maths.ts:28</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of floating point numbers</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -174,7 +200,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in maths.ts:50</li>
+									<li>Defined in maths.ts:55</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,7 +250,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in maths.ts:58</li>
+									<li>Defined in maths.ts:63</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -258,7 +284,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in maths.ts:31</li>
+									<li>Defined in maths.ts:36</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,7 +318,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in maths.ts:39</li>
+									<li>Defined in maths.ts:44</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +352,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in maths.ts:71</li>
+									<li>Defined in maths.ts:76</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -350,6 +376,141 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p><code>n</code> formatted as a string</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="lerp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> lerp</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">lerp<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in maths.ts:95</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Linear interpolation between <code>a</code> and <code>b</code> based on <code>t</code>, where <code>t</code> is a number between <code>0.0</code> and <code>1.0</code>.</p>
+								</div>
+								<p>The result will be equal to <code>a</code> when <code>t</code> is <code>0.0</code>,
+									equal to <code>b</code> when <code>t</code> is <code>1.0</code>,
+								and halfway between <code>a</code> and <code>b</code> when <code>t</code> is <code>0.5</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the start value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the end value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>t: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>a value between <code>a</code> and <code>b</code></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="lerp2" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> lerp2</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">lerp2<span class="tsd-signature-symbol">(</span>a1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, b1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, a2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, b2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, t<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in maths.ts:119</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Bilinear interpolation between <code>a1</code>, <code>b1</code>, <code>a2</code> and <code>b2</code> based on <code>s</code> and <code>t</code>, where <code>s</code> and <code>t</code> are numbers
+									between <code>0.0</code> and <code>1.0</code>.</p>
+								</div>
+								<p>The calculation is as follows: <code>a1</code> and <code>b1</code> are interpolated based on <code>s</code> to give <code>p</code>,
+									<code>a2</code> and <code>b2</code> are interpolated based on <code>s</code> to give <code>q</code>,
+								and then the final result is obtained by interpolating <code>p</code> and <code>q</code> based on <code>t</code>.</p>
+								<p>The result will be equal to <code>a1</code> when both <code>s</code> and <code>t</code> is <code>0.0</code>,
+									equal to <code>a2</code> when <code>s</code> is <code>0.0</code> and <code>t</code> is <code>1.0</code>,
+									equal to <code>b1</code> when <code>s</code> is <code>1.0</code> and <code>t</code> is <code>0.0</code>,
+								and equal to <code>b2</code> when both <code>s</code> and <code>t</code> is <code>1.0</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first start value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the first end value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>a2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second start value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the second end value - a floating point number</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>s: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>t: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>a value between <code>a1</code>, <code>b1</code>, <code>a2</code> and <code>b2</code></p>
 						</li>
 					</ul>
 				</section>
@@ -389,6 +550,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="_maths_.html#floatarray" class="tsd-kind-icon">Float<wbr>Array</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="_maths_.html#pi_by_180" class="tsd-kind-icon">PI_<wbr>BY_<wbr>180</a>
 					</li>
@@ -415,6 +579,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_maths_.html#fpad" class="tsd-kind-icon">fpad</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_maths_.html#lerp" class="tsd-kind-icon">lerp</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_maths_.html#lerp2" class="tsd-kind-icon">lerp2</a>
 					</li>
 				</ul>
 			</nav>

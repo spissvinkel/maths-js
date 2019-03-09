@@ -8,7 +8,7 @@
 
 /** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat2, Vec2 } from './';
-import { fpad as pad } from './maths';
+import { fpad as pad, FloatArray } from './maths';
 import * as vec2 from './vec2';
 
 /**
@@ -167,13 +167,14 @@ export const mulV: (m: Mat2, a: Vec2, b: Vec2) => Vec2 = (m, a, b) => vec2.set(
 );
 
 /**
- * Fills `buffer` with the elements of the 2x2 matrix `m`, column by column (i.e. [ r0c0, r1c0, r0c1, r1c1 ]).
+ * Fills `buffer` with the elements of the 2x2 matrix `m`, column by column
+ * (i.e. [ r0c0, r1c0, r0c1, r1c1 ]).
  *
  * The order in which the buffer is filled is suitable for e.g. setting uniform variables in WebGL shader programs
  *
  * **Type parameters**
  *
- * * **B**: _number[] | Float32Array_
+ * * **B**: *[[FloatArray]]*
  *
  *    the type of the buffer; an array of numbers or (more typically) a `Float32Array`
  *
@@ -181,7 +182,7 @@ export const mulV: (m: Mat2, a: Vec2, b: Vec2) => Vec2 = (m, a, b) => vec2.set(
  * @param buffer - the buffer to be filled
  * @return `buffer`, filled with the elemenets of `m`
  */
-export const fill: <B extends number[] | Float32Array>(m: Mat2, buffer: B) => B = (m, buffer) => {
+export const fill: <B extends FloatArray>(m: Mat2, buffer: B) => B = (m, buffer) => {
   buffer[0] = m.r0c0;  buffer[1] = m.r1c0;
   buffer[2] = m.r0c1;  buffer[3] = m.r1c1;
   return buffer;
