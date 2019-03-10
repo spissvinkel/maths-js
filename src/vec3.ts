@@ -509,6 +509,17 @@ export const lerp2: (a1: Vec3, b1: Vec3, a2: Vec3, b2: Vec3, s: number, t: numbe
 = (a1, b1, a2, b2, s, t, c) => lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, zero()), t, c);
 
 /**
+ * Checks if the vectors `a` and `b` are equal
+ *
+ * @param a - a 3-element vector object
+ * @param b - a 3-element vector object
+ * @returns `true` if `a` and `b` are equal, `false` otherwise
+ */
+export const equals: (a: Vec3, b: Vec3) => boolean = (a, b) => {
+  return a.x === b.x && a.y === b.y && a.z === b.z;
+};
+
+/**
  * Generates a (single-line) string representation of the 3-element vector `a`
  *
  * @param a - a 3-element vector object

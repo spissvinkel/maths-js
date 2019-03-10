@@ -458,6 +458,20 @@ export const fill: <B extends FloatArray>(m: Mat4, buffer: B) => B = (m, buffer)
 };
 
 /**
+ * Checks if the matrices `m` and `n` are equal
+ *
+ * @param m - a 4x4 matrix object
+ * @param n - a 4x4 matrix object
+ * @returns `true` if `m` and `n` are equal, `false` otherwise
+ */
+export const equals: (m: Mat4, n: Mat4) => boolean = (m, n) => {
+  return m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2 && m.r0c3 === n.r0c3
+      && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2 && m.r1c3 === n.r1c3
+      && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2 && m.r2c3 === n.r2c3
+      && m.r3c0 === n.r3c0 && m.r3c1 === n.r3c1 && m.r3c2 === n.r3c2 && m.r3c3 === n.r3c3;
+};
+
+/**
  * Generates a multi-line string representation of the 4x4 matrix `m`
  *
  * @param m - a 4x4 matrix object
@@ -465,6 +479,6 @@ export const fill: <B extends FloatArray>(m: Mat4, buffer: B) => B = (m, buffer)
  */
 export const toString: (m: Mat4) => string
 = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)} ${pad(m.r0c3)}\n`
-      + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
-      + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
-      + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`;
+     + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
+     + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
+     + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`;

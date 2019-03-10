@@ -162,6 +162,17 @@ export const set: (a: Vec4, x: number, y: number, z: number, w: number) => Vec4
 = (a, x, y, z, w) => { a.x = x;  a.y = y;  a.z = z;  a.w = w;  return a; };
 
 /**
+ * Checks if the vectors `a` and `b` are equal
+ *
+ * @param a - a 4-element vector object
+ * @param b - a 4-element vector object
+ * @returns `true` if `a` and `b` are equal, `false` otherwise
+ */
+export const equals: (a: Vec4, b: Vec4) => boolean = (a, b) => {
+  return a.x === b.x && a.y === b.y && a.z === b.z && a.w === b.w;
+};
+
+/**
  * Generates a (single-line) string representation of the 4-element vector `a`
  *
  * @param a - a 4-element vector object

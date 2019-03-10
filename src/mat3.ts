@@ -411,6 +411,19 @@ export const fill: <B extends FloatArray>(m: Mat3, buffer: B) => B = (m, buffer)
 };
 
 /**
+ * Checks if the matrices `m` and `n` are equal
+ *
+ * @param m - a 3x3 matrix object
+ * @param n - a 3x3 matrix object
+ * @returns `true` if `m` and `n` are equal, `false` otherwise
+ */
+export const equals: (m: Mat3, n: Mat3) => boolean = (m, n) => {
+  return m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2
+      && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2
+      && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2;
+};
+
+/**
  * Generates a multi-line string representation of the 3x3 matrix `m`
  *
  * @param m - a 3x3 matrix object
@@ -418,5 +431,5 @@ export const fill: <B extends FloatArray>(m: Mat3, buffer: B) => B = (m, buffer)
  */
 export const toString: (m: Mat3) => string
 = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)}\n`
-      + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
-      + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`;
+     + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
+     + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`;

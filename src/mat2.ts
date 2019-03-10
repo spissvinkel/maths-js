@@ -122,8 +122,8 @@ export const setM: (m: Mat2, n: Mat2) => Mat2 = (m, n) => {
  * @returns `m` with elements set to the given values
  */
 export const set: (m: Mat2,
-                    r0c0: number, r0c1: number,
-                    r1c0: number, r1c1: number) => Mat2
+                   r0c0: number, r0c1: number,
+                   r1c0: number, r1c1: number) => Mat2
 = (m, r0c0, r0c1, r1c0, r1c1) => {
   m.r0c0 = r0c0;  m.r0c1 = r0c1;
   m.r1c0 = r1c0;  m.r1c1 = r1c1;
@@ -189,6 +189,18 @@ export const fill: <B extends FloatArray>(m: Mat2, buffer: B) => B = (m, buffer)
 };
 
 /**
+ * Checks if the matrices `m` and `n` are equal
+ *
+ * @param m - a 2x2 matrix object
+ * @param n - a 2x2 matrix object
+ * @returns `true` if `m` and `n` are equal, `false` otherwise
+ */
+export const equals: (m: Mat2, n: Mat2) => boolean = (m, n) => {
+  return m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1
+      && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1;
+};
+
+/**
  * Generates a multi-line string representation of the 2x2 matrix `m`
  *
  * @param m - a 2x2 matrix object
@@ -196,4 +208,4 @@ export const fill: <B extends FloatArray>(m: Mat2, buffer: B) => B = (m, buffer)
  */
 export const toString: (m: Mat2) => string
 = m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)}\n`
-      + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`;
+     + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`;
