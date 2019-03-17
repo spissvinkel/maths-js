@@ -13,7 +13,7 @@ A small TypeScript/JavaScript library of mathematical functions, mainly vector a
 As an npm package:
 
 ```bash
-> npm install @spissvinkel/maths
+$ npm install @spissvinkel/maths
 ```
 
 
@@ -35,16 +35,16 @@ vec2.norm(v);
 console.log(`v = [ ${v.x} ${v.y} ]`);
 ```
 
-Compile to JavaScript:
+Compile to JavaScript using the [TypeScript](https://github.com/Microsoft/TypeScript) compiler:
 
 ```bash
-> tsc sample.ts
+$ tsc sample.ts
 ```
 
-Bundle with e.g. `google-closure-compiler`:
+Bundle with e.g. [Google Closure Compiler](https://github.com/google/closure-compiler):
 
 ```bash
-> ./node_modules/.bin/google-closure-compiler    \
+$ google-closure-compiler                        \
     --process_common_js_modules=true             \
     --module_resolution=NODE                     \
     --js=node_modules/@spissvinkel/maths/*.js    \
@@ -55,7 +55,7 @@ Bundle with e.g. `google-closure-compiler`:
 Run the bundled code to see the result:
 
 ```bash
-> node out.js
+$ node out.js
 
 v = [ 0.7071067811865475 0.7071067811865475 ]
 ```
