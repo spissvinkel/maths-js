@@ -2,7 +2,7 @@
 
 rm -rf ./docs/*.html ./docs/api/*
 
-./node_modules/.bin/showdown makehtml -i ./docs/index.md -o ./docs/index.html
-./node_modules/.bin/typedoc ./src
+npx showdown makehtml -i ./docs/index.md -o ./docs/index.html
+npx typedoc ./src
 
 touch ./docs/.nojekyll
