@@ -9,6 +9,7 @@
 /** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat3, Mat4, Vec3, Vec4 } from './';
 import { fpad as pad, FloatArray } from './maths';
+import * as vec3 from './vec3';
 import * as vec4 from './vec4';
 
 /**
@@ -335,10 +336,10 @@ export const setM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
  * @returns `m` with elements set to the given values
  */
 export const set: (m: Mat4,
-                    r0c0: number, r0c1: number, r0c2: number, r0c3: number,
-                    r1c0: number, r1c1: number, r1c2: number, r1c3: number,
-                    r2c0: number, r2c1: number, r2c2: number, r2c3: number,
-                    r3c0: number, r3c1: number, r3c2: number, r3c3: number) => Mat4
+                   r0c0: number, r0c1: number, r0c2: number, r0c3: number,
+                   r1c0: number, r1c1: number, r1c2: number, r1c3: number,
+                   r2c0: number, r2c1: number, r2c2: number, r2c3: number,
+                   r3c0: number, r3c1: number, r3c2: number, r3c3: number) => Mat4
 = (m, r0c0, r0c1, r0c2, r0c3, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r3c0, r3c1, r3c2, r3c3) => {
   m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;  m.r0c3 = r0c3;
   m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;  m.r1c3 = r1c3;
@@ -356,29 +357,41 @@ export const set: (m: Mat4,
  * @param n - a 4x4 matrix object
  * @returns `m`, multiplied by `n`
  */
-export const mulM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+export const mulM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => mulMInto(m, n, m);
+
+/**
+ * `o = m * n`
+ *
+ * Multiplies the 4x4 matrix `m` by the 4x4 matrix `n` and stores the result in `o`
+ *
+ * @param m - a 4x4 matrix object
+ * @param n - a 4x4 matrix object
+ * @param o - a 4x4 matrix object in which to store the result
+ * @returns `o` as the result of the multiplication
+ */
+export const mulMInto: (m: Mat4, n: Mat4, o: Mat4) => Mat4 = (m, n, o) => {
   let c0, c1, c2, c3;
   c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0  +  m.r0c3 * n.r3c0;
   c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1  +  m.r0c3 * n.r3c1;
   c2 = m.r0c0 * n.r0c2  +  m.r0c1 * n.r1c2  +  m.r0c2 * n.r2c2  +  m.r0c3 * n.r3c2;
   c3 = m.r0c0 * n.r0c3  +  m.r0c1 * n.r1c3  +  m.r0c2 * n.r2c3  +  m.r0c3 * n.r3c3;
-  m.r0c0 = c0;  m.r0c1 = c1;  m.r0c2 = c2;  m.r0c3 = c3;
+  o.r0c0 = c0;  o.r0c1 = c1;  o.r0c2 = c2;  o.r0c3 = c3;
   c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0  +  m.r1c2 * n.r2c0  +  m.r1c3 * n.r3c0;
   c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1  +  m.r1c2 * n.r2c1  +  m.r1c3 * n.r3c1;
   c2 = m.r1c0 * n.r0c2  +  m.r1c1 * n.r1c2  +  m.r1c2 * n.r2c2  +  m.r1c3 * n.r3c2;
   c3 = m.r1c0 * n.r0c3  +  m.r1c1 * n.r1c3  +  m.r1c2 * n.r2c3  +  m.r1c3 * n.r3c3;
-  m.r1c0 = c0;  m.r1c1 = c1;  m.r1c2 = c2;  m.r1c3 = c3;
+  o.r1c0 = c0;  o.r1c1 = c1;  o.r1c2 = c2;  o.r1c3 = c3;
   c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0  +  m.r2c2 * n.r2c0  +  m.r2c3 * n.r3c0;
   c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1  +  m.r2c2 * n.r2c1  +  m.r2c3 * n.r3c1;
   c2 = m.r2c0 * n.r0c2  +  m.r2c1 * n.r1c2  +  m.r2c2 * n.r2c2  +  m.r2c3 * n.r3c2;
   c3 = m.r2c0 * n.r0c3  +  m.r2c1 * n.r1c3  +  m.r2c2 * n.r2c3  +  m.r2c3 * n.r3c3;
-  m.r2c0 = c0;  m.r2c1 = c1;  m.r2c2 = c2;  m.r2c3 = c3;
+  o.r2c0 = c0;  o.r2c1 = c1;  o.r2c2 = c2;  o.r2c3 = c3;
   c0 = m.r3c0 * n.r0c0  +  m.r3c1 * n.r1c0  +  m.r3c2 * n.r2c0  +  m.r3c3 * n.r3c0;
   c1 = m.r3c0 * n.r0c1  +  m.r3c1 * n.r1c1  +  m.r3c2 * n.r2c1  +  m.r3c3 * n.r3c1;
   c2 = m.r3c0 * n.r0c2  +  m.r3c1 * n.r1c2  +  m.r3c2 * n.r2c2  +  m.r3c3 * n.r3c2;
   c3 = m.r3c0 * n.r0c3  +  m.r3c1 * n.r1c3  +  m.r3c2 * n.r2c3  +  m.r3c3 * n.r3c3;
-  m.r3c0 = c0;  m.r3c1 = c1;  m.r3c2 = c2;  m.r3c3 = c3;
-  return m;
+  o.r3c0 = c0;  o.r3c1 = c1;  o.r3c2 = c2;  o.r3c3 = c3;
+  return o;
 };
 
 /**
@@ -416,7 +429,7 @@ export const mulM3: (m: Mat4, n: Mat3) => Mat4 = (m, n) => {
 /**
  * `b = m * a`
  *
- * Multiplies the 4x4 matrix `m` by the 4-element column vector `a` and stores the result in the 4-element vector `b`
+ * Multiplies the 4x4 matrix `m` by the 4-element column vector `a` and stores the result in the 4-element vector `b`.
  *
  * The vector `a` can be updated directly by invoking `mulV(m, a, a)`
  *
@@ -431,6 +444,26 @@ export const mulV: (m: Mat4, a: Vec4, b: Vec4) => Vec4 = (m, a, b) => vec4.set(
   m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z  +  m.r1c3 * a.w,
   m.r2c0 * a.x  +  m.r2c1 * a.y  +  m.r2c2 * a.z  +  m.r2c3 * a.w,
   m.r3c0 * a.x  +  m.r3c1 * a.y  +  m.r3c2 * a.z  +  m.r3c3 * a.w
+);
+
+/**
+ * `b = m * a`
+ *
+ * Multiplies the 4x4 matrix `m` by the 3-element column vector `a` and stores the result in the 3-element vector `b`.
+ *
+ * This is a convenience function where `m` is assumed to be a 3D transformation matrix and `a` implicitly represents
+ * the homogeneous coordinates `[ a.x, a.y, a.z, 1.0 ]`
+ *
+ * @param m - the 4x4 matrix multiplication operand
+ * @param a - the 3-element vector multiplication operand
+ * @param b - a 3-element vector in which to store the result
+ * @returns `b` as the result of `m * a`
+ */
+export const mulV3: (m: Mat4, a: Vec3, b: Vec3) => Vec3 = (m, a, b) => vec3.set(
+  b,
+  m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z  +  m.r0c3,
+  m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z  +  m.r1c3,
+  m.r2c0 * a.x  +  m.r2c1 * a.y  +  m.r2c2 * a.z  +  m.r2c3
 );
 
 /**

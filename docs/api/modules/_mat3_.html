@@ -87,7 +87,9 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#mulm" class="tsd-kind-icon">mulM</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#mulm2" class="tsd-kind-icon">mul<wbr>M2</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#mulminto" class="tsd-kind-icon">mulMInto</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#mulv" class="tsd-kind-icon">mulV</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#mulv2" class="tsd-kind-icon">mul<wbr>V2</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#of" class="tsd-kind-icon">of</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#set" class="tsd-kind-icon">set</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mat3_.html#setid" class="tsd-kind-icon">set<wbr>Id</a></li>
@@ -123,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:420</li>
+									<li>Defined in mat3.ts:452</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,7 +167,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:406</li>
+									<li>Defined in mat3.ts:438</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,7 +217,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:49</li>
+									<li>Defined in mat3.ts:50</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -238,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:329</li>
+									<li>Defined in mat3.ts:330</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -281,7 +283,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:357</li>
+									<li>Defined in mat3.ts:370</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -316,6 +318,57 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="mulminto" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> mulMInto</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">mulMInto<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a>, n<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a>, o<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mat3.ts:342</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>o = m * n</code></p>
+								</div>
+								<p>Multiplies the 3x3 matrix <code>m</code> by the 3x3 matrix <code>n</code> and stores the result in <code>o</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 3x3 matrix object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>n: <a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 3x3 matrix object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>o: <a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 3x3 matrix object in which to store the result</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></h4>
+							<p><code>o</code> as the result of the multiplication</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="mulv" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> mulV</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -325,14 +378,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:383</li>
+									<li>Defined in mat3.ts:396</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p><code>b = m * a</code></p>
 								</div>
-								<p>Multiplies the 3x3 matrix <code>m</code> by the 3-element column vector <code>a</code> and stores the result in the 3-element vector <code>b</code></p>
+								<p>Multiplies the 3x3 matrix <code>m</code> by the 3-element column vector <code>a</code> and stores the result in the 3-element vector <code>b</code>.</p>
 								<p>The vector <code>a</code> can be updated directly by invoking <code>mulV(m, a, a)</code></p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -368,6 +421,59 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="mulv2" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> mul<wbr>V2</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">mul<wbr>V2<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a>, a<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a>, b<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mat3.ts:416</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>b = m * a</code></p>
+								</div>
+								<p>Multiplies the 3x3 matrix <code>m</code> by the 2-element column vector <code>a</code> and stores the result in the 2-element vector <code>b</code>.</p>
+								<p>This is a convenience function where <code>m</code> is assumed to be a 2D transformation matrix and <code>a</code> implicitly represents
+								the homogeneous coordinates <code>[ a.x, a.y, 1.0 ]</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>m: <a href="../interfaces/_index_.mat3.html" class="tsd-signature-type">Mat3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the 3x3 matrix multiplication operand</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>a: <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the 2-element vector multiplication operand</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b: <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector in which to store the result</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>b</code> as the result of <code>m * a</code></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="of" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> of</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -377,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:31</li>
+									<li>Defined in mat3.ts:32</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -475,7 +581,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:313</li>
+									<li>Defined in mat3.ts:314</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -581,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:70</li>
+									<li>Defined in mat3.ts:71</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -615,7 +721,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:204</li>
+									<li>Defined in mat3.ts:205</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -663,7 +769,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:260</li>
+									<li>Defined in mat3.ts:261</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -707,7 +813,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:287</li>
+									<li>Defined in mat3.ts:288</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -749,7 +855,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:161</li>
+									<li>Defined in mat3.ts:162</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -813,7 +919,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:186</li>
+									<li>Defined in mat3.ts:187</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -861,7 +967,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:90</li>
+									<li>Defined in mat3.ts:91</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -907,7 +1013,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:111</li>
+									<li>Defined in mat3.ts:112</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -953,7 +1059,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:135</li>
+									<li>Defined in mat3.ts:136</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1001,7 +1107,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:273</li>
+									<li>Defined in mat3.ts:274</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1053,7 +1159,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:215</li>
+									<li>Defined in mat3.ts:216</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1096,7 +1202,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:232</li>
+									<li>Defined in mat3.ts:233</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1147,7 +1253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:248</li>
+									<li>Defined in mat3.ts:249</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1190,7 +1296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:57</li>
+									<li>Defined in mat3.ts:58</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1224,7 +1330,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:433</li>
+									<li>Defined in mat3.ts:465</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1258,7 +1364,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mat3.ts:42</li>
+									<li>Defined in mat3.ts:43</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1323,7 +1429,13 @@
 						<a href="_mat3_.html#mulm2" class="tsd-kind-icon">mul<wbr>M2</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_mat3_.html#mulminto" class="tsd-kind-icon">mulMInto</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_mat3_.html#mulv" class="tsd-kind-icon">mulV</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_mat3_.html#mulv2" class="tsd-kind-icon">mul<wbr>V2</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_mat3_.html#of" class="tsd-kind-icon">of</a>

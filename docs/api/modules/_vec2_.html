@@ -101,6 +101,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#invinto" class="tsd-kind-icon">inv<wbr>Into</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#lerp" class="tsd-kind-icon">lerp</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#lerp2" class="tsd-kind-icon">lerp2</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#lerpe" class="tsd-kind-icon">lerpE</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#mag" class="tsd-kind-icon">mag</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#mul" class="tsd-kind-icon">mul</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_vec2_.html#mulinto" class="tsd-kind-icon">mul<wbr>Into</a></li>
@@ -878,7 +879,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:527</li>
+									<li>Defined in vec2.ts:549</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1004,7 +1005,7 @@
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Linear interpolation between <code>a</code> and <code>b</code> based on <code>t</code>, where <code>t</code> is a number between <code>0.0</code> and <code>1.0</code>.
-									The result is stored in <code>c</code></p>
+									The result is stored in <code>c</code>.</p>
 								</div>
 								<p>The result will be equal to <code>a</code> when <code>t</code> is <code>0.0</code>,
 									equal to <code>b</code> when <code>t</code> is <code>1.0</code>,
@@ -1060,14 +1061,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:518</li>
+									<li>Defined in vec2.ts:540</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Bilinear interpolation between <code>a1</code>, <code>b1</code>, <code>a2</code> and <code>b2</code> based on <code>s</code> and <code>t</code>, where <code>s</code> and <code>t</code> are numbers
 										between <code>0.0</code> and <code>1.0</code>.
-									The result is stored in <code>c</code></p>
+									The result is stored in <code>c</code>.</p>
 								</div>
 								<p>The calculation is as follows: <code>a1</code> and <code>b1</code> are interpolated based on <code>s</code> to give <code>p</code>,
 									<code>a2</code> and <code>b2</code> are interpolated based on <code>s</code> to give <code>q</code>,
@@ -1121,6 +1122,79 @@
 								</li>
 								<li>
 									<h5>t: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>c: <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a 2-element vector in which to store the result</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h4>
+							<p><code>c</code> - the interpolation result</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="lerpe" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> lerpE</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">lerpE<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a>, b<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a>, tx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, ty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, c<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in vec2.ts:514</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Element-wise linear interpolation between <code>a</code> and <code>b</code> based on <code>tx</code> and <code>ty</code>, where <code>tx</code> and <code>ty</code> are numbers
+										between <code>0.0</code> and <code>1.0</code>.
+									The result is stored in <code>c</code>.</p>
+								</div>
+								<p>The calculation is as follows: <code>a.x</code> and <code>b.x</code> are interpolated based on <code>tx</code> to give <code>c.x</code>,
+								<code>a.y</code> and <code>b.y</code> are interpolated based on <code>ty</code> to give <code>c.y</code>.</p>
+								<p>The result will be equal to <code>a</code> when <code>tx</code> and <code>ty</code> are both <code>0.0</code>,
+									equal to <code>b</code> when <code>tx</code> and <code>ty</code> are both <code>1.0</code>,
+								and halfway between <code>a</code> and <code>b</code> when <code>tx</code> and <code>ty</code> are both <code>0.5</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the start x and y values - a 2-element vector object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>b: <a href="../interfaces/_index_.vec2.html" class="tsd-signature-type">Vec2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the end x and y values - a 2-element vector object</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>tx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>ty: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>a floating point number in the interval <code>[0.0, 1.0]</code></p>
@@ -2004,7 +2078,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in vec2.ts:537</li>
+									<li>Defined in vec2.ts:559</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2192,6 +2266,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_vec2_.html#lerp2" class="tsd-kind-icon">lerp2</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_vec2_.html#lerpe" class="tsd-kind-icon">lerpE</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_vec2_.html#mag" class="tsd-kind-icon">mag</a>

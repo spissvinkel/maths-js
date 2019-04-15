@@ -9,6 +9,7 @@
 /** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat2, Mat3, Vec2, Vec3 } from './';
 import { fpad as pad, FloatArray } from './maths';
+import * as vec2 from './vec2';
 import * as vec3 from './vec3';
 
 /**
@@ -307,9 +308,9 @@ export const setM: (m: Mat3, n: Mat3) => Mat3 = (m, n) => {
  * @returns `m` with elements set to the given values
  */
 export const set: (m: Mat3,
-                    r0c0: number, r0c1: number, r0c2: number,
-                    r1c0: number, r1c1: number, r1c2: number,
-                    r2c0: number, r2c1: number, r2c2: number) => Mat3
+                   r0c0: number, r0c1: number, r0c2: number,
+                   r1c0: number, r1c1: number, r1c2: number,
+                   r2c0: number, r2c1: number, r2c2: number) => Mat3
 = (m, r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2) => {
   m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;
   m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;
@@ -326,21 +327,33 @@ export const set: (m: Mat3,
  * @param n - a 3x3 matrix object
  * @returns `m`, multiplied by `n`
  */
-export const mulM: (m: Mat3, n: Mat3) => Mat3 = (m, n) => {
+export const mulM: (m: Mat3, n: Mat3) => Mat3 = (m, n) => mulMInto(m, n, m);
+
+/**
+ * `o = m * n`
+ *
+ * Multiplies the 3x3 matrix `m` by the 3x3 matrix `n` and stores the result in `o`
+ *
+ * @param m - a 3x3 matrix object
+ * @param n - a 3x3 matrix object
+ * @param o - a 3x3 matrix object in which to store the result
+ * @returns `o` as the result of the multiplication
+ */
+export const mulMInto: (m: Mat3, n: Mat3, o: Mat3) => Mat3 = (m, n, o) => {
   let c0, c1, c2;
   c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0;
   c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1;
   c2 = m.r0c0 * n.r0c2  +  m.r0c1 * n.r1c2  +  m.r0c2 * n.r2c2;
-  m.r0c0 = c0;  m.r0c1 = c1;  m.r0c2 = c2;
+  o.r0c0 = c0;  o.r0c1 = c1;  o.r0c2 = c2;
   c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0  +  m.r1c2 * n.r2c0;
   c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1  +  m.r1c2 * n.r2c1;
   c2 = m.r1c0 * n.r0c2  +  m.r1c1 * n.r1c2  +  m.r1c2 * n.r2c2;
-  m.r1c0 = c0;  m.r1c1 = c1;  m.r1c2 = c2;
+  o.r1c0 = c0;  o.r1c1 = c1;  o.r1c2 = c2;
   c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0  +  m.r2c2 * n.r2c0;
   c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1  +  m.r2c2 * n.r2c1;
   c2 = m.r2c0 * n.r0c2  +  m.r2c1 * n.r1c2  +  m.r2c2 * n.r2c2;
-  m.r2c0 = c0;  m.r2c1 = c1;  m.r2c2 = c2;
-  return m;
+  o.r2c0 = c0;  o.r2c1 = c1;  o.r2c2 = c2;
+  return o;
 };
 
 /**
@@ -371,7 +384,7 @@ export const mulM2: (m: Mat3, n: Mat2) => Mat3 = (m, n) => {
 /**
  * `b = m * a`
  *
- * Multiplies the 3x3 matrix `m` by the 3-element column vector `a` and stores the result in the 3-element vector `b`
+ * Multiplies the 3x3 matrix `m` by the 3-element column vector `a` and stores the result in the 3-element vector `b`.
  *
  * The vector `a` can be updated directly by invoking `mulV(m, a, a)`
  *
@@ -385,6 +398,25 @@ export const mulV: (m: Mat3, a: Vec3, b: Vec3) => Vec3 = (m, a, b) => vec3.set(
   m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z,
   m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z,
   m.r2c0 * a.x  +  m.r2c1 * a.y  +  m.r2c2 * a.z
+);
+
+/**
+ * `b = m * a`
+ *
+ * Multiplies the 3x3 matrix `m` by the 2-element column vector `a` and stores the result in the 2-element vector `b`.
+ *
+ * This is a convenience function where `m` is assumed to be a 2D transformation matrix and `a` implicitly represents
+ * the homogeneous coordinates `[ a.x, a.y, 1.0 ]`
+ *
+ * @param m - the 3x3 matrix multiplication operand
+ * @param a - the 2-element vector multiplication operand
+ * @param b - a 2-element vector in which to store the result
+ * @returns `b` as the result of `m * a`
+ */
+export const mulV2: (m: Mat3, a: Vec2, b: Vec2) => Vec2 = (m, a, b) => vec2.set(
+  b,
+  m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2,
+  m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2
 );
 
 /**

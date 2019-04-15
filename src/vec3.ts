@@ -7,7 +7,7 @@
 
 /** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Vec3 } from './';
-import { fpad as pad } from './maths';
+import { fpad as pad, lerp as slerp } from './maths';
 
 /**
  * Creates a new 3-element vector object initialized with the given values
@@ -223,7 +223,7 @@ export const mulV: (a: Vec3, b: Vec3) => Vec3 = (a, b) => mulVInto(a, b, a);
 /**
  * `c = a * b`
  *
- * Element-wise multiplication of the 3-element vector `a` by the 3-element vector `b`, with the result stored in `a`
+ * Element-wise multiplication of the 3-element vector `a` by the 3-element vector `b`, with the result stored in `c`
  *
  * @param a - a 3-element vector object
  * @param b - a 3-element vector object
@@ -468,7 +468,7 @@ export const clamp01Into: (a: Vec3, b: Vec3) => Vec3 = (a, b) => clampInto(a, 0.
 
 /**
  * Linear interpolation between `a` and `b` based on `t`, where `t` is a number between `0.0` and `1.0`.
- * The result is stored in `c`
+ * The result is stored in `c`.
  *
  * The result will be equal to `a` when `t` is `0.0`,
  * equal to `b` when `t` is `1.0`,
@@ -483,9 +483,33 @@ export const clamp01Into: (a: Vec3, b: Vec3) => Vec3 = (a, b) => clampInto(a, 0.
 export const lerp: (a: Vec3, b: Vec3, t: number, c: Vec3) => Vec3 = (a, b, t, c) => addMul(mulInto(a, 1 - t, c), b, t);
 
 /**
+ * Element-wise linear interpolation between `a` and `b` based on `tx`, `ty` and `tz`, where `tx`, `ty` and `tz` are
+ * numbers between `0.0` and `1.0`.
+ * The result is stored in `c`.
+ *
+ * The calculation is as follows: `a.x` and `b.x` are interpolated based on `tx` to give `c.x`,
+ * `a.y` and `b.y` are interpolated based on `ty` to give `c.y`,
+ * `a.z` and `b.z` are interpolated based on `tz` to give `c.z`.
+ *
+ * The result will be equal to `a` when `tx`, `ty` and `tz` are all `0.0`,
+ * equal to `b` when `tx`, `ty` and `tz` are all `1.0`,
+ * and halfway between `a` and `b` when `tx`, `ty` and `tz` are all `0.5`
+ *
+ * @param a - the start x, y and z values - a 3-element vector object
+ * @param b - the end x, y and z values - a 3-element vector object
+ * @param tx - a floating point number in the interval `[0.0, 1.0]`
+ * @param ty - a floating point number in the interval `[0.0, 1.0]`
+ * @param tz - a floating point number in the interval `[0.0, 1.0]`
+ * @param c - a 3-element vector in which to store the result
+ * @returns `c` - the interpolation result
+ */
+export const lerpE: (a: Vec3, b: Vec3, tx: number, ty: number, tz: number, c: Vec3) => Vec3
+  = (a, b, tx, ty, tz, c) => set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty), slerp(a.z, b.z, tz));
+
+/**
  * Bilinear interpolation between `a1`, `b1`, `a2` and `b2` based on `s` and `t`, where `s` and `t` are numbers
  * between `0.0` and `1.0`.
- * The result is stored in `c`
+ * The result is stored in `c`.
  *
  * The calculation is as follows: `a1` and `b1` are interpolated based on `s` to give `p`,
  * `a2` and `b2` are interpolated based on `s` to give `q`,
