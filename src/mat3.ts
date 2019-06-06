@@ -420,6 +420,77 @@ export const mulV2: (m: Mat3, a: Vec2, b: Vec2) => Vec2 = (m, a, b) => vec2.set(
 );
 
 /**
+ * Calculates the determinant of the 3x3 matrix `m`
+ *
+ * @param m - a 3x3 matrix object
+ * @returns the determinant of `m`
+ */
+export const det: (m: Mat3) => number = m => (
+     m.r0c0 * m.r1c1 * m.r2c2  +  m.r1c0 * m.r2c1 * m.r0c2  +  m.r2c0 * m.r0c1 * m.r1c2
+  -  m.r0c0 * m.r2c1 * m.r1c2  -  m.r2c0 * m.r1c1 * m.r0c2  -  m.r1c0 * m.r0c1 * m.r2c2
+);
+
+/**
+ * Calculates the inverse of the 3x3 matrix `m` and stores the result in `m`
+ *
+ * @param m - a 3x3 matrix object
+ * @returns `m` as its inverse
+ */
+export const inv: (m: Mat3) => Mat3 = m => invInto(m, m);
+
+/**
+ * Calculates the inverse of the 3x3 matrix `m` and stores the result in `n`
+ *
+ * @param m - a 3x3 matrix object
+ * @param n - a 3x3 matrix object
+ * @returns `n` as the inverse of `m`
+ */
+export const invInto: (m: Mat3, n: Mat3) => Mat3 = (m, n) => {
+  const r0c0r1c1 = m.r0c0 * m.r1c1,  r2c1r0c2 = m.r2c1 * m.r0c2,  r2c0r0c1 = m.r2c0 * m.r0c1;
+  const r0c0r2c1 = m.r0c0 * m.r2c1,  r2c0r1c1 = m.r2c0 * m.r1c1,  r1c0r0c1 = m.r1c0 * m.r0c1;
+  const det = (   r0c0r1c1 * m.r2c2  +  m.r1c0   * r2c1r0c2  +  r2c0r0c1 * m.r1c2
+               -  r0c0r2c1 * m.r1c2  -  r2c0r1c1 * m.r0c2    -  r1c0r0c1 * m.r2c2);
+  if (det != 0.0) {
+    const invDet = 1.0 / det;
+    const r0c1r1c2 = m.r0c1 * m.r1c2,  r0c0r2c2 = m.r0c0 * m.r2c2,  r0c2r2c0 = m.r0c2 * m.r2c0;
+    const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c0r1c2 = m.r0c0 * m.r1c2,  r1c0r2c1 = m.r1c0 * m.r2c1;
+    n.r0c0 = (m.r1c1 * m.r2c2  -  m.r1c2 * m.r2c1) * invDet;
+    n.r0c1 = (r2c1r0c2         -  m.r0c1 * m.r2c2) * invDet;
+    n.r0c2 = (r0c1r1c2         -  m.r0c2 * m.r1c1) * invDet;
+    n.r1c0 = (m.r1c2 * m.r2c0  -  m.r1c0 * m.r2c2) * invDet;
+    n.r1c1 = (r0c0r2c2         -  r0c2r2c0       ) * invDet;
+    n.r1c2 = (r0c2r1c0         -  r0c0r1c2       ) * invDet;
+    n.r2c0 = (r1c0r2c1         -  r2c0r1c1       ) * invDet;
+    n.r2c1 = (r2c0r0c1         -  r0c0r2c1       ) * invDet;
+    n.r2c2 = (r0c0r1c1         -  r1c0r0c1       ) * invDet;
+  }
+  return n;
+};
+
+/**
+ * Calculates the transpose of the 3x3 matrix `m` and stores the result in `m`
+ *
+ * @param m - a 3x3 matrix object
+ * @returns `m` as its transpose
+ */
+export const trsp: (m: Mat3) => Mat3 = m => trspInto(m, m);
+
+/**
+ * Calculates the transpose of the 3x3 matrix `m` and stores the result in `n`
+ *
+ * @param m - a 3x3 matrix object
+ * @param n - a 3x3 matrix object
+ * @returns `n` as the transpose of `m`
+ */
+export const trspInto: (m: Mat3, n: Mat3) => Mat3 = (m, n) => {
+  const t0t1 = m.r0c1,  t0t2 = m.r0c2,  t1t2 = m.r1c2;
+  n.r0c1 = m.r1c0;  n.r0c2 = m.r2c0;
+  n.r1c0 = t0t1;    n.r1c2 = m.r2c1;
+  n.r2c0 = t0t2;    n.r2c1 = t1t2;
+  return n;
+};
+
+/**
  * Fills `buffer` with the elements of the 3x3 matrix `m`, column by column
  * (i.e. [ r0c0, r1c0, r2c0, r0c1, ..., r2c2 ]).
  *
