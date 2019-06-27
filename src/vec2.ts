@@ -401,6 +401,21 @@ export const normForInto: (a: Vec2, mag: number, b: Vec2) => Vec2
 export const dot: (a: Vec2, b: Vec2) => number = (a, b) => a.x * b.x  +  a.y * b.y;
 
 /**
+ * Sets the elements of the 2D vector `b` so it becomes perpendicular to the 2D vector `a`.
+ *
+ * The direction of `b` with respect to `a` will be "to the right", i.e. rotated 90 degrees clockwise
+ *
+ * @param a - a 2-element vector object
+ * @param b - a 2-element vector in which to store the result
+ * @returns `b` as a vector perpendicular to `a`
+ */
+export const perpInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => {
+  b.x =  a.y;
+  b.y = -a.x;
+  return b;
+};
+
+/**
  * Element-wise clamping of the values of the two-element vector `a` so that they are not less than the values of the
  * two-element vector `min` and not greater than the values of the two-element vector `max`.
  * The result is stored in `a`
