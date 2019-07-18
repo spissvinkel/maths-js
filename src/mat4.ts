@@ -467,6 +467,130 @@ export const mulV3: (m: Mat4, a: Vec3, b: Vec3) => Vec3 = (m, a, b) => vec3.set(
 );
 
 /**
+ * Calculates the determinant of the 4x4 matrix `m`
+ *
+ * @param m - a 4x4 matrix object
+ * @returns the determinant of `m`
+ */
+export const det: (m: Mat4) => number = m => {
+  const r0c0r1c1 = m.r0c0 * m.r1c1,  r0c0r1c2 = m.r0c0 * m.r1c2,  r0c0r1c3 = m.r0c0 * m.r1c3;
+  const r0c1r1c0 = m.r0c1 * m.r1c0,  r0c1r1c2 = m.r0c1 * m.r1c2,  r0c1r1c3 = m.r0c1 * m.r1c3;
+  const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c2r1c1 = m.r0c2 * m.r1c1,  r0c2r1c3 = m.r0c2 * m.r1c3;
+  const r0c3r1c0 = m.r0c3 * m.r1c0,  r0c3r1c1 = m.r0c3 * m.r1c1,  r0c3r1c2 = m.r0c3 * m.r1c2;
+  const r2c2r3c3 = m.r2c2 * m.r3c3,  r2c2r3c0 = m.r2c2 * m.r3c0,  r2c2r3c1 = m.r2c2 * m.r3c1;
+  const r2c3r3c1 = m.r2c3 * m.r3c1,  r2c3r3c2 = m.r2c3 * m.r3c2,  r2c3r3c0 = m.r2c3 * m.r3c0;
+  const r2c1r3c2 = m.r2c1 * m.r3c2,  r2c1r3c3 = m.r2c1 * m.r3c3,  r2c1r3c0 = m.r2c1 * m.r3c0;
+  const r2c0r3c3 = m.r2c0 * m.r3c3,  r2c0r3c1 = m.r2c0 * m.r3c1,  r2c0r3c2 = m.r2c0 * m.r3c2;
+  return (   r0c0r1c1 * r2c2r3c3  +  r0c0r1c2 * r2c3r3c1  +  r0c0r1c3 * r2c1r3c2
+          +  r0c1r1c0 * r2c3r3c2  +  r0c1r1c2 * r2c0r3c3  +  r0c1r1c3 * r2c2r3c0
+          +  r0c2r1c0 * r2c1r3c3  +  r0c2r1c1 * r2c3r3c0  +  r0c2r1c3 * r2c0r3c1
+          +  r0c3r1c0 * r2c2r3c1  +  r0c3r1c1 * r2c0r3c2  +  r0c3r1c2 * r2c1r3c0
+          -  r0c0r1c1 * r2c3r3c2  -  r0c0r1c2 * r2c1r3c3  -  r0c0r1c3 * r2c2r3c1
+          -  r0c1r1c0 * r2c2r3c3  -  r0c1r1c2 * r2c3r3c0  -  r0c1r1c3 * r2c0r3c2
+          -  r0c2r1c0 * r2c3r3c1  -  r0c2r1c1 * r2c0r3c3  -  r0c2r1c3 * r2c1r3c0
+          -  r0c3r1c0 * r2c1r3c2  -  r0c3r1c1 * r2c2r3c0  -  r0c3r1c2 * r2c0r3c1);
+};
+
+/**
+* Calculates the inverse of the 4x4 matrix `m` and stores the result in `m`
+*
+* @param m - a 4x4 matrix object
+* @returns `m` as its inverse
+*/
+export const inv: (m: Mat4) => Mat4 = m => invInto(m, m);
+
+/**
+* Calculates the inverse of the 4x4 matrix `m` and stores the result in `n`
+*
+* @param m - a 4x4 matrix object
+* @param n - a 4x4 matrix object
+* @returns `n` as the inverse of `m`
+*/
+export const invInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+  const r0c0r1c1 = m.r0c0 * m.r1c1,  r0c0r1c2 = m.r0c0 * m.r1c2,  r0c0r1c3 = m.r0c0 * m.r1c3;
+  const r0c1r1c0 = m.r0c1 * m.r1c0,  r0c1r1c2 = m.r0c1 * m.r1c2,  r0c1r1c3 = m.r0c1 * m.r1c3;
+  const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c2r1c1 = m.r0c2 * m.r1c1,  r0c2r1c3 = m.r0c2 * m.r1c3;
+  const r0c3r1c0 = m.r0c3 * m.r1c0,  r0c3r1c1 = m.r0c3 * m.r1c1,  r0c3r1c2 = m.r0c3 * m.r1c2;
+  const r2c2r3c3 = m.r2c2 * m.r3c3,  r2c2r3c0 = m.r2c2 * m.r3c0,  r2c2r3c1 = m.r2c2 * m.r3c1;
+  const r2c3r3c1 = m.r2c3 * m.r3c1,  r2c3r3c2 = m.r2c3 * m.r3c2,  r2c3r3c0 = m.r2c3 * m.r3c0;
+  const r2c1r3c2 = m.r2c1 * m.r3c2,  r2c1r3c3 = m.r2c1 * m.r3c3,  r2c1r3c0 = m.r2c1 * m.r3c0;
+  const r2c0r3c3 = m.r2c0 * m.r3c3,  r2c0r3c1 = m.r2c0 * m.r3c1,  r2c0r3c2 = m.r2c0 * m.r3c2;
+  const det = (   r0c0r1c1 * r2c2r3c3  +  r0c0r1c2 * r2c3r3c1  +  r0c0r1c3 * r2c1r3c2
+               +  r0c1r1c0 * r2c3r3c2  +  r0c1r1c2 * r2c0r3c3  +  r0c1r1c3 * r2c2r3c0
+               +  r0c2r1c0 * r2c1r3c3  +  r0c2r1c1 * r2c3r3c0  +  r0c2r1c3 * r2c0r3c1
+               +  r0c3r1c0 * r2c2r3c1  +  r0c3r1c1 * r2c0r3c2  +  r0c3r1c2 * r2c1r3c0
+               -  r0c0r1c1 * r2c3r3c2  -  r0c0r1c2 * r2c1r3c3  -  r0c0r1c3 * r2c2r3c1
+               -  r0c1r1c0 * r2c2r3c3  -  r0c1r1c2 * r2c3r3c0  -  r0c1r1c3 * r2c0r3c2
+               -  r0c2r1c0 * r2c3r3c1  -  r0c2r1c1 * r2c0r3c3  -  r0c2r1c3 * r2c1r3c0
+               -  r0c3r1c0 * r2c1r3c2  -  r0c3r1c1 * r2c2r3c0  -  r0c3r1c2 * r2c0r3c1);
+  if (det != 0.0) {
+    const invDet = 1.0 / det;
+    const t0t0 = m.r0c0,  t0t1 = m.r0c1,  t0t2 = m.r0c2,  t0t3 = m.r0c3;
+    const t1t0 = m.r1c0,  t1t1 = m.r1c1,  t1t2 = m.r1c2,  t1t3 = m.r1c3;
+    const t2t0 = m.r2c0,  t2t1 = m.r2c1,  t2t2 = m.r2c2;
+    const t3t0 = m.r3c0,  t3t1 = m.r3c1;
+    n.r0c0 = (   t1t1 * r2c2r3c3    +  t1t2 * r2c3r3c1    +  t1t3 * r2c1r3c2
+              -  t1t1 * r2c3r3c2    -  t1t2 * r2c1r3c3    -  t1t3 * r2c2r3c1  ) * invDet;
+    n.r0c1 = (   t0t1 * r2c3r3c2    +  t0t2 * r2c1r3c3    +  t0t3 * r2c2r3c1
+              -  t0t1 * r2c2r3c3    -  t0t2 * r2c3r3c1    -  t0t3 * r2c1r3c2  ) * invDet;
+    n.r0c2 = (   r0c1r1c2 * m.r3c3  +  r0c2r1c3 * t3t1    +  r0c3r1c1 * m.r3c2
+              -  r0c1r1c3 * m.r3c2  -  r0c2r1c1 * m.r3c3  -  r0c3r1c2 * t3t1  ) * invDet;
+    n.r0c3 = (   r0c1r1c3 * t2t2    +  r0c2r1c1 * m.r2c3  +  r0c3r1c2 * t2t1
+              -  r0c1r1c2 * m.r2c3  -  r0c2r1c3 * t2t1    -  r0c3r1c1 * t2t2  ) * invDet;
+    n.r1c0 = (   t1t0 * r2c3r3c2    +  t1t2 * r2c0r3c3    +  t1t3 * r2c2r3c0
+              -  t1t0 * r2c2r3c3    -  t1t2 * r2c3r3c0    -  t1t3 * r2c0r3c2  ) * invDet;
+    n.r1c1 = (   t0t0 * r2c2r3c3    +  t0t2 * r2c3r3c0    +  t0t3 * r2c0r3c2
+              -  t0t0 * r2c3r3c2    -  t0t2 * r2c0r3c3    -  t0t3 * r2c2r3c0  ) * invDet;
+    n.r1c2 = (   r0c0r1c3 * m.r3c2  +  r0c2r1c0 * m.r3c3  +  r0c3r1c2 * t3t0
+              -  r0c0r1c2 * m.r3c3  -  r0c2r1c3 * t3t0    -  r0c3r1c0 * m.r3c2) * invDet;
+    n.r1c3 = (   r0c0r1c2 * m.r2c3  +  r0c2r1c3 * t2t0    +  r0c3r1c0 * t2t2
+              -  r0c0r1c3 * t2t2    -  r0c2r1c0 * m.r2c3  -  r0c3r1c2 * t2t0  ) * invDet;
+    n.r2c0 = (   t1t0 * r2c1r3c3    +  t1t1 * r2c3r3c0    +  t1t3 * r2c0r3c1
+              -  t1t0 * r2c3r3c1    -  t1t1 * r2c0r3c3    -  t1t3 * r2c1r3c0  ) * invDet;
+    n.r2c1 = (   t0t0 * r2c3r3c1    +  t0t1 * r2c0r3c3    +  t0t3 * r2c1r3c0
+              -  t0t0 * r2c1r3c3    -  t0t1 * r2c3r3c0    -  t0t3 * r2c0r3c1  ) * invDet;
+    n.r2c2 = (   r0c0r1c1 * m.r3c3  +  r0c1r1c3 * t3t0    +  r0c3r1c0 * t3t1
+              -  r0c0r1c3 * t3t1    -  r0c1r1c0 * m.r3c3  -  r0c3r1c1 * t3t0  ) * invDet;
+    n.r2c3 = (   r0c0r1c3 * t2t1    +  r0c1r1c0 * m.r2c3  +  r0c3r1c1 * t2t0
+              -  r0c0r1c1 * m.r2c3  -  r0c1r1c3 * t2t0    -  r0c3r1c0 * t2t1  ) * invDet;
+    n.r3c0 = (   t1t0 * r2c2r3c1    +  t1t1 * r2c0r3c2    +  t1t2 * r2c1r3c0
+              -  t1t0 * r2c1r3c2    -  t1t1 * r2c2r3c0    -  t1t2 * r2c0r3c1  ) * invDet;
+    n.r3c1 = (   t0t0 * r2c1r3c2    +  t0t1 * r2c2r3c0    +  t0t2 * r2c0r3c1
+              -  t0t0 * r2c2r3c1    -  t0t1 * r2c0r3c2    -  t0t2 * r2c1r3c0  ) * invDet;
+    n.r3c2 = (   r0c0r1c2 * t3t1    +  r0c1r1c0 * m.r3c2  +  r0c2r1c1 * t3t0
+              -  r0c0r1c1 * m.r3c2  -  r0c1r1c2 * t3t0    -  r0c2r1c0 * t3t1  ) * invDet;
+    n.r3c3 = (   r0c0r1c1 * t2t2    +  r0c1r1c2 * t2t0    +  r0c2r1c0 * t2t1
+              -  r0c0r1c2 * t2t1    -  r0c1r1c0 * t2t2    -  r0c2r1c1 * t2t0  ) * invDet;
+  }
+  return n;
+};
+
+/**
+* Calculates the transpose of the 4x4 matrix `m` and stores the result in `m`
+*
+* @param m - a 4x4 matrix object
+* @returns `m` as its transpose
+*/
+export const trsp: (m: Mat4) => Mat4 = m => trspInto(m, m);
+
+/**
+* Calculates the transpose of the 4x4 matrix `m` and stores the result in `n`
+*
+* @param m - a 4x4 matrix object
+* @param n - a 4x4 matrix object
+* @returns `n` as the transpose of `m`
+*/
+export const trspInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+  const t0t1 = m.r0c1,  t0t2 = m.r0c2,  t0t3 = m.r0c3;
+  const t1t2 = m.r1c2,  t1t3 = m.r1c3,  t2t3 = m.r2c3;
+  n.r0c1 = m.r1c0;  n.r0c2 = m.r2c0;  n.r0c3 = m.r3c0;
+  n.r1c0 = t0t1;    n.r1c2 = m.r2c1;  n.r1c3 = m.r3c1;
+  n.r2c0 = t0t2;    n.r2c1 = t1t2;    n.r2c3 = m.r3c2;
+  n.r3c0 = t0t3;    n.r3c1 = t1t3;    n.r3c2 = t2t3;
+  return n;
+};
+
+/**
  * Fills `buffer` with the elements of the 4x4 matrix `m`, column by column
  * (i.e. [ r0c0, r1c0, r2c0, r3c0, r0c1, ..., r3c3 ]).
  *
