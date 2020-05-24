@@ -266,6 +266,34 @@ export const mulInto: (a: Vec3, s: number, b: Vec3) => Vec3 = (a, s, b) => {
 };
 
 /**
+ * `a = a ^ s`
+ *
+ * Raises the 3 elements of vector `a` to the power of `s` and stores the result in `a`
+ *
+ * @param a - a 3-element vector object
+ * @param s - a scalar value
+ * @returns `a` as the result of `a ^ s`
+ */
+export const pow: (a: Vec3, s: number) => Vec3 = (a, s) => powInto(a, s, a);
+
+/**
+ * `b = a ^ s`
+ *
+ * Raises the 3 elements of vector `a` to the power of `s` and stores the result in `b`
+ *
+ * @param a - a 3-element vector object
+ * @param s - a scalar value
+ * @param b - a 3-element vector in which to store the result
+ * @returns `b` as the result of `a ^ s`
+ */
+export const powInto: (a: Vec3, s: number, b: Vec3) => Vec3 = (a, s, b) => {
+  b.x = Math.pow(a.x, s);
+  b.y = Math.pow(a.y, s);
+  b.z = Math.pow(a.z, s);
+  return b;
+};
+
+/**
  * `a = -a`
  *
  * Calculates the inverse of the 3-element vector `a` and stores the result in `a`
