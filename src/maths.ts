@@ -33,7 +33,7 @@ export type FloatArray = number[] | Float32Array | Float64Array;
  * @param angle - an angle in radians
  * @returns the cotangent of `angle`
  */
-export const cotan: (angle: number) => number = angle => 1.0 / Math.tan(angle);
+export const cotan = (angle: number): number => 1.0 / Math.tan(angle);
 
 /**
  * Converts an angle in degrees to an angle in radians
@@ -41,7 +41,7 @@ export const cotan: (angle: number) => number = angle => 1.0 / Math.tan(angle);
  * @param degrees - an angle
  * @returns `degrees` converted to radians
  */
-export const deg2rad: (degrees: number) => number = degrees => degrees * PI_BY_180;
+export const deg2rad = (degrees: number): number => degrees * PI_BY_180;
 
 /**
  * Clamps the value `x` so that it is not less than `min` and not greater than `max`
@@ -51,8 +51,9 @@ export const deg2rad: (degrees: number) => number = degrees => degrees * PI_BY_1
  * @param max - the maximum value allowed
  * @returns `x` clamped to `[min, max]`
  */
-export const clamp: (x: number, min: number, max: number) => number
-  = (x, min, max) => x < min ? min : (x > max ? max : x);
+export const clamp = (x: number, min: number, max: number): number => (
+  x < min ? min : (x > max ? max : x)
+);
 
 /**
  * Clamps the value `x` so that it is not less than `0.0` and not greater than `1.0`
@@ -60,7 +61,7 @@ export const clamp: (x: number, min: number, max: number) => number
  * @param x - the value to clamp
  * @returns `x` clamped to `[0.0, 1.0]`
  */
-export const clamp01: (x: number) => number = x => clamp(x, 0.0, 1.0);
+export const clamp01 = (x: number): number => clamp(x, 0.0, 1.0);
 
 /**
  * Formats the floating point number `n` as a string.
@@ -73,7 +74,7 @@ export const clamp01: (x: number) => number = x => clamp(x, 0.0, 1.0);
  * @param n - the number to format
  * @returns `n` formatted as a string
  */
-export const fpad: (n: number) => string = n => {
+export const fpad = (n: number): string => {
   const d = 4, c = ' ', w = 10;
   let s = n.toFixed(d);
   while (s.length < w) s = c + s;
@@ -92,7 +93,7 @@ export const fpad: (n: number) => string = n => {
  * @param t - a floating point number in the interval `[0.0, 1.0]`
  * @returns a value between `a` and `b`
  */
-export const lerp: (a: number, b: number, t: number) => number = (a, b, t) => (1 - t) * a + t * b;
+export const lerp = (a: number, b: number, t: number): number => (1 - t) * a + t * b;
 
 /**
  * Bilinear interpolation between `a1`, `b1`, `a2` and `b2` based on `s` and `t`, where `s` and `t` are numbers
@@ -115,5 +116,6 @@ export const lerp: (a: number, b: number, t: number) => number = (a, b, t) => (1
  * @param t - a floating point number in the interval `[0.0, 1.0]`
  * @returns a value between `a1`, `b1`, `a2` and `b2`
  */
-export const lerp2: (a1: number, b1: number, a2: number, b2: number, s: number, t: number) => number
-= (a1, b1, a2, b2, s, t) => lerp(lerp(a1, b1, s), lerp(a2, b2, s), t);
+export const lerp2 = (a1: number, b1: number, a2: number, b2: number, s: number, t: number): number => (
+  lerp(lerp(a1, b1, s), lerp(a2, b2, s), t)
+);

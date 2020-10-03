@@ -18,7 +18,7 @@ import { fpad as pad, lerp as slerp } from './maths';
  * @param w - the fourth element
  * @returns the new 4-element vector object
  */
-export const of: (x: number, y: number, z: number, w: number) => Vec4 = (x, y, z, w) => ({ x, y, z, w } as Vec4);
+export const of = (x: number, y: number, z: number, w: number): Vec4 => ({ x, y, z, w } as Vec4);
 
 /**
  * Creates a new copy of the 4-element vector `b`
@@ -26,7 +26,7 @@ export const of: (x: number, y: number, z: number, w: number) => Vec4 = (x, y, z
  * @param b - a 4-element vector object
  * @returns the new 4-element vector object
  */
-export const ofV: (b: Vec4) => Vec4 = b => setV({ } as Vec4, b);
+export const ofV = (b: Vec4): Vec4 => setV({ } as Vec4, b);
 
 /**
  * Creates a new 4-element vector object initialized to the values of the 3-element vector `b` and the value `w`
@@ -35,49 +35,49 @@ export const ofV: (b: Vec4) => Vec4 = b => setV({ } as Vec4, b);
  * @param w - the fourth element
  * @returns the new 4-element vector object
  */
-export const ofV3: (b: Vec3, w: number) => Vec4 = (b, w) => of(b.x, b.y, b.z, w);
+export const ofV3 = (b: Vec3, w: number): Vec4 => of(b.x, b.y, b.z, w);
 
 /**
  * Creates a new 4-element vector object with all elements set to zero
  *
  * @returns the new 4-element vector object
  */
-export const zero: () => Vec4 = () => setZero({ } as Vec4);
+export const zero = (): Vec4 => setZero({ } as Vec4);
 
 /**
  * Creates a new 4-element vector object with all elements set to one
  *
  * @returns the new 4-element vector object
  */
-export const one: () => Vec4 = () => setOne({ } as Vec4);
+export const one = (): Vec4 => setOne({ } as Vec4);
 
 /**
  * Creates a new 4D unit vector along the x-axis
  *
  * @returns the new 4D unit vector
  */
-export const unitX: () => Vec4 = () => setUnitX({ } as Vec4);
+export const unitX = (): Vec4 => setUnitX({ } as Vec4);
 
 /**
  * Creates a new 4D unit vector along the y-axis
  *
  * @returns the new 4D unit vector
  */
-export const unitY: () => Vec4 = () => setUnitY({ } as Vec4);
+export const unitY = (): Vec4 => setUnitY({ } as Vec4);
 
 /**
  * Creates a new 4D unit vector along the z-axis
  *
  * @returns the new 4D unit vector
  */
-export const unitZ: () => Vec4 = () => setUnitZ({ } as Vec4);
+export const unitZ = (): Vec4 => setUnitZ({ } as Vec4);
 
 /**
  * Creates a new 4D unit vector along the w-axis
  *
  * @returns the new 4D unit vector
  */
-export const unitW: () => Vec4 = () => setUnitW({ } as Vec4);
+export const unitW = (): Vec4 => setUnitW({ } as Vec4);
 
 /**
  * Sets all elements of the 4-element vector `a` to zero
@@ -85,7 +85,7 @@ export const unitW: () => Vec4 = () => setUnitW({ } as Vec4);
  * @param a - a 4-element vector object
  * @returns `a` with all elements set to zero
  */
-export const setZero: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 0.0;  a.w = 0.0;  return a; };
+export const setZero = (a: Vec4): Vec4 => { a.x = 0.0;  a.y = 0.0;  a.z = 0.0;  a.w = 0.0;  return a; };
 
 /**
  * Sets all elements of the 4-element vector `a` to one
@@ -93,7 +93,7 @@ export const setZero: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 0
  * @param a - a 4-element vector object
  * @returns `a` with all elements set to one
  */
-export const setOne: (a: Vec4) => Vec4 = a => { a.x = 1.0;  a.y = 1.0;  a.z = 1.0;  a.w = 1.0;  return a; };
+export const setOne = (a: Vec4): Vec4 => { a.x = 1.0;  a.y = 1.0;  a.z = 1.0;  a.w = 1.0;  return a; };
 
 /**
  * Sets the elements of the 4D vector `a` so it becomes a unit vector along the x-axis
@@ -101,7 +101,7 @@ export const setOne: (a: Vec4) => Vec4 = a => { a.x = 1.0;  a.y = 1.0;  a.z = 1.
  * @param a - a 4-element vector object
  * @returns `a` set to be a unit vector along the x-axis
  */
-export const setUnitX: (a: Vec4) => Vec4 = a => { a.x = 1.0;  a.y = 0.0;  a.z = 0.0;  a.w = 0.0;  return a; };
+export const setUnitX = (a: Vec4): Vec4 => { a.x = 1.0;  a.y = 0.0;  a.z = 0.0;  a.w = 0.0;  return a; };
 
 /**
  * Sets the elements of the 4D vector `a` so it becomes a unit vector along the y-axis
@@ -109,7 +109,7 @@ export const setUnitX: (a: Vec4) => Vec4 = a => { a.x = 1.0;  a.y = 0.0;  a.z = 
  * @param a - a 4-element vector object
  * @returns `a` set to be a unit vector along the y-axis
  */
-export const setUnitY: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 1.0;  a.z = 0.0;  a.w = 0.0;  return a; };
+export const setUnitY = (a: Vec4): Vec4 => { a.x = 0.0;  a.y = 1.0;  a.z = 0.0;  a.w = 0.0;  return a; };
 
 /**
  * Sets the elements of the 4D vector `a` so it becomes a unit vector along the z-axis
@@ -117,7 +117,7 @@ export const setUnitY: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 1.0;  a.z = 
  * @param a - a 4-element vector object
  * @returns `a` set to be a unit vector along the z-axis
  */
-export const setUnitZ: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 1.0;  a.w = 0.0;  return a; };
+export const setUnitZ = (a: Vec4): Vec4 => { a.x = 0.0;  a.y = 0.0;  a.z = 1.0;  a.w = 0.0;  return a; };
 
 /**
  * Sets the elements of the 4D vector `a` so it becomes a unit vector along the w-axis
@@ -125,7 +125,7 @@ export const setUnitZ: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 
  * @param a - a 4-element vector object
  * @returns `a` set to be a unit vector along the w-axis
  */
-export const setUnitW: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 0.0;  a.w = 1.0;  return a; };
+export const setUnitW = (a: Vec4): Vec4 => { a.x = 0.0;  a.y = 0.0;  a.z = 0.0;  a.w = 1.0;  return a; };
 
 /**
  * Copies the 4-element vector `b` into the 4-element vector `a`
@@ -134,8 +134,7 @@ export const setUnitW: (a: Vec4) => Vec4 = a => { a.x = 0.0;  a.y = 0.0;  a.z = 
  * @param b - a 4-element vector object
  * @returns `a` set to be a copy of `b`
  */
-export const setV: (a: Vec4, b: Vec4) => Vec4
-= (a, b) => { a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = b.w;  return a; };
+export const setV = (a: Vec4, b: Vec4): Vec4 => { a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = b.w;  return a; };
 
 /**
  * Copies the 3-element vector `b` and the value `w` into the 4-element vector `a`
@@ -145,8 +144,10 @@ export const setV: (a: Vec4, b: Vec4) => Vec4
  * @param w - the fourth element
  * @returns `a` with its first three elements set to be a copy of `b` and the fourth set to `w`
  */
-export const setV3: (a: Vec4, b: Vec3, w: number) => Vec4
-= (a, b, w) => { a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = w;  return a; };
+export const setV3 = (a: Vec4, b: Vec3, w: number): Vec4 => {
+  a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = w;
+  return a;
+};
 
 /**
  * Sets the elements of the 4-element vector `a` to the given values
@@ -158,8 +159,10 @@ export const setV3: (a: Vec4, b: Vec3, w: number) => Vec4
  * @param w - the fourth element
  * @returns `a` with elements set to the given values
  */
-export const set: (a: Vec4, x: number, y: number, z: number, w: number) => Vec4
-= (a, x, y, z, w) => { a.x = x;  a.y = y;  a.z = z;  a.w = w;  return a; };
+export const set = (a: Vec4, x: number, y: number, z: number, w: number): Vec4 => {
+  a.x = x;  a.y = y;  a.z = z;  a.w = w;
+  return a;
+};
 
 /**
  * `a = a + b`
@@ -170,7 +173,7 @@ export const set: (a: Vec4, x: number, y: number, z: number, w: number) => Vec4
  * @param b - a 4-element vector object
  * @returns `a` as the result of `a + b`
  */
-export const addV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => addVInto(a, b, a);
+export const addV = (a: Vec4, b: Vec4): Vec4 => addVInto(a, b, a);
 
 /**
  * `c = a + b`
@@ -182,7 +185,7 @@ export const addV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => addVInto(a, b, a);
  * @param c - a 4-element vector in which to store the result
  * @returns `c` as the result of `a + b`
  */
-export const addVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
+export const addVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
   c.x = a.x + b.x;
   c.y = a.y + b.y;
   c.z = a.z + b.z;
@@ -199,7 +202,7 @@ export const addVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
  * @param b - a 4-element vector object
  * @returns `a` as the result of `a - b`
  */
-export const subV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => subVInto(a, b, a);
+export const subV = (a: Vec4, b: Vec4): Vec4 => subVInto(a, b, a);
 
 /**
  * `c = a - b`
@@ -211,7 +214,7 @@ export const subV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => subVInto(a, b, a);
  * @param c - a 4-element vector in which to store the result
  * @returns `c` as the result of `a - b`
  */
-export const subVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
+export const subVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
   c.x = a.x - b.x;
   c.y = a.y - b.y;
   c.z = a.z - b.z;
@@ -229,7 +232,7 @@ export const subVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a + b * s`
  */
-export const addMul: (a: Vec4, b: Vec4, s: number) => Vec4 = (a, b, s) => addMulInto(a, b, s, a);
+export const addMul = (a: Vec4, b: Vec4, s: number): Vec4 => addMulInto(a, b, s, a);
 
 /**
  * `c = a + b * s`
@@ -242,7 +245,7 @@ export const addMul: (a: Vec4, b: Vec4, s: number) => Vec4 = (a, b, s) => addMul
  * @param c - a 4-element vector in which to store the result
  * @returns `c` as the result of `a + b * s`
  */
-export const addMulInto: (a: Vec4, b: Vec4, s: number, c: Vec4) => Vec4 = (a, b, s, c) => {
+export const addMulInto = (a: Vec4, b: Vec4, s: number, c: Vec4): Vec4 => {
   c.x = a.x + b.x * s;
   c.y = a.y + b.y * s;
   c.z = a.z + b.z * s;
@@ -259,7 +262,7 @@ export const addMulInto: (a: Vec4, b: Vec4, s: number, c: Vec4) => Vec4 = (a, b,
  * @param b - a 4-element vector object
  * @returns `a` as the result of the multiplication
  */
-export const mulV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => mulVInto(a, b, a);
+export const mulV = (a: Vec4, b: Vec4): Vec4 => mulVInto(a, b, a);
 
 /**
  * `c = a * b`
@@ -271,7 +274,7 @@ export const mulV: (a: Vec4, b: Vec4) => Vec4 = (a, b) => mulVInto(a, b, a);
  * @param c - a 4-element vector in which to store the result
  * @returns `c` as the result of the multiplication
  */
-export const mulVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
+export const mulVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
   c.x = a.x * b.x;
   c.y = a.y * b.y;
   c.z = a.z * b.z;
@@ -288,7 +291,7 @@ export const mulVInto: (a: Vec4, b: Vec4, c: Vec4) => Vec4 = (a, b, c) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a * s`
  */
-export const mul: (a: Vec4, s: number) => Vec4 = (a, s) => mulInto(a, s, a);
+export const mul = (a: Vec4, s: number): Vec4 => mulInto(a, s, a);
 
 /**
  * `b = a * s`
@@ -300,7 +303,7 @@ export const mul: (a: Vec4, s: number) => Vec4 = (a, s) => mulInto(a, s, a);
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as the result of `a * s`
  */
-export const mulInto: (a: Vec4, s: number, b: Vec4) => Vec4 = (a, s, b) => {
+export const mulInto = (a: Vec4, s: number, b: Vec4): Vec4 => {
   b.x = a.x * s;
   b.y = a.y * s;
   b.z = a.z * s;
@@ -317,7 +320,7 @@ export const mulInto: (a: Vec4, s: number, b: Vec4) => Vec4 = (a, s, b) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a ^ s`
  */
-export const pow: (a: Vec4, s: number) => Vec4 = (a, s) => powInto(a, s, a);
+export const pow = (a: Vec4, s: number): Vec4 => powInto(a, s, a);
 
 /**
  * `b = a ^ s`
@@ -329,7 +332,7 @@ export const pow: (a: Vec4, s: number) => Vec4 = (a, s) => powInto(a, s, a);
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as the result of `a ^ s`
  */
-export const powInto: (a: Vec4, s: number, b: Vec4) => Vec4 = (a, s, b) => {
+export const powInto = (a: Vec4, s: number, b: Vec4): Vec4 => {
   b.x = Math.pow(a.x, s);
   b.y = Math.pow(a.y, s);
   b.z = Math.pow(a.z, s);
@@ -345,7 +348,7 @@ export const powInto: (a: Vec4, s: number, b: Vec4) => Vec4 = (a, s, b) => {
  * @param a - a 4-element vector object
  * @returns `a` as its inverse
  */
-export const inv: (a: Vec4) => Vec4 = a => invInto(a, a);
+export const inv = (a: Vec4): Vec4 => invInto(a, a);
 
 /**
  * `b = -a`
@@ -356,7 +359,7 @@ export const inv: (a: Vec4) => Vec4 = a => invInto(a, a);
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as the inverse of `a`
  */
-export const invInto: (a: Vec4, b: Vec4) => Vec4 = (a, b) => {
+export const invInto = (a: Vec4, b: Vec4): Vec4 => {
   b.x = -a.x;
   b.y = -a.y;
   b.z = -a.z;
@@ -374,7 +377,7 @@ export const invInto: (a: Vec4, b: Vec4) => Vec4 = (a, b) => {
  * @param max - a 4-element vector specifying the maximum values
  * @returns `a` clamped to `[min, max]`
  */
-export const clampV: (a: Vec4, min: Vec4, max: Vec4) => Vec4 = (a, min, max) => clampVInto(a, min, max, a);
+export const clampV = (a: Vec4, min: Vec4, max: Vec4): Vec4 => clampVInto(a, min, max, a);
 
 /**
  * Element-wise clamping of the values of the 4-element vector `a` so that they are not less than the values of the
@@ -387,7 +390,7 @@ export const clampV: (a: Vec4, min: Vec4, max: Vec4) => Vec4 = (a, min, max) => 
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as `a` clamped to `[min, max]`
  */
-export const clampVInto: (a: Vec4, min: Vec4, max: Vec4, b: Vec4) => Vec4 = (a, min, max, b) => {
+export const clampVInto = (a: Vec4, min: Vec4, max: Vec4, b: Vec4): Vec4 => {
   b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
   b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
   b.z = a.z < min.z ? min.z : (a.z > max.z ? max.z : a.z);
@@ -404,7 +407,7 @@ export const clampVInto: (a: Vec4, min: Vec4, max: Vec4, b: Vec4) => Vec4 = (a, 
  * @param max - the maximum value allowed
  * @returns `a` clamped to `[min, max]`
  */
-export const clamp: (a: Vec4, min: number, max: number) => Vec4 = (a, min, max) => clampInto(a, min, max, a);
+export const clamp = (a: Vec4, min: number, max: number): Vec4 => clampInto(a, min, max, a);
 
 /**
  * Clamps the values of the 4-element vector `a` so that they are not less than `min` and not greater than `max`,
@@ -416,7 +419,7 @@ export const clamp: (a: Vec4, min: number, max: number) => Vec4 = (a, min, max) 
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as `a` clamped to `[min, max]`
  */
-export const clampInto: (a: Vec4, min: number, max: number, b: Vec4) => Vec4 = (a, min, max, b) => {
+export const clampInto = (a: Vec4, min: number, max: number, b: Vec4): Vec4 => {
   b.x = a.x < min ? min : (a.x > max ? max : a.x);
   b.y = a.y < min ? min : (a.y > max ? max : a.y);
   b.z = a.z < min ? min : (a.z > max ? max : a.z);
@@ -431,7 +434,7 @@ export const clampInto: (a: Vec4, min: number, max: number, b: Vec4) => Vec4 = (
  * @param a - a 4-element vector object
  * @returns `a` clamped to `[0.0, 1.0]`
  */
-export const clamp01: (a: Vec4) => Vec4 = a => clampInto(a, 0.0, 1.0, a);
+export const clamp01 = (a: Vec4): Vec4 => clampInto(a, 0.0, 1.0, a);
 
 /**
  * Clamps the values of the 4-element vector `a` so that they are not less than `0.0` and not greater than `1.0`,
@@ -441,7 +444,7 @@ export const clamp01: (a: Vec4) => Vec4 = a => clampInto(a, 0.0, 1.0, a);
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as `a` clamped to `[0.0, 1.0]`
  */
-export const clamp01Into: (a: Vec4, b: Vec4) => Vec4 = (a, b) => clampInto(a, 0.0, 1.0, b);
+export const clamp01Into = (a: Vec4, b: Vec4): Vec4 => clampInto(a, 0.0, 1.0, b);
 
 /**
  * Linear interpolation between `a` and `b` based on `t`, where `t` is a number between `0.0` and `1.0`.
@@ -457,7 +460,7 @@ export const clamp01Into: (a: Vec4, b: Vec4) => Vec4 = (a, b) => clampInto(a, 0.
  * @param c - a 4-element vector in which to store the result
  * @returns `c` - the interpolation result
  */
-export const lerp: (a: Vec4, b: Vec4, t: number, c: Vec4) => Vec4 = (a, b, t, c) => addMul(mulInto(a, 1 - t, c), b, t);
+export const lerp = (a: Vec4, b: Vec4, t: number, c: Vec4): Vec4 => addMul(mulInto(a, 1 - t, c), b, t);
 
 /**
  * Element-wise linear interpolation between `a` and `b` based on `tx`, `ty`, `tz` and `tw`, where `tx`, `ty`, `tz` and
@@ -482,13 +485,13 @@ export const lerp: (a: Vec4, b: Vec4, t: number, c: Vec4) => Vec4 = (a, b, t, c)
  * @param c - a 4-element vector in which to store the result
  * @returns `c` - the interpolation result
  */
-export const lerpE: (a: Vec4, b: Vec4, tx: number, ty: number, tz: number, tw: number, c: Vec4) => Vec4
-  = (a, b, tx, ty, tz, tw, c) => set(c,
-    slerp(a.x, b.x, tx),
-    slerp(a.y, b.y, ty),
-    slerp(a.z, b.z, tz),
-    slerp(a.w, b.w, tw)
-  );
+export const lerpE = (a: Vec4, b: Vec4, tx: number, ty: number, tz: number, tw: number, c: Vec4): Vec4 => set(
+  c,
+  slerp(a.x, b.x, tx),
+  slerp(a.y, b.y, ty),
+  slerp(a.z, b.z, tz),
+  slerp(a.w, b.w, tw)
+);
 
 /**
  * Bilinear interpolation between `a1`, `b1`, `a2` and `b2` based on `s` and `t`, where `s` and `t` are numbers
@@ -511,10 +514,13 @@ export const lerpE: (a: Vec4, b: Vec4, tx: number, ty: number, tz: number, tw: n
  * @param s - a floating point number in the interval `[0.0, 1.0]`
  * @param t - a floating point number in the interval `[0.0, 1.0]`
  * @param c - a 4-element vector in which to store the result
+ * @param tmp - an optional 4-element vector for temporary storage.
+ *              If not provided, one will be created (and then discarded) internally
  * @returns `c` - the interpolation result
  */
-export const lerp2: (a1: Vec4, b1: Vec4, a2: Vec4, b2: Vec4, s: number, t: number, c: Vec4) => Vec4
-= (a1, b1, a2, b2, s, t, c) => lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, zero()), t, c);
+export const lerp2 = (a1: Vec4, b1: Vec4, a2: Vec4, b2: Vec4, s: number, t: number, c: Vec4, tmp?: Vec4): Vec4 => (
+  lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
+);
 
 /**
  * Checks if the vectors `a` and `b` are equal
@@ -523,9 +529,7 @@ export const lerp2: (a1: Vec4, b1: Vec4, a2: Vec4, b2: Vec4, s: number, t: numbe
  * @param b - a 4-element vector object
  * @returns `true` if `a` and `b` are equal, `false` otherwise
  */
-export const equals: (a: Vec4, b: Vec4) => boolean = (a, b) => {
-  return a.x === b.x && a.y === b.y && a.z === b.z && a.w === b.w;
-};
+export const equals = (a: Vec4, b: Vec4): boolean => a.x === b.x && a.y === b.y && a.z === b.z && a.w === b.w;
 
 /**
  * Generates a (single-line) string representation of the 4-element vector `a`
@@ -533,4 +537,4 @@ export const equals: (a: Vec4, b: Vec4) => boolean = (a, b) => {
  * @param a - a 4-element vector object
  * @returns a string representation of `a`
  */
-export const toString: (a: Vec4) => string = a => `[ ${pad(a.x)} ${pad(a.y)} ${pad(a.z)} ${pad(a.w)} ]`;
+export const toString = (a: Vec4): string => `[ ${pad(a.x)} ${pad(a.y)} ${pad(a.z)} ${pad(a.w)} ]`;

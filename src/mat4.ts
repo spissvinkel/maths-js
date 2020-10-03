@@ -33,11 +33,12 @@ import * as vec4 from './vec4';
  * @param r3c3 - the value at row 3, column 3
  * @returns the new 4x4 matrix object
  */
-export const of: (r0c0: number, r0c1: number, r0c2: number, r0c3: number,
-                  r1c0: number, r1c1: number, r1c2: number, r1c3: number,
-                  r2c0: number, r2c1: number, r2c2: number, r2c3: number,
-                  r3c0: number, r3c1: number, r3c2: number, r3c3: number) => Mat4
-= (r0c0, r0c1, r0c2, r0c3, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r3c0, r3c1, r3c2, r3c3) => ({
+export const of = (
+  r0c0: number, r0c1: number, r0c2: number, r0c3: number,
+  r1c0: number, r1c1: number, r1c2: number, r1c3: number,
+  r2c0: number, r2c1: number, r2c2: number, r2c3: number,
+  r3c0: number, r3c1: number, r3c2: number, r3c3: number
+): Mat4 => ({
   r0c0, r0c1, r0c2, r0c3,
   r1c0, r1c1, r1c2, r1c3,
   r2c0, r2c1, r2c2, r2c3,
@@ -49,14 +50,14 @@ export const of: (r0c0: number, r0c1: number, r0c2: number, r0c3: number,
  *
  * @returns the new 4x4 matrix object
  */
-export const zero: () => Mat4 = () => setZero({ } as Mat4);
+export const zero = (): Mat4 => setZero({ } as Mat4);
 
 /**
  * Creates a new 4x4 identity matrix
  *
  * @returns the new 4x4 matrix object
  */
-export const id: () => Mat4 = () => setId({ } as Mat4);
+export const id = (): Mat4 => setId({ } as Mat4);
 
 /**
  * Sets all elements of the 4x4 matrix `m` to zero
@@ -64,7 +65,7 @@ export const id: () => Mat4 = () => setId({ } as Mat4);
  * @param m - a 4x4 matrix object
  * @returns `m` with all elements set to zero
  */
-export const setZero: (m: Mat4) => Mat4 = m => {
+export const setZero = (m: Mat4): Mat4 => {
   m.r0c0 = 0.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;  m.r0c3 = 0.0;
   m.r1c0 = 0.0;  m.r1c1 = 0.0;  m.r1c2 = 0.0;  m.r1c3 = 0.0;
   m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 0.0;  m.r2c3 = 0.0;
@@ -78,7 +79,7 @@ export const setZero: (m: Mat4) => Mat4 = m => {
  * @param m - a 4x4 matrix object
  * @returns `m` set to be the identity matrix
  */
-export const setId: (m: Mat4) => Mat4 = m => {
+export const setId = (m: Mat4): Mat4 => {
   m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;  m.r0c3 = 0.0;
   m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = 0.0;  m.r1c3 = 0.0;
   m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;  m.r2c3 = 0.0;
@@ -99,7 +100,7 @@ export const setId: (m: Mat4) => Mat4 = m => {
  * @param r - the rotation as an angle in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRotX: (m: Mat4, r: number) => Mat4 = (m, r) => {
+export const setRotX = (m: Mat4, r: number): Mat4 => {
   const c = Math.cos(r), s = Math.sin(r);
   m.r0c0 =  1;   m.r0c1 =  0;   m.r0c2 =  0;   m.r0c3 = 0;
   m.r1c0 =  0;   m.r1c1 =  c;   m.r1c2 = -s;   m.r1c3 = 0;
@@ -121,7 +122,7 @@ export const setRotX: (m: Mat4, r: number) => Mat4 = (m, r) => {
  * @param r - the rotation as an angle in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRotY: (m: Mat4, r: number) => Mat4 = (m, r) => {
+export const setRotY = (m: Mat4, r: number): Mat4 => {
   const c = Math.cos(r), s = Math.sin(r);
   m.r0c0 =  c;   m.r0c1 =  0;   m.r0c2 =  s;   m.r0c3 = 0;
   m.r1c0 =  0;   m.r1c1 =  1;   m.r1c2 =  0;   m.r1c3 = 0;
@@ -146,7 +147,7 @@ export const setRotY: (m: Mat4, r: number) => Mat4 = (m, r) => {
  * @param r - the rotation as an angle in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRotZ: (m: Mat4, r: number) => Mat4 = (m, r) => {
+export const setRotZ = (m: Mat4, r: number): Mat4 => {
   const c = Math.cos(r), s = Math.sin(r);
   m.r0c0 =  c;   m.r0c1 = -s;   m.r0c2 =  0;   m.r0c3 = 0;
   m.r1c0 =  s;   m.r1c1 =  c;   m.r1c2 =  0;   m.r1c3 = 0;
@@ -173,7 +174,7 @@ export const setRotZ: (m: Mat4, r: number) => Mat4 = (m, r) => {
  * @param rz - the rotation around the z axis as an angle in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRot: (m: Mat4, rx: number, ry: number, rz: number) => Mat4 = (m, rx, ry, rz) => {
+export const setRot = (m: Mat4, rx: number, ry: number, rz: number): Mat4 => {
   const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
   const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
   m.r0c0 =  cy*cz;              m.r0c1 = -sz*cy;              m.r0c2 =  sy;      m.r0c3 = 0.0;
@@ -199,7 +200,7 @@ export const setRot: (m: Mat4, rx: number, ry: number, rz: number) => Mat4 = (m,
  * @param a - a 3-element vector containing x-, y- and z-axis rotations as angles in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRotV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setRot(m, a.x, a.y, a.z);
+export const setRotV = (m: Mat4, a: Vec3): Mat4 => setRot(m, a.x, a.y, a.z);
 
 /**
  * Sets the elements of the 4x4 matrix `m` so it becomes a 3D rotation matrix.
@@ -217,7 +218,7 @@ export const setRotV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setRot(m, a.x, a.y,
  * @param a - a 3-element vector containing (inverse) x-, y- and z-axis rotations as angles in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setInvRotV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setRot(m, -a.x, -a.y, -a.z);
+export const setInvRotV = (m: Mat4, a: Vec3): Mat4 => setRot(m, -a.x, -a.y, -a.z);
 
 /**
  * Sets the elements of the 4x4 matrix `m` so it becomes a 3D scaling matrix.
@@ -228,7 +229,7 @@ export const setInvRotV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setRot(m, -a.x, 
  * @param a - a 3-element vector specifying the scaling factors
  * @returns `m` set to be a 3D scaling matrix
  */
-export const setScaleV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => {
+export const setScaleV = (m: Mat4, a: Vec3): Mat4 => {
   m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = 0.0;  m.r0c3 = 0.0;
   m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = 0.0;  m.r1c3 = 0.0;
   m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = a.z;  m.r2c3 = 0.0;
@@ -248,7 +249,7 @@ export const setScaleV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => {
  * @param tz - the amount of translation along the z-axis
  * @returns `m` set to be a 3D translation matrix
  */
-export const setTrsl: (m: Mat4, tx: number, ty: number, tz: number) => Mat4 = (m, tx, ty, tz) => {
+export const setTrsl = (m: Mat4, tx: number, ty: number, tz: number): Mat4 => {
   m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;  m.r0c3 = tx;
   m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = 0.0;  m.r1c3 = ty;
   m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;  m.r2c3 = tz;
@@ -265,7 +266,7 @@ export const setTrsl: (m: Mat4, tx: number, ty: number, tz: number) => Mat4 = (m
  * @param a - a 3-element vector specifying the amount of translation
  * @returns `m` set to be a 3D translation matrix
  */
-export const setTrslV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setTrsl(m, a.x, a.y, a.z);
+export const setTrslV = (m: Mat4, a: Vec3): Mat4 => setTrsl(m, a.x, a.y, a.z);
 
 /**
  * Sets the elements of the 4x4 matrix `m` so it becomes a 3D translation matrix.
@@ -277,7 +278,7 @@ export const setTrslV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setTrsl(m, a.x, a.
  * @param a - a 3-element vector specifying the (inverse) amount of translation
  * @returns `m` set to be a 3D translation matrix
  */
-export const setInvTrslV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setTrsl(m, -a.x, -a.y, -a.z);
+export const setInvTrslV = (m: Mat4, a: Vec3): Mat4 => setTrsl(m, -a.x, -a.y, -a.z);
 
 /**
  * Sets the elements of the 4x4 matrix `m` so it becomes a 3D transformation matrix for scaling and translation.
@@ -290,7 +291,7 @@ export const setInvTrslV: (m: Mat4, a: Vec3) => Mat4 = (m, a) => setTrsl(m, -a.x
  * @param b - a 3-element vector specifying the amount of translation
  * @returns `m` set to be a 3D transformation matrix
  */
-export const setScaleTrsl: (m: Mat4, a: Vec3, b: Vec3) => Mat4 = (m, a, b) => {
+export const setScaleTrsl = (m: Mat4, a: Vec3, b: Vec3): Mat4 => {
   m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = 0.0;  m.r0c3 = b.x;
   m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = 0.0;  m.r1c3 = b.y;
   m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = a.z;  m.r2c3 = b.z;
@@ -305,7 +306,7 @@ export const setScaleTrsl: (m: Mat4, a: Vec3, b: Vec3) => Mat4 = (m, a, b) => {
  * @param n - a 4x4 matrix object
  * @returns `m` set to be a copy of `n`
  */
-export const setM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+export const setM = (m: Mat4, n: Mat4): Mat4 => {
   m.r0c0 = n.r0c0;  m.r0c1 = n.r0c1;  m.r0c2 = n.r0c2;  m.r0c3 = n.r0c3;
   m.r1c0 = n.r1c0;  m.r1c1 = n.r1c1;  m.r1c2 = n.r1c2;  m.r1c3 = n.r1c3;
   m.r2c0 = n.r2c0;  m.r2c1 = n.r2c1;  m.r2c2 = n.r2c2;  m.r2c3 = n.r2c3;
@@ -335,12 +336,13 @@ export const setM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
  * @param r3c3 - the value at row 3, column 3
  * @returns `m` with elements set to the given values
  */
-export const set: (m: Mat4,
-                   r0c0: number, r0c1: number, r0c2: number, r0c3: number,
-                   r1c0: number, r1c1: number, r1c2: number, r1c3: number,
-                   r2c0: number, r2c1: number, r2c2: number, r2c3: number,
-                   r3c0: number, r3c1: number, r3c2: number, r3c3: number) => Mat4
-= (m, r0c0, r0c1, r0c2, r0c3, r1c0, r1c1, r1c2, r1c3, r2c0, r2c1, r2c2, r2c3, r3c0, r3c1, r3c2, r3c3) => {
+export const set = (
+  m: Mat4,
+  r0c0: number, r0c1: number, r0c2: number, r0c3: number,
+  r1c0: number, r1c1: number, r1c2: number, r1c3: number,
+  r2c0: number, r2c1: number, r2c2: number, r2c3: number,
+  r3c0: number, r3c1: number, r3c2: number, r3c3: number
+): Mat4 => {
   m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;  m.r0c3 = r0c3;
   m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;  m.r1c3 = r1c3;
   m.r2c0 = r2c0;  m.r2c1 = r2c1;  m.r2c2 = r2c2;  m.r2c3 = r2c3;
@@ -357,7 +359,7 @@ export const set: (m: Mat4,
  * @param n - a 4x4 matrix object
  * @returns `m`, multiplied by `n`
  */
-export const mulM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => mulMInto(m, n, m);
+export const mulM = (m: Mat4, n: Mat4): Mat4 => mulMInto(m, n, m);
 
 /**
  * `o = m * n`
@@ -369,7 +371,7 @@ export const mulM: (m: Mat4, n: Mat4) => Mat4 = (m, n) => mulMInto(m, n, m);
  * @param o - a 4x4 matrix object in which to store the result
  * @returns `o` as the result of the multiplication
  */
-export const mulMInto: (m: Mat4, n: Mat4, o: Mat4) => Mat4 = (m, n, o) => {
+export const mulMInto = (m: Mat4, n: Mat4, o: Mat4): Mat4 => {
   let c0, c1, c2, c3;
   c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0  +  m.r0c3 * n.r3c0;
   c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1  +  m.r0c3 * n.r3c1;
@@ -405,7 +407,7 @@ export const mulMInto: (m: Mat4, n: Mat4, o: Mat4) => Mat4 = (m, n, o) => {
  * @param n - a 2x2 matrix object
  * @returns `m`, multiplied by `n`
  */
-export const mulM3: (m: Mat4, n: Mat3) => Mat4 = (m, n) => {
+export const mulM3 = (m: Mat4, n: Mat3): Mat4 => {
   let c0, c1, c2;
   c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0;
   c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1;
@@ -438,7 +440,7 @@ export const mulM3: (m: Mat4, n: Mat3) => Mat4 = (m, n) => {
  * @param b - a 4-element vector in which to store the result
  * @returns `b` as the result of `m * a`
  */
-export const mulV: (m: Mat4, a: Vec4, b: Vec4) => Vec4 = (m, a, b) => vec4.set(
+export const mulV = (m: Mat4, a: Vec4, b: Vec4): Vec4 => vec4.set(
   b,
   m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z  +  m.r0c3 * a.w,
   m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z  +  m.r1c3 * a.w,
@@ -459,7 +461,7 @@ export const mulV: (m: Mat4, a: Vec4, b: Vec4) => Vec4 = (m, a, b) => vec4.set(
  * @param b - a 3-element vector in which to store the result
  * @returns `b` as the result of `m * a`
  */
-export const mulV3: (m: Mat4, a: Vec3, b: Vec3) => Vec3 = (m, a, b) => vec3.set(
+export const mulV3 = (m: Mat4, a: Vec3, b: Vec3): Vec3 => vec3.set(
   b,
   m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z  +  m.r0c3,
   m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z  +  m.r1c3,
@@ -472,7 +474,7 @@ export const mulV3: (m: Mat4, a: Vec3, b: Vec3) => Vec3 = (m, a, b) => vec3.set(
  * @param m - a 4x4 matrix object
  * @returns the determinant of `m`
  */
-export const det: (m: Mat4) => number = m => {
+export const det = (m: Mat4): number => {
   const r0c0r1c1 = m.r0c0 * m.r1c1,  r0c0r1c2 = m.r0c0 * m.r1c2,  r0c0r1c3 = m.r0c0 * m.r1c3;
   const r0c1r1c0 = m.r0c1 * m.r1c0,  r0c1r1c2 = m.r0c1 * m.r1c2,  r0c1r1c3 = m.r0c1 * m.r1c3;
   const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c2r1c1 = m.r0c2 * m.r1c1,  r0c2r1c3 = m.r0c2 * m.r1c3;
@@ -497,7 +499,7 @@ export const det: (m: Mat4) => number = m => {
 * @param m - a 4x4 matrix object
 * @returns `m` as its inverse
 */
-export const inv: (m: Mat4) => Mat4 = m => invInto(m, m);
+export const inv = (m: Mat4): Mat4 => invInto(m, m);
 
 /**
 * Calculates the inverse of the 4x4 matrix `m` and stores the result in `n`
@@ -506,7 +508,7 @@ export const inv: (m: Mat4) => Mat4 = m => invInto(m, m);
 * @param n - a 4x4 matrix object
 * @returns `n` as the inverse of `m`
 */
-export const invInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+export const invInto = (m: Mat4, n: Mat4): Mat4 => {
   const r0c0r1c1 = m.r0c0 * m.r1c1,  r0c0r1c2 = m.r0c0 * m.r1c2,  r0c0r1c3 = m.r0c0 * m.r1c3;
   const r0c1r1c0 = m.r0c1 * m.r1c0,  r0c1r1c2 = m.r0c1 * m.r1c2,  r0c1r1c3 = m.r0c1 * m.r1c3;
   const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c2r1c1 = m.r0c2 * m.r1c1,  r0c2r1c3 = m.r0c2 * m.r1c3;
@@ -571,7 +573,7 @@ export const invInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
 * @param m - a 4x4 matrix object
 * @returns `m` as its transpose
 */
-export const trsp: (m: Mat4) => Mat4 = m => trspInto(m, m);
+export const trsp = (m: Mat4): Mat4 => trspInto(m, m);
 
 /**
 * Calculates the transpose of the 4x4 matrix `m` and stores the result in `n`
@@ -580,7 +582,7 @@ export const trsp: (m: Mat4) => Mat4 = m => trspInto(m, m);
 * @param n - a 4x4 matrix object
 * @returns `n` as the transpose of `m`
 */
-export const trspInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
+export const trspInto = (m: Mat4, n: Mat4): Mat4 => {
   const t0t1 = m.r0c1,  t0t2 = m.r0c2,  t0t3 = m.r0c3;
   const t1t2 = m.r1c2,  t1t3 = m.r1c3,  t2t3 = m.r2c3;
   n.r0c1 = m.r1c0;  n.r0c2 = m.r2c0;  n.r0c3 = m.r3c0;
@@ -596,17 +598,11 @@ export const trspInto: (m: Mat4, n: Mat4) => Mat4 = (m, n) => {
  *
  * The order in which the buffer is filled is suitable for e.g. setting uniform variables in WebGL shader programs
  *
- * **Type parameters**
- *
- * * **B**: *[[FloatArray]]*
- *
- *    the type of the buffer; an array of numbers or (more typically) a `Float32Array`
- *
  * @param m - the 4x4 matrix
  * @param buffer - the buffer to be filled
  * @return `buffer`, filled with the elemenets of `m`
  */
-export const fill: <B extends FloatArray>(m: Mat4, buffer: B) => B = (m, buffer) => {
+export const fill = <B extends FloatArray>(m: Mat4, buffer: B): B => {
   buffer[ 0] = m.r0c0;  buffer[ 1] = m.r1c0;  buffer[ 2] = m.r2c0;  buffer[ 3] = m.r3c0;
   buffer[ 4] = m.r0c1;  buffer[ 5] = m.r1c1;  buffer[ 6] = m.r2c1;  buffer[ 7] = m.r3c1;
   buffer[ 8] = m.r0c2;  buffer[ 9] = m.r1c2;  buffer[10] = m.r2c2;  buffer[11] = m.r3c2;
@@ -621,12 +617,12 @@ export const fill: <B extends FloatArray>(m: Mat4, buffer: B) => B = (m, buffer)
  * @param n - a 4x4 matrix object
  * @returns `true` if `m` and `n` are equal, `false` otherwise
  */
-export const equals: (m: Mat4, n: Mat4) => boolean = (m, n) => {
-  return m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2 && m.r0c3 === n.r0c3
-      && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2 && m.r1c3 === n.r1c3
-      && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2 && m.r2c3 === n.r2c3
-      && m.r3c0 === n.r3c0 && m.r3c1 === n.r3c1 && m.r3c2 === n.r3c2 && m.r3c3 === n.r3c3;
-};
+export const equals = (m: Mat4, n: Mat4): boolean => (
+     m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2 && m.r0c3 === n.r0c3
+  && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2 && m.r1c3 === n.r1c3
+  && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2 && m.r2c3 === n.r2c3
+  && m.r3c0 === n.r3c0 && m.r3c1 === n.r3c1 && m.r3c2 === n.r3c2 && m.r3c3 === n.r3c3
+);
 
 /**
  * Generates a multi-line string representation of the 4x4 matrix `m`
@@ -634,8 +630,9 @@ export const equals: (m: Mat4, n: Mat4) => boolean = (m, n) => {
  * @param m - a 4x4 matrix object
  * @returns a string representation of `m`
  */
-export const toString: (m: Mat4) => string
-= m => `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)} ${pad(m.r0c3)}\n`
-     + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
-     + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
-     + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`;
+export const toString = (m: Mat4): string => (
+    `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)} ${pad(m.r0c3)}\n`
+  + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)} ${pad(m.r1c3)}\n`
+  + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ${pad(m.r2c3)}\n`
+  + `  ${pad(m.r3c0)} ${pad(m.r3c1)} ${pad(m.r3c2)} ${pad(m.r3c3)} ]`
+);

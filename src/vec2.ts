@@ -15,7 +15,7 @@ import { fpad as pad, lerp as slerp } from './maths';
  * @param y - the second element
  * @returns the new 2-element vector object
  */
-export const of: (x: number, y: number) => Vec2 = (x, y) => ({ x, y } as Vec2);
+export const of = (x: number, y: number): Vec2 => ({ x, y } as Vec2);
 
 /**
  * Creates a new copy of the 2-element vector `b`
@@ -23,35 +23,35 @@ export const of: (x: number, y: number) => Vec2 = (x, y) => ({ x, y } as Vec2);
  * @param b - a 2-element vector object
  * @returns the new 2-element vector object
  */
-export const ofV: (b: Vec2) => Vec2 = b => setV({ } as Vec2, b);
+export const ofV = (b: Vec2): Vec2 => setV({ } as Vec2, b);
 
 /**
  * Creates a new 2-element vector object with all elements set to zero
  *
  * @returns the new 2-element vector object
  */
-export const zero: () => Vec2 = () => setZero({ } as Vec2);
+export const zero = (): Vec2 => setZero({ } as Vec2);
 
 /**
  * Creates a new 2-element vector object with all elements set to one
  *
  * @returns the new 2-element vector object
  */
-export const one: () => Vec2 = () => setOne({ } as Vec2);
+export const one = (): Vec2 => setOne({ } as Vec2);
 
 /**
  * Creates a new 2D unit vector along the x-axis
  *
  * @returns the new 2D unit vector
  */
-export const unitX: () => Vec2 = () => setUnitX({ } as Vec2);
+export const unitX = (): Vec2 => setUnitX({ } as Vec2);
 
 /**
  * Creates a new 2D unit vector along the y-axis
  *
  * @returns the new 2D unit vector
  */
-export const unitY: () => Vec2 = () => setUnitY({ } as Vec2);
+export const unitY = (): Vec2 => setUnitY({ } as Vec2);
 
 /**
  * Sets all elements of the 2-element vector `a` to zero
@@ -59,7 +59,7 @@ export const unitY: () => Vec2 = () => setUnitY({ } as Vec2);
  * @param a - a 2-element vector object
  * @returns `a` with all elements set to zero
  */
-export const setZero: (a: Vec2) => Vec2 = a => { a.x = 0.0;  a.y = 0.0;  return a; };
+export const setZero = (a: Vec2): Vec2 => { a.x = 0.0;  a.y = 0.0;  return a; };
 
 /**
  * Sets all elements of the 2-element vector `a` to one
@@ -67,7 +67,7 @@ export const setZero: (a: Vec2) => Vec2 = a => { a.x = 0.0;  a.y = 0.0;  return 
  * @param a - a 2-element vector object
  * @returns `a` with all elements set to one
  */
-export const setOne: (a: Vec2) => Vec2 = a => { a.x = 1.0;  a.y = 1.0;  return a; };
+export const setOne = (a: Vec2): Vec2 => { a.x = 1.0;  a.y = 1.0;  return a; };
 
 /**
  * Sets the elements of the 2D vector `a` so it becomes a unit vector along the x-axis
@@ -75,7 +75,7 @@ export const setOne: (a: Vec2) => Vec2 = a => { a.x = 1.0;  a.y = 1.0;  return a
  * @param a - a 2-element vector object
  * @returns `a` set to be a unit vector along the x-axis
  */
-export const setUnitX: (a: Vec2) => Vec2 = a => { a.x = 1.0;  a.y = 0.0;  return a; };
+export const setUnitX = (a: Vec2): Vec2 => { a.x = 1.0;  a.y = 0.0;  return a; };
 
 /**
  * Sets the elements of the 2D vector `a` so it becomes a unit vector along the y-axis
@@ -83,7 +83,7 @@ export const setUnitX: (a: Vec2) => Vec2 = a => { a.x = 1.0;  a.y = 0.0;  return
  * @param a - a 2-element vector object
  * @returns `a` set to be a unit vector along the y-axis
  */
-export const setUnitY: (a: Vec2) => Vec2 = a => { a.x = 0.0;  a.y = 1.0;  return a; };
+export const setUnitY = (a: Vec2): Vec2 => { a.x = 0.0;  a.y = 1.0;  return a; };
 
 /**
  * Copies the 2-element vector `b` into the 2-element vector `a`
@@ -92,7 +92,7 @@ export const setUnitY: (a: Vec2) => Vec2 = a => { a.x = 0.0;  a.y = 1.0;  return
  * @param b - a 2-element vector object
  * @returns `a` set to be a copy of `b`
  */
-export const setV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => { a.x = b.x;  a.y = b.y;  return a; };
+export const setV = (a: Vec2, b: Vec2): Vec2 => { a.x = b.x;  a.y = b.y;  return a; };
 
 /**
  * Sets the elements of the 2-element vector `a` to the given values
@@ -102,7 +102,7 @@ export const setV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => { a.x = b.x;  a.y = b.
  * @param y - the second element
  * @returns `a` with elements set to the given values
  */
-export const set: (a: Vec2, x: number, y: number) => Vec2 = (a, x, y) => { a.x = x;  a.y = y;  return a; };
+export const set = (a: Vec2, x: number, y: number): Vec2 => { a.x = x;  a.y = y;  return a; };
 
 /**
  * `a = a + b`
@@ -113,7 +113,7 @@ export const set: (a: Vec2, x: number, y: number) => Vec2 = (a, x, y) => { a.x =
  * @param b - a 2-element vector object
  * @returns `a` as the result of `a + b`
  */
-export const addV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => addVInto(a, b, a);
+export const addV = (a: Vec2, b: Vec2): Vec2 => addVInto(a, b, a);
 
 /**
  * `c = a + b`
@@ -125,7 +125,7 @@ export const addV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => addVInto(a, b, a);
  * @param c - a 2-element vector in which to store the result
  * @returns `c` as the result of `a + b`
  */
-export const addVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
+export const addVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
   c.x = a.x + b.x;
   c.y = a.y + b.y;
   return c;
@@ -140,7 +140,7 @@ export const addVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
  * @param b - a 2-element vector object
  * @returns `a` as the result of `a - b`
  */
-export const subV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => subVInto(a, b, a);
+export const subV = (a: Vec2, b: Vec2): Vec2 => subVInto(a, b, a);
 
 /**
  * `c = a - b`
@@ -152,7 +152,7 @@ export const subV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => subVInto(a, b, a);
  * @param c - a 2-element vector in which to store the result
  * @returns `c` as the result of `a - b`
  */
-export const subVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
+export const subVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
   c.x = a.x - b.x;
   c.y = a.y - b.y;
   return c;
@@ -168,7 +168,7 @@ export const subVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a + b * s`
  */
-export const addMul: (a: Vec2, b: Vec2, s: number) => Vec2 = (a, b, s) => addMulInto(a, b, s, a);
+export const addMul = (a: Vec2, b: Vec2, s: number): Vec2 => addMulInto(a, b, s, a);
 
 /**
  * `c = a + b * s`
@@ -181,7 +181,7 @@ export const addMul: (a: Vec2, b: Vec2, s: number) => Vec2 = (a, b, s) => addMul
  * @param c - a 2-element vector in which to store the result
  * @returns `c` as the result of `a + b * s`
  */
-export const addMulInto: (a: Vec2, b: Vec2, s: number, c: Vec2) => Vec2 = (a, b, s, c) => {
+export const addMulInto = (a: Vec2, b: Vec2, s: number, c: Vec2): Vec2 => {
   c.x = a.x + b.x * s;
   c.y = a.y + b.y * s;
   return c;
@@ -196,7 +196,7 @@ export const addMulInto: (a: Vec2, b: Vec2, s: number, c: Vec2) => Vec2 = (a, b,
  * @param b - a 2-element vector object
  * @returns `a` as the result of the multiplication
  */
-export const mulV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => mulVInto(a, b, a);
+export const mulV = (a: Vec2, b: Vec2): Vec2 => mulVInto(a, b, a);
 
 /**
  * `c = a * b`
@@ -208,7 +208,7 @@ export const mulV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => mulVInto(a, b, a);
  * @param c - a 2-element vector in which to store the result
  * @returns `c` as the result of the multiplication
  */
-export const mulVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
+export const mulVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
   c.x = a.x * b.x;
   c.y = a.y * b.y;
   return c;
@@ -223,7 +223,7 @@ export const mulVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a * s`
  */
-export const mul: (a: Vec2, s: number) => Vec2 = (a, s) => mulInto(a, s, a);
+export const mul = (a: Vec2, s: number): Vec2 => mulInto(a, s, a);
 
 /**
  * `b = a * s`
@@ -235,7 +235,7 @@ export const mul: (a: Vec2, s: number) => Vec2 = (a, s) => mulInto(a, s, a);
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as the result of `a * s`
  */
-export const mulInto: (a: Vec2, s: number, b: Vec2) => Vec2 = (a, s, b) => {
+export const mulInto = (a: Vec2, s: number, b: Vec2): Vec2 => {
   b.x = a.x * s;
   b.y = a.y * s;
   return b;
@@ -250,7 +250,7 @@ export const mulInto: (a: Vec2, s: number, b: Vec2) => Vec2 = (a, s, b) => {
  * @param b - a 2-element vector object
  * @returns `a` as the result of the division
  */
-export const divV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => divVInto(a, b, a);
+export const divV = (a: Vec2, b: Vec2): Vec2 => divVInto(a, b, a);
 
 /**
  * `c = a / b`
@@ -262,7 +262,7 @@ export const divV: (a: Vec2, b: Vec2) => Vec2 = (a, b) => divVInto(a, b, a);
  * @param c - a 2-element vector in which to store the result
  * @returns `c` as the result of the division
  */
-export const divVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
+export const divVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
   c.x = a.x / b.x;
   c.y = a.y / b.y;
   return c;
@@ -277,7 +277,7 @@ export const divVInto: (a: Vec2, b: Vec2, c: Vec2) => Vec2 = (a, b, c) => {
  * @param s - a scalar value
  * @returns `a` as the result of `a / s`
  */
-export const div: (a: Vec2, s: number) => Vec2 = (a, s) => divInto(a, s, a);
+export const div = (a: Vec2, s: number): Vec2 => divInto(a, s, a);
 
 /**
  * `b = a / s`
@@ -289,7 +289,7 @@ export const div: (a: Vec2, s: number) => Vec2 = (a, s) => divInto(a, s, a);
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as the result of `a / s`
  */
-export const divInto: (a: Vec2, s: number, b: Vec2) => Vec2 = (a, s, b) => {
+export const divInto = (a: Vec2, s: number, b: Vec2): Vec2 => {
   b.x = a.x / s;
   b.y = a.y / s;
   return b;
@@ -303,7 +303,7 @@ export const divInto: (a: Vec2, s: number, b: Vec2) => Vec2 = (a, s, b) => {
  * @param a - a 2-element vector object
  * @returns `a` as its inverse
  */
-export const inv: (a: Vec2) => Vec2 = a => invInto(a, a);
+export const inv = (a: Vec2): Vec2 => invInto(a, a);
 
 /**
  * `b = -a`
@@ -314,7 +314,7 @@ export const inv: (a: Vec2) => Vec2 = a => invInto(a, a);
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as the inverse of `a`
  */
-export const invInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => {
+export const invInto = (a: Vec2, b: Vec2): Vec2 => {
   b.x = -a.x;
   b.y = -a.y;
   return b;
@@ -328,7 +328,7 @@ export const invInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => {
  * @param a - a 2-element vector object
  * @returns `|a|²`
  */
-export const sqrMag: (a: Vec2) => number = a => a.x * a.x  +  a.y * a.y
+export const sqrMag = (a: Vec2): number => a.x * a.x  +  a.y * a.y
 
 /**
  * Calculates the magnitude of the two-element vector `a`
@@ -338,7 +338,7 @@ export const sqrMag: (a: Vec2) => number = a => a.x * a.x  +  a.y * a.y
  * @param a - a 2-element vector object
  * @returns `|a|`
  */
-export const mag: (a: Vec2) => number = a => Math.sqrt(sqrMag(a));
+export const mag = (a: Vec2): number => Math.sqrt(sqrMag(a));
 
 /**
  * `a = â`
@@ -348,7 +348,7 @@ export const mag: (a: Vec2) => number = a => Math.sqrt(sqrMag(a));
  * @param a - a 2-element vector object
  * @returns `a` normalised
  */
-export const norm: (a: Vec2) => Vec2 = a => normForInto(a, mag(a), a);
+export const norm = (a: Vec2): Vec2 => normForInto(a, mag(a), a);
 
 /**
  * `b = â`
@@ -359,7 +359,7 @@ export const norm: (a: Vec2) => Vec2 = a => normForInto(a, mag(a), a);
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as `a` normalised
  */
-export const normInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => normForInto(a, mag(a), b);
+export const normInto = (a: Vec2, b: Vec2): Vec2 => normForInto(a, mag(a), b);
 
 /**
  * `a = â`
@@ -372,7 +372,7 @@ export const normInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => normForInto(a, mag
  * @param mag - the magnitude
  * @returns `a` normalised (based on `mag`)
  */
-export const normFor: (a: Vec2, mag: number) => Vec2 = (a, mag) => normForInto(a, mag, a);
+export const normFor = (a: Vec2, mag: number): Vec2 => normForInto(a, mag, a);
 
 /**
  * `b = â`
@@ -386,8 +386,7 @@ export const normFor: (a: Vec2, mag: number) => Vec2 = (a, mag) => normForInto(a
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as `a` normalised (based on `mag`)
  */
-export const normForInto: (a: Vec2, mag: number, b: Vec2) => Vec2
-= (a, mag, b) => mag > 0.0 ? mulInto(a, 1.0 / mag, b) : b;
+export const normForInto = (a: Vec2, mag: number, b: Vec2): Vec2 => mag > 0.0 ? mulInto(a, 1.0 / mag, b) : b;
 
 /**
  * `a · b`
@@ -398,7 +397,7 @@ export const normForInto: (a: Vec2, mag: number, b: Vec2) => Vec2
  * @param b - a 2-element vector object
  * @returns the dot product of `a` and `b`
  */
-export const dot: (a: Vec2, b: Vec2) => number = (a, b) => a.x * b.x  +  a.y * b.y;
+export const dot = (a: Vec2, b: Vec2): number => a.x * b.x  +  a.y * b.y;
 
 /**
  * Sets the elements of the 2D vector `b` so it becomes perpendicular to the 2D vector `a`.
@@ -409,7 +408,7 @@ export const dot: (a: Vec2, b: Vec2) => number = (a, b) => a.x * b.x  +  a.y * b
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as a vector perpendicular to `a`
  */
-export const perpInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => {
+export const perpInto = (a: Vec2, b: Vec2): Vec2 => {
   b.x =  a.y;
   b.y = -a.x;
   return b;
@@ -425,7 +424,7 @@ export const perpInto: (a: Vec2, b: Vec2) => Vec2 = (a, b) => {
  * @param max - a 2-element vector specifying the maximum values
  * @returns `a` clamped to `[min, max]`
  */
-export const clampV: (a: Vec2, min: Vec2, max: Vec2) => Vec2 = (a, min, max) => clampVInto(a, min, max, a);
+export const clampV = (a: Vec2, min: Vec2, max: Vec2): Vec2 => clampVInto(a, min, max, a);
 
 /**
  * Element-wise clamping of the values of the two-element vector `a` so that they are not less than the values of the
@@ -438,7 +437,7 @@ export const clampV: (a: Vec2, min: Vec2, max: Vec2) => Vec2 = (a, min, max) => 
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as `a` clamped to `[min, max]`
  */
-export const clampVInto: (a: Vec2, min: Vec2, max: Vec2, b: Vec2) => Vec2 = (a, min, max, b) => {
+export const clampVInto = (a: Vec2, min: Vec2, max: Vec2, b: Vec2): Vec2 => {
   b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
   b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
   return b;
@@ -453,7 +452,7 @@ export const clampVInto: (a: Vec2, min: Vec2, max: Vec2, b: Vec2) => Vec2 = (a, 
  * @param max - the maximum value allowed
  * @returns `a` clamped to `[min, max]`
  */
-export const clamp: (a: Vec2, min: number, max: number) => Vec2 = (a, min, max) => clampInto(a, min, max, a);
+export const clamp = (a: Vec2, min: number, max: number): Vec2 => clampInto(a, min, max, a);
 
 /**
  * Clamps the values of the two-element vector `a` so that they are not less than `min` and not greater than `max`,
@@ -465,7 +464,7 @@ export const clamp: (a: Vec2, min: number, max: number) => Vec2 = (a, min, max) 
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as `a` clamped to `[min, max]`
  */
-export const clampInto: (a: Vec2, min: number, max: number, b: Vec2) => Vec2 = (a, min, max, b) => {
+export const clampInto = (a: Vec2, min: number, max: number, b: Vec2): Vec2 => {
   b.x = a.x < min ? min : (a.x > max ? max : a.x);
   b.y = a.y < min ? min : (a.y > max ? max : a.y);
   return b;
@@ -478,7 +477,7 @@ export const clampInto: (a: Vec2, min: number, max: number, b: Vec2) => Vec2 = (
  * @param a - a 2-element vector object
  * @returns `a` clamped to `[0.0, 1.0]`
  */
-export const clamp01: (a: Vec2) => Vec2 = a => clampInto(a, 0.0, 1.0, a);
+export const clamp01 = (a: Vec2): Vec2 => clampInto(a, 0.0, 1.0, a);
 
 /**
  * Clamps the values of the two-element vector `a` so that they are not less than `0.0` and not greater than `1.0`,
@@ -488,7 +487,7 @@ export const clamp01: (a: Vec2) => Vec2 = a => clampInto(a, 0.0, 1.0, a);
  * @param b - a 2-element vector in which to store the result
  * @returns `b` as `a` clamped to `[0.0, 1.0]`
  */
-export const clamp01Into: (a: Vec2, b: Vec2) => Vec2 = (a, b) => clampInto(a, 0.0, 1.0, b);
+export const clamp01Into = (a: Vec2, b: Vec2): Vec2 => clampInto(a, 0.0, 1.0, b);
 
 /**
  * Linear interpolation between `a` and `b` based on `t`, where `t` is a number between `0.0` and `1.0`.
@@ -504,7 +503,7 @@ export const clamp01Into: (a: Vec2, b: Vec2) => Vec2 = (a, b) => clampInto(a, 0.
  * @param c - a 2-element vector in which to store the result
  * @returns `c` - the interpolation result
  */
-export const lerp: (a: Vec2, b: Vec2, t: number, c: Vec2) => Vec2 = (a, b, t, c) => addMul(mulInto(a, 1 - t, c), b, t);
+export const lerp = (a: Vec2, b: Vec2, t: number, c: Vec2): Vec2 => addMul(mulInto(a, 1 - t, c), b, t);
 
 /**
  * Element-wise linear interpolation between `a` and `b` based on `tx` and `ty`, where `tx` and `ty` are numbers
@@ -525,8 +524,9 @@ export const lerp: (a: Vec2, b: Vec2, t: number, c: Vec2) => Vec2 = (a, b, t, c)
  * @param c - a 2-element vector in which to store the result
  * @returns `c` - the interpolation result
  */
-export const lerpE: (a: Vec2, b: Vec2, tx: number, ty: number, c: Vec2) => Vec2
-  = (a, b, tx, ty, c) => set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty));
+export const lerpE = (a: Vec2, b: Vec2, tx: number, ty: number, c: Vec2): Vec2 => (
+  set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty))
+);
 
 /**
  * Bilinear interpolation between `a1`, `b1`, `a2` and `b2` based on `s` and `t`, where `s` and `t` are numbers
@@ -549,10 +549,12 @@ export const lerpE: (a: Vec2, b: Vec2, tx: number, ty: number, c: Vec2) => Vec2
  * @param s - a floating point number in the interval `[0.0, 1.0]`
  * @param t - a floating point number in the interval `[0.0, 1.0]`
  * @param c - a 2-element vector in which to store the result
+ * @param tmp - an optional 2-element vector for temporary storage. If not provided, one will be created (and then discarded) internally
  * @returns `c` - the interpolation result
  */
-export const lerp2: (a1: Vec2, b1: Vec2, a2: Vec2, b2: Vec2, s: number, t: number, c: Vec2) => Vec2
-= (a1, b1, a2, b2, s, t, c) => lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, zero()), t, c);
+export const lerp2 = (a1: Vec2, b1: Vec2, a2: Vec2, b2: Vec2, s: number, t: number, c: Vec2, tmp?: Vec2): Vec2 => (
+  lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
+);
 
 /**
  * Checks if the vectors `a` and `b` are equal
@@ -561,9 +563,7 @@ export const lerp2: (a1: Vec2, b1: Vec2, a2: Vec2, b2: Vec2, s: number, t: numbe
  * @param b - a 2-element vector object
  * @returns `true` if `a` and `b` are equal, `false` otherwise
  */
-export const equals: (a: Vec2, b: Vec2) => boolean = (a, b) => {
-  return a.x === b.x && a.y === b.y;
-};
+export const equals = (a: Vec2, b: Vec2): boolean => a.x === b.x && a.y === b.y;
 
 /**
  * Generates a (single-line) string representation of the 2-element vector `a`
@@ -571,4 +571,4 @@ export const equals: (a: Vec2, b: Vec2) => boolean = (a, b) => {
  * @param a - a 2-element vector object
  * @returns a string representation of `a`
  */
-export const toString: (a: Vec2) => string = a => `[ ${pad(a.x)} ${pad(a.y)} ]`;
+export const toString = (a: Vec2): string => `[ ${pad(a.x)} ${pad(a.y)} ]`;
