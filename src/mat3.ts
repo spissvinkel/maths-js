@@ -151,8 +151,8 @@ export const setRotZ = (m: Mat3, r: number): Mat3 => {
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
- * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see {@linkcode mulV}).
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **counterclockwise** for positive values of `r` when the axis
  * points towards the observer.
@@ -166,20 +166,13 @@ export const setRotZ = (m: Mat3, r: number): Mat3 => {
  * @param rz - the rotation around the z axis as an angle in radians
  * @returns `m` set to be a 3D rotation matrix
  */
-export const setRot = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => {
-    const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
-    const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
-    m.r0c0 =  cy*cz;              m.r0c1 = -sz*cy;              m.r0c2 =  sy;
-    m.r1c0 =  sx*sy*cz + cx*sz;   m.r1c1 =  cx*cz - sz*sx*sy;   m.r1c2 = -sx*cy;
-    m.r2c0 =  sx*sz - sy*cx*cz;   m.r2c1 =  sy*cx*sz + sx*cz;   m.r2c2 =  cx*cy;
-    return m;
-};
+export const setRot = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => setRotYzx(m, rx, ry, rz);
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
- * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see {@linkcode mulV}).
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **counterclockwise** for positive rotation values when the axis
  * points towards the observer.
@@ -196,8 +189,8 @@ export const setRotV = (m: Mat3, a: Vec3): Mat3 => setRot(m, a.x, a.y, a.z);
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
- * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see {@linkcode mulV}).
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **clockwise** for positive rotation values when the axis points
  * towards the observer.
@@ -210,6 +203,195 @@ export const setRotV = (m: Mat3, a: Vec3): Mat3 => setRot(m, a.x, a.y, a.z);
  * @returns `m` set to be a 3D rotation matrix
  */
 export const setInvRotV = (m: Mat3, a: Vec3): Mat3 => setRot(m, -a.x, -a.y, -a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, y and x axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive values of `r` when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param rx - the rotation around the x axis as an angle in radians
+ * @param ry - the rotation around the y axis as an angle in radians
+ * @param rz - the rotation around the z axis as an angle in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotXyz = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => {
+    const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
+    const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
+    m.r0c0 =  cy*cz;              m.r0c1 = -sz*cy;              m.r0c2 =  sy;
+    m.r1c0 =  sx*sy*cz + cx*sz;   m.r1c1 =  cx*cz - sz*sx*sy;   m.r1c2 = -sx*cy;
+    m.r2c0 =  sx*sz - sy*cx*cz;   m.r2c1 =  sy*cx*sz + sx*cz;   m.r2c2 =  cx*cy;
+    return m;
+};
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, y and x axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive rotation values when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotXyzV = (m: Mat3, a: Vec3): Mat3 => setRotXyz(m, a.x, a.y, a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, y and x axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **clockwise** for positive rotation values when the axis points
+ * towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing (inverse) x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setInvRotXyzV = (m: Mat3, a: Vec3): Mat3 => setRotXyz(m, -a.x, -a.y, -a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive values of `r` when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param rx - the rotation around the x axis as an angle in radians
+ * @param ry - the rotation around the y axis as an angle in radians
+ * @param rz - the rotation around the z axis as an angle in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotYzx = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => {
+    const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
+    const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
+    m.r0c0 =  cy*cz;   m.r0c1 =  sy*sx - cy*sz*cx;   m.r0c2 =  cy*sz*sx + sy*cx;
+    m.r1c0 =  sz;      m.r1c1 =  cz*cx;              m.r1c2 = -cz*sx;
+    m.r2c0 = -sy*cz;   m.r2c1 =  sy*sz*cx + cy*sx;   m.r2c2 =  cy*cx - sy*sz*sx;
+    return m;
+};
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive rotation values when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotYzxV = (m: Mat3, a: Vec3): Mat3 => setRotYzx(m, a.x, a.y, a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the x, z and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **clockwise** for positive rotation values when the axis points
+ * towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing (inverse) x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setInvRotYzxV = (m: Mat3, a: Vec3): Mat3 => setRotYzx(m, -a.x, -a.y, -a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, x and y axes (in that order), when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive values of `r` when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param rx - the rotation around the x axis as an angle in radians
+ * @param ry - the rotation around the y axis as an angle in radians
+ * @param rz - the rotation around the z axis as an angle in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotYxz = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => {
+    const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
+    const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
+    m.r0c0 =  cy*cz + sy*sx*sz;   m.r0c1 =  sy*sx*cz - cy*sz;   m.r0c2 =  sy*cx;
+    m.r1c0 =  cx*sz;              m.r1c1 =  cx*cz;              m.r1c2 = -sx;
+    m.r2c0 =  cy*sx*sz - sy*cz;   m.r2c1 =  sy*sz + cy*sx*cz;   m.r2c2 =  cy*cx;
+    return m;
+};
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, x and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **counterclockwise** for positive rotation values when the axis
+ * points towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setRotYxzV = (m: Mat3, a: Vec3): Mat3 => setRotYxz(m, a.x, a.y, a.z);
+
+/**
+ * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
+ *
+ * The resulting matrix will rotate points around the z, x and y axes (in that order) when multiplied by a column
+ * vector (see {@linkcode mulV}).
+ *
+ * For each axis, the direction of rotation will be **clockwise** for positive rotation values when the axis points
+ * towards the observer.
+ *
+ * (A "right-handed" coordinate system is assumed, so the z-axis points towards the observer when the x-axis points
+ * right and the y-axis points up)
+ *
+ * @param m - a 3x3 matrix object
+ * @param a - a 3-element vector containing (inverse) x-, y- and z-axis rotations as angles in radians
+ * @returns `m` set to be a 3D rotation matrix
+ */
+ export const setInvRotYxzV = (m: Mat3, a: Vec3): Mat3 => setRotYxz(m, -a.x, -a.y, -a.z);
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D scaling matrix.

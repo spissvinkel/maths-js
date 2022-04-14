@@ -38,7 +38,7 @@ export interface Mat2 {
  *
  * The primary use for a `Mat3` object is as a 2D transformation matrix or a 3D rotation matrix.
  *
- * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL.
+ * A "column-major" ordering and a "right-handed", "Y-up" coordinate system is assumed, suitable for e.g. WebGL.
  *
  * The module {@linkcode mat3} contains functions to manipulate objects conforming to this interface
  *
@@ -64,7 +64,7 @@ export interface Mat3 {
  *
  * The primary use for a `Mat4` object is as a 3D transformation matrix.
  *
- * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL.
+ * A "column-major" ordering and a "right-handed", "Y-up" coordinate system is assumed, suitable for e.g. WebGL.
  *
  * The module {@linkcode mat4} contains functions to manipulate objects conforming to this interface
  *
