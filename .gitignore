@@ -1,12 +1,18 @@
 .vscode
 
 /build
+/dist/*
+
+*.tsbuildinfo
 
 /*.d.ts
 /*.js
 /*.map
 
-publish-*.sh
+!.eslintrc.js
+!httpd.js
+
+tmp_gfx
+dist.zip
 
 /node_modules
-/package-lock.json

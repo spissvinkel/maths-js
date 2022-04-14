@@ -1,11 +1,17 @@
 /**
- * `vec3` is a collection of functions to manipulate [[Vec3]] 3-element vector objects.
+ * `vec3` is a collection of functions to manipulate {@linkcode Vec3} 3-element vector objects.
  *
- * The primary use for a [[Vec3]] object is in 3D geometry, as homogeneous coordinates in 2D geometry, or to represent
- * e.g. RGB colours.
+ * The primary use for a {@linkcode Vec3} object is in 3D geometry, as homogeneous coordinates in 2D geometry,
+ * or to represent e.g. RGB colours.
+ *
+ * Example usage:
+ * ```
+ * import * as vec3 from '@spissvinkel/maths/vec3';
+ * ```
+ *
+ * @module
  */
 
-/** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Vec3 } from './';
 import { fpad as pad, lerp as slerp } from './maths';
 
@@ -17,7 +23,7 @@ import { fpad as pad, lerp as slerp } from './maths';
  * @param z - the third element
  * @returns the new 3-element vector object
  */
-export const of = (x: number, y: number, z: number): Vec3 => ({ x, y, z } as Vec3);
+export const of = (x: number, y: number, z: number): Vec3 => ({ x, y, z });
 
 /**
  * Creates a new copy of the 3-element vector `b`
@@ -144,10 +150,10 @@ export const addV = (a: Vec3, b: Vec3): Vec3 => addVInto(a, b, a);
  * @returns `c` as the result of `a + b`
  */
 export const addVInto = (a: Vec3, b: Vec3, c: Vec3): Vec3 => {
-  c.x = a.x + b.x;
-  c.y = a.y + b.y;
-  c.z = a.z + b.z;
-  return c;
+    c.x = a.x + b.x;
+    c.y = a.y + b.y;
+    c.z = a.z + b.z;
+    return c;
 };
 
 /**
@@ -172,10 +178,10 @@ export const subV = (a: Vec3, b: Vec3): Vec3 => subVInto(a, b, a);
  * @returns `c` as the result of `a - b`
  */
 export const subVInto = (a: Vec3, b: Vec3, c: Vec3): Vec3 => {
-  c.x = a.x - b.x;
-  c.y = a.y - b.y;
-  c.z = a.z - b.z;
-  return c;
+    c.x = a.x - b.x;
+    c.y = a.y - b.y;
+    c.z = a.z - b.z;
+    return c;
 };
 
 /**
@@ -202,10 +208,10 @@ export const addMul = (a: Vec3, b: Vec3, s: number): Vec3 => addMulInto(a, b, s,
  * @returns `c` as the result of `a + b * s`
  */
 export const addMulInto = (a: Vec3, b: Vec3, s: number, c: Vec3): Vec3 => {
-  c.x = a.x + b.x * s;
-  c.y = a.y + b.y * s;
-  c.z = a.z + b.z * s;
-  return c;
+    c.x = a.x + b.x * s;
+    c.y = a.y + b.y * s;
+    c.z = a.z + b.z * s;
+    return c;
 };
 
 /**
@@ -230,10 +236,10 @@ export const mulV = (a: Vec3, b: Vec3): Vec3 => mulVInto(a, b, a);
  * @returns `c` as the result of the multiplication
  */
 export const mulVInto = (a: Vec3, b: Vec3, c: Vec3): Vec3 => {
-  c.x = a.x * b.x;
-  c.y = a.y * b.y;
-  c.z = a.z * b.z;
-  return c;
+    c.x = a.x * b.x;
+    c.y = a.y * b.y;
+    c.z = a.z * b.z;
+    return c;
 };
 
 /**
@@ -258,10 +264,10 @@ export const mul = (a: Vec3, s: number): Vec3 => mulInto(a, s, a);
  * @returns `b` as the result of `a * s`
  */
 export const mulInto = (a: Vec3, s: number, b: Vec3): Vec3 => {
-  b.x = a.x * s;
-  b.y = a.y * s;
-  b.z = a.z * s;
-  return b;
+    b.x = a.x * s;
+    b.y = a.y * s;
+    b.z = a.z * s;
+    return b;
 };
 
 /**
@@ -286,10 +292,10 @@ export const pow = (a: Vec3, s: number): Vec3 => powInto(a, s, a);
  * @returns `b` as the result of `a ^ s`
  */
 export const powInto = (a: Vec3, s: number, b: Vec3): Vec3 => {
-  b.x = Math.pow(a.x, s);
-  b.y = Math.pow(a.y, s);
-  b.z = Math.pow(a.z, s);
-  return b;
+    b.x = Math.pow(a.x, s);
+    b.y = Math.pow(a.y, s);
+    b.z = Math.pow(a.z, s);
+    return b;
 };
 
 /**
@@ -312,10 +318,10 @@ export const inv = (a: Vec3): Vec3 => invInto(a, a);
  * @returns `b` as the inverse of `a`
  */
 export const invInto = (a: Vec3, b: Vec3): Vec3 => {
-  b.x = -a.x;
-  b.y = -a.y;
-  b.z = -a.z;
-  return b;
+    b.x = -a.x;
+    b.y = -a.y;
+    b.z = -a.z;
+    return b;
 };
 
 /**
@@ -331,7 +337,7 @@ export const sqrMag = (a: Vec3): number => a.x * a.x  +  a.y * a.y  +  a.z * a.z
 /**
  * Calculates the magnitude of the 3-element vector `a`
  *
- * (See also [[sqrMag]])
+ * (See also {@linkcode sqrMag})
  *
  * @param a - a 3-element vector object
  * @returns `|a|`
@@ -409,10 +415,10 @@ export const dot = (a: Vec3, b: Vec3): number => a.x * b.x  +  a.y * b.y  +  a.z
  * @returns `c` as the cross product of `a` and `b`
  */
 export const cross = (a: Vec3, b: Vec3, c: Vec3): Vec3 => {
-  c.x = a.y * b.z - a.z * b.y;
-  c.y = a.z * b.x - a.x * b.z;
-  c.z = a.x * b.y - a.y * b.x;
-  return c;
+    c.x = a.y * b.z - a.z * b.y;
+    c.y = a.z * b.x - a.x * b.z;
+    c.z = a.x * b.y - a.y * b.x;
+    return c;
 };
 
 /**
@@ -439,10 +445,10 @@ export const clampV = (a: Vec3, min: Vec3, max: Vec3): Vec3 => clampVInto(a, min
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampVInto = (a: Vec3, min: Vec3, max: Vec3, b: Vec3): Vec3 => {
-  b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
-  b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
-  b.z = a.z < min.z ? min.z : (a.z > max.z ? max.z : a.z);
-  return b;
+    b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
+    b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
+    b.z = a.z < min.z ? min.z : (a.z > max.z ? max.z : a.z);
+    return b;
 };
 
 /**
@@ -467,10 +473,10 @@ export const clamp = (a: Vec3, min: number, max: number): Vec3 => clampInto(a, m
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampInto = (a: Vec3, min: number, max: number, b: Vec3): Vec3 => {
-  b.x = a.x < min ? min : (a.x > max ? max : a.x);
-  b.y = a.y < min ? min : (a.y > max ? max : a.y);
-  b.z = a.z < min ? min : (a.z > max ? max : a.z);
-  return b;
+    b.x = a.x < min ? min : (a.x > max ? max : a.x);
+    b.y = a.y < min ? min : (a.y > max ? max : a.y);
+    b.z = a.z < min ? min : (a.z > max ? max : a.z);
+    return b;
 };
 
 /**
@@ -530,7 +536,7 @@ export const lerp = (a: Vec3, b: Vec3, t: number, c: Vec3): Vec3 => addMul(mulIn
  * @returns `c` - the interpolation result
  */
 export const lerpE = (a: Vec3, b: Vec3, tx: number, ty: number, tz: number, c: Vec3): Vec3 => (
-  set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty), slerp(a.z, b.z, tz))
+    set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty), slerp(a.z, b.z, tz))
 );
 
 /**
@@ -559,7 +565,7 @@ export const lerpE = (a: Vec3, b: Vec3, tx: number, ty: number, tz: number, c: V
  * @returns `c` - the interpolation result
  */
 export const lerp2 = (a1: Vec3, b1: Vec3, a2: Vec3, b2: Vec3, s: number, t: number, c: Vec3, tmp?: Vec3): Vec3 => (
-  lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
+    lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
 );
 
 /**

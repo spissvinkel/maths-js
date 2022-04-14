@@ -1,12 +1,18 @@
 /**
- * `mat2` is a collection of functions to manipulate [[Mat2]] 2x2 matrix objects.
+ * `mat2` is a collection of functions to manipulate {@linkcode Mat2} 2x2 matrix objects.
  *
- * The primary use for a [[Mat2]] object is as a 2D rotation matrix.
+ * The primary use for a {@linkcode Mat2} object is as a 2D rotation matrix.
  *
  * A "column-major" ordering is assumed, suitable for e.g. WebGL
+ *
+ * Example usage:
+ * ```
+ * import * as mat2 from '@spissvinkel/maths/mat2';
+ * ```
+ *
+ * @module
  */
 
-/** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat2, Vec2 } from './';
 import { fpad as pad, FloatArray } from './maths';
 import * as vec2 from './vec2';
@@ -21,12 +27,12 @@ import * as vec2 from './vec2';
  * @returns the new 2x2 matrix object
  */
 export const of = (
-  r0c0: number, r0c1: number,
-  r1c0: number, r1c1: number
+    r0c0: number, r0c1: number,
+    r1c0: number, r1c1: number
 ): Mat2 => ({
-  r0c0, r0c1,
-  r1c0, r1c1
-} as Mat2);
+    r0c0, r0c1,
+    r1c0, r1c1
+});
 
 /**
  * Creates a new 2x2 matrix object with all elements set to zero
@@ -49,9 +55,9 @@ export const id = (): Mat2 => setId({ } as Mat2);
  * @returns `m` with all elements set to zero
  */
 export const setZero = (m: Mat2): Mat2 => {
-  m.r0c0 = 0.0;  m.r0c1 = 0.0;
-  m.r1c0 = 0.0;  m.r1c1 = 0.0;
-  return m;
+    m.r0c0 = 0.0;  m.r0c1 = 0.0;
+    m.r1c0 = 0.0;  m.r1c1 = 0.0;
+    return m;
 };
 
 /**
@@ -61,16 +67,16 @@ export const setZero = (m: Mat2): Mat2 => {
  * @returns `m` set to be the identity matrix
  */
 export const setId = (m: Mat2): Mat2 => {
-  m.r0c0 = 1.0;  m.r0c1 = 0.0;
-  m.r1c0 = 0.0;  m.r1c1 = 1.0;
-  return m;
+    m.r0c0 = 1.0;  m.r0c1 = 0.0;
+    m.r1c0 = 0.0;  m.r1c1 = 1.0;
+    return m;
 };
 
 /**
  * Sets the elements of the 2x2 matrix `m` so it becomes a 2D rotation matrix.
  *
  * The resulting matrix will rotate points in the xy-plane around the origin when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * The direction of rotation will be **counterclockwise** for positive values of `r`
  *
@@ -79,17 +85,17 @@ export const setId = (m: Mat2): Mat2 => {
  * @returns `m` set to be a 2D rotation matrix
  */
 export const setRot = (m: Mat2, r: number): Mat2 => {
-  const c = Math.cos(r), s = Math.sin(r);
-  m.r0c0 =  c;   m.r0c1 = -s;
-  m.r1c0 =  s;   m.r1c1 =  c;
-  return m;
+    const c = Math.cos(r), s = Math.sin(r);
+    m.r0c0 =  c;   m.r0c1 = -s;
+    m.r1c0 =  s;   m.r1c1 =  c;
+    return m;
 };
 
 /**
  * Sets the elements of the 2x2 matrix `m` so it becomes a 2D rotation matrix.
  *
  * The resulting matrix will rotate points in the xy-plane around the origin when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * The direction of rotation will be **clockwise** for positive values of `r`
  *
@@ -107,9 +113,9 @@ export const setInvRot = (m: Mat2, r: number): Mat2 => setRot(m, -r);
  * @returns `m` set to be a copy of `n`
  */
 export const setM = (m: Mat2, n: Mat2): Mat2 => {
-  m.r0c0 = n.r0c0;  m.r0c1 = n.r0c1;
-  m.r1c0 = n.r1c0;  m.r1c1 = n.r1c1;
-  return m;
+    m.r0c0 = n.r0c0;  m.r0c1 = n.r0c1;
+    m.r1c0 = n.r1c0;  m.r1c1 = n.r1c1;
+    return m;
 };
 
 /**
@@ -123,13 +129,13 @@ export const setM = (m: Mat2, n: Mat2): Mat2 => {
  * @returns `m` with elements set to the given values
  */
 export const set = (
-  m: Mat2,
-  r0c0: number, r0c1: number,
-  r1c0: number, r1c1: number
+    m: Mat2,
+    r0c0: number, r0c1: number,
+    r1c0: number, r1c1: number
 ): Mat2 => {
-  m.r0c0 = r0c0;  m.r0c1 = r0c1;
-  m.r1c0 = r1c0;  m.r1c1 = r1c1;
-  return m;
+    m.r0c0 = r0c0;  m.r0c1 = r0c1;
+    m.r1c0 = r1c0;  m.r1c1 = r1c1;
+    return m;
 };
 
 /**
@@ -142,14 +148,14 @@ export const set = (
  * @returns `m`, multiplied by `n`
  */
 export const mulM = (m: Mat2, n: Mat2): Mat2 => {
-  let c0, c1;
-  c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0;
-  c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1;
-  m.r0c0 = c0;  m.r0c1 = c1;
-  c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0;
-  c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1;
-  m.r1c0 = c0;  m.r1c1 = c1;
-  return m;
+    let c0, c1;
+    c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0;
+    c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1;
+    m.r0c0 = c0;  m.r0c1 = c1;
+    c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0;
+    c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1;
+    m.r1c0 = c0;  m.r1c1 = c1;
+    return m;
 };
 
 /**
@@ -163,9 +169,9 @@ export const mulM = (m: Mat2, n: Mat2): Mat2 => {
  * @returns `b` as the result of `m * a`
  */
 export const mulV = (m: Mat2, a: Vec2, b: Vec2): Vec2 => vec2.set(
-  b,
-  m.r0c0 * a.x  +  m.r0c1 * a.y,
-  m.r1c0 * a.x  +  m.r1c1 * a.y
+    b,
+    m.r0c0 * a.x  +  m.r0c1 * a.y,
+    m.r1c0 * a.x  +  m.r1c1 * a.y
 );
 
 /**
@@ -179,9 +185,9 @@ export const mulV = (m: Mat2, a: Vec2, b: Vec2): Vec2 => vec2.set(
  * @return `buffer`, filled with the elemenets of `m`
  */
 export const fill = <B extends FloatArray>(m: Mat2, buffer: B): B => {
-  buffer[0] = m.r0c0;  buffer[1] = m.r1c0;
-  buffer[2] = m.r0c1;  buffer[3] = m.r1c1;
-  return buffer;
+    buffer[0] = m.r0c0;  buffer[1] = m.r1c0;
+    buffer[2] = m.r0c1;  buffer[3] = m.r1c1;
+    return buffer;
 };
 
 /**
@@ -192,8 +198,8 @@ export const fill = <B extends FloatArray>(m: Mat2, buffer: B): B => {
  * @returns `true` if `m` and `n` are equal, `false` otherwise
  */
 export const equals = (m: Mat2, n: Mat2): boolean => (
-     m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1
-  && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1
+       m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1
+    && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1
 );
 
 /**
@@ -203,6 +209,6 @@ export const equals = (m: Mat2, n: Mat2): boolean => (
  * @returns a string representation of `m`
  */
 export const toString = (m: Mat2): string => (
-    `[ ${pad(m.r0c0)} ${pad(m.r0c1)}\n`
-  + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`
+      `[ ${pad(m.r0c0)} ${pad(m.r0c1)}\n`
+    + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ]`
 );

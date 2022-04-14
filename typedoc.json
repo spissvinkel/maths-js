@@ -1,5 +1,10 @@
 {
-  "mode": "modules",
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPointStrategy": "Expand",
+  "out": "./docs/api",
+  "name": "@spissvinkel/maths",
+  "includeVersion": true,
   "readme": "none",
-  "out": "./docs/api"
+  "excludeInternal": true,
+  "sort": [ "source-order" ]
 }

@@ -1,5 +1,12 @@
 /**
  * `Maths` is a collection of functions and constants generally relevant to 2D/3D geometry and graphics
+ *
+ * Example usage:
+ * ```
+ * import * as Maths from '@spissvinkel/maths/maths';
+ * ```
+ *
+ * @module
  */
 
 /**
@@ -52,7 +59,7 @@ export const deg2rad = (degrees: number): number => degrees * PI_BY_180;
  * @returns `x` clamped to `[min, max]`
  */
 export const clamp = (x: number, min: number, max: number): number => (
-  x < min ? min : (x > max ? max : x)
+    x < min ? min : (x > max ? max : x)
 );
 
 /**
@@ -75,10 +82,10 @@ export const clamp01 = (x: number): number => clamp(x, 0.0, 1.0);
  * @returns `n` formatted as a string
  */
 export const fpad = (n: number): string => {
-  const d = 4, c = ' ', w = 10;
-  let s = n.toFixed(d);
-  while (s.length < w) s = c + s;
-  return s;
+    const d = 4, c = ' ', w = 10;
+    let s = n.toFixed(d);
+    while (s.length < w) s = c + s;
+    return s;
 };
 
 /**
@@ -117,5 +124,5 @@ export const lerp = (a: number, b: number, t: number): number => (1 - t) * a + t
  * @returns a value between `a1`, `b1`, `a2` and `b2`
  */
 export const lerp2 = (a1: number, b1: number, a2: number, b2: number, s: number, t: number): number => (
-  lerp(lerp(a1, b1, s), lerp(a2, b2, s), t)
+    lerp(lerp(a1, b1, s), lerp(a2, b2, s), t)
 );

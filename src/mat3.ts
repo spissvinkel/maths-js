@@ -1,12 +1,18 @@
 /**
- * `mat3` is a collection of functions to manipulate [[Mat3]] 3x3 matrix objects.
+ * `mat3` is a collection of functions to manipulate {@linkcode Mat3} 3x3 matrix objects.
  *
- * The primary use for a [[Mat3]] object is as a 2D transformation matrix or a 3D rotation matrix.
+ * The primary use for a {@linkcode Mat3} object is as a 2D transformation matrix or a 3D rotation matrix.
  *
  * A "column-major" ordering and a "right-handed" coordinate system is assumed, suitable for e.g. WebGL
+ *
+ * Example usage:
+ * ```
+ * import * as mat3 from '@spissvinkel/maths/mat3';
+ * ```
+ *
+ * @module
  */
 
-/** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Mat2, Mat3, Vec2, Vec3 } from './';
 import { fpad as pad, FloatArray } from './maths';
 import * as vec2 from './vec2';
@@ -27,14 +33,14 @@ import * as vec3 from './vec3';
  * @returns the new 3x3 matrix object
  */
 export const of = (
-  r0c0: number, r0c1: number, r0c2: number,
-  r1c0: number, r1c1: number, r1c2: number,
-  r2c0: number, r2c1: number, r2c2: number
+    r0c0: number, r0c1: number, r0c2: number,
+    r1c0: number, r1c1: number, r1c2: number,
+    r2c0: number, r2c1: number, r2c2: number
 ): Mat3 => ({
-  r0c0, r0c1, r0c2,
-  r1c0, r1c1, r1c2,
-  r2c0, r2c1, r2c2
-} as Mat3);
+    r0c0, r0c1, r0c2,
+    r1c0, r1c1, r1c2,
+    r2c0, r2c1, r2c2
+});
 
 /**
  * Creates a new 3x3 matrix object with all elements set to zero
@@ -57,10 +63,10 @@ export const id = (): Mat3 => setId({ } as Mat3);
  * @returns `m` with all elements set to zero
  */
 export const setZero = (m: Mat3): Mat3 => {
-  m.r0c0 = 0.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
-  m.r1c0 = 0.0;  m.r1c1 = 0.0;  m.r1c2 = 0.0;
-  m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 0.0;
-  return m;
+    m.r0c0 = 0.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
+    m.r1c0 = 0.0;  m.r1c1 = 0.0;  m.r1c2 = 0.0;
+    m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 0.0;
+    return m;
 };
 
 /**
@@ -70,17 +76,17 @@ export const setZero = (m: Mat3): Mat3 => {
  * @returns `m` set to be the identity matrix
  */
 export const setId = (m: Mat3): Mat3 => {
-  m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
-  m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = 0.0;
-  m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
-  return m;
+    m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
+    m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = 0.0;
+    m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points in the yz-plane around the x-axis when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * The direction of rotation will be **counterclockwise** for positive values of `r` when the axis points towards
  * the observer
@@ -90,18 +96,18 @@ export const setId = (m: Mat3): Mat3 => {
  * @returns `m` set to be a 3D rotation matrix
  */
 export const setRotX = (m: Mat3, r: number): Mat3 => {
-  const c = Math.cos(r), s = Math.sin(r);
-  m.r0c0 =  1;   m.r0c1 =  0;   m.r0c2 =  0;
-  m.r1c0 =  0;   m.r1c1 =  c;   m.r1c2 = -s;
-  m.r2c0 =  0;   m.r2c1 =  s;   m.r2c2 =  c;
-  return m;
+    const c = Math.cos(r), s = Math.sin(r);
+    m.r0c0 =  1;   m.r0c1 =  0;   m.r0c2 =  0;
+    m.r1c0 =  0;   m.r1c1 =  c;   m.r1c2 = -s;
+    m.r2c0 =  0;   m.r2c1 =  s;   m.r2c2 =  c;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points in the xz-plane around the y-axis when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * The direction of rotation will be **counterclockwise** for positive values of `r` when the axis points towards
  * the observer
@@ -111,18 +117,18 @@ export const setRotX = (m: Mat3, r: number): Mat3 => {
  * @returns `m` set to be a 3D rotation matrix
  */
 export const setRotY = (m: Mat3, r: number): Mat3 => {
-  const c = Math.cos(r), s = Math.sin(r);
-  m.r0c0 =  c;   m.r0c1 =  0;   m.r0c2 =  s;
-  m.r1c0 =  0;   m.r1c1 =  1;   m.r1c2 =  0;
-  m.r2c0 = -s;   m.r2c1 =  0;   m.r2c2 =  c;
-  return m;
+    const c = Math.cos(r), s = Math.sin(r);
+    m.r0c0 =  c;   m.r0c1 =  0;   m.r0c2 =  s;
+    m.r1c0 =  0;   m.r1c1 =  1;   m.r1c2 =  0;
+    m.r2c0 = -s;   m.r2c1 =  0;   m.r2c2 =  c;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points in the xy-plane around the z-axis when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * The direction of rotation will be **counterclockwise** for positive values of `r` when the axis points towards
  * the observer.
@@ -135,18 +141,18 @@ export const setRotY = (m: Mat3, r: number): Mat3 => {
  * @returns `m` set to be a 3D rotation matrix
  */
 export const setRotZ = (m: Mat3, r: number): Mat3 => {
-  const c = Math.cos(r), s = Math.sin(r);
-  m.r0c0 =  c;   m.r0c1 = -s;   m.r0c2 =  0;
-  m.r1c0 =  s;   m.r1c1 =  c;   m.r1c2 =  0;
-  m.r2c0 =  0;   m.r2c1 =  0;   m.r2c2 =  1;
-  return m;
+    const c = Math.cos(r), s = Math.sin(r);
+    m.r0c0 =  c;   m.r0c1 = -s;   m.r0c2 =  0;
+    m.r1c0 =  s;   m.r1c1 =  c;   m.r1c2 =  0;
+    m.r2c0 =  0;   m.r2c1 =  0;   m.r2c2 =  1;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **counterclockwise** for positive values of `r` when the axis
  * points towards the observer.
@@ -161,19 +167,19 @@ export const setRotZ = (m: Mat3, r: number): Mat3 => {
  * @returns `m` set to be a 3D rotation matrix
  */
 export const setRot = (m: Mat3, rx: number, ry: number, rz: number): Mat3 => {
-  const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
-  const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
-  m.r0c0 =  cy*cz;              m.r0c1 = -sz*cy;              m.r0c2 =  sy;
-  m.r1c0 =  sx*sy*cz + cx*sz;   m.r1c1 =  cx*cz - sz*sx*sy;   m.r1c2 = -sx*cy;
-  m.r2c0 =  sx*sz - sy*cx*cz;   m.r2c1 =  sy*cx*sz + sx*cz;   m.r2c2 =  cx*cy;
-  return m;
+    const cx = Math.cos(rx), cy = Math.cos(ry), cz = Math.cos(rz);
+    const sx = Math.sin(rx), sy = Math.sin(ry), sz = Math.sin(rz);
+    m.r0c0 =  cy*cz;              m.r0c1 = -sz*cy;              m.r0c2 =  sy;
+    m.r1c0 =  sx*sy*cz + cx*sz;   m.r1c1 =  cx*cz - sz*sx*sy;   m.r1c2 = -sx*cy;
+    m.r2c0 =  sx*sz - sy*cx*cz;   m.r2c1 =  sy*cx*sz + sx*cz;   m.r2c2 =  cx*cy;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **counterclockwise** for positive rotation values when the axis
  * points towards the observer.
@@ -191,7 +197,7 @@ export const setRotV = (m: Mat3, a: Vec3): Mat3 => setRot(m, a.x, a.y, a.z);
  * Sets the elements of the 3x3 matrix `m` so it becomes a 3D rotation matrix.
  *
  * The resulting matrix will rotate points around the x-, y- and z-axes when multiplied by a column vector
- * (see [[mulV]]).
+ * (see {@linkcode mulV}).
  *
  * For each axis, the direction of rotation will be **clockwise** for positive rotation values when the axis points
  * towards the observer.
@@ -208,23 +214,23 @@ export const setInvRotV = (m: Mat3, a: Vec3): Mat3 => setRot(m, -a.x, -a.y, -a.z
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D scaling matrix.
  *
- * Multiplying the resulting matrix by a column vector will scale the given vector by `a` (see [[mulV]])
+ * Multiplying the resulting matrix by a column vector will scale the given vector by `a` (see {@linkcode mulV})
  *
  * @param m - a 3x3 matrix object
  * @param a - a 2-element vector specifying the scaling factors
  * @returns `m` set to be a 2D scaling matrix
  */
 export const setScaleV = (m: Mat3, a: Vec2): Mat3 => {
-  m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
-  m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = 0.0;
-  m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
-  return m;
+    m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = 0.0;
+    m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = 0.0;
+    m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D translation matrix.
  *
- * Multiplying the resulting matrix by a column vector will translate the given vector by `[ tx ty ]` (see [[mulV]])
+ * Multiplying the resulting matrix by a column vector will translate the given vector by `[ tx ty ]` (see {@linkcode mulV})
  *
  * @param m - a 3x3 matrix object
  * @param tx - the amount of translation along the x-axis
@@ -232,16 +238,16 @@ export const setScaleV = (m: Mat3, a: Vec2): Mat3 => {
  * @returns `m` set to be a 2D translation matrix
  */
 export const setTrsl = (m: Mat3, tx: number, ty: number): Mat3 => {
-  m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = tx;
-  m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = ty;
-  m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
-  return m;
+    m.r0c0 = 1.0;  m.r0c1 = 0.0;  m.r0c2 = tx;
+    m.r1c0 = 0.0;  m.r1c1 = 1.0;  m.r1c2 = ty;
+    m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
+    return m;
 };
 
 /**
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D translation matrix.
  *
- * Multiplying the resulting matrix by a column vector will translate the given vector by `a` (see [[mulV]])
+ * Multiplying the resulting matrix by a column vector will translate the given vector by `a` (see {@linkcode mulV})
  *
  * @param m - a 3x3 matrix object
  * @param a - a 2-element vector specifying the amount of translation
@@ -253,7 +259,7 @@ export const setTrslV = (m: Mat3, a: Vec2): Mat3 => setTrsl(m, a.x, a.y);
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D translation matrix.
  *
  * Multiplying the resulting matrix by a column vector will translate the given vector by the inverse of `a`
- * (see [[mulV]])
+ * (see {@linkcode mulV})
  *
  * @param m - a 3x3 matrix object
  * @param a - a 2-element vector specifying the (inverse) amount of translation
@@ -265,7 +271,7 @@ export const setInvTrslV = (m: Mat3, a: Vec2): Mat3 => setTrsl(m, -a.x, -a.y);
  * Sets the elements of the 3x3 matrix `m` so it becomes a 2D transformation matrix for scaling and translation.
  *
  * Multiplying the resulting matrix by a column vector will scale the given vector by `a` and translate it by `b`
- * (see [[mulV]])
+ * (see {@linkcode mulV})
  *
  * @param m - a 3x3 matrix object
  * @param a - a 2-element vector specifying the scaling factors
@@ -273,10 +279,10 @@ export const setInvTrslV = (m: Mat3, a: Vec2): Mat3 => setTrsl(m, -a.x, -a.y);
  * @returns `m` set to be a 2D transformation matrix
  */
 export const setScaleTrsl = (m: Mat3, a: Vec2, b: Vec2): Mat3 => {
-  m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = b.x;
-  m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = b.y;
-  m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
-  return m;
+    m.r0c0 = a.x;  m.r0c1 = 0.0;  m.r0c2 = b.x;
+    m.r1c0 = 0.0;  m.r1c1 = a.y;  m.r1c2 = b.y;
+    m.r2c0 = 0.0;  m.r2c1 = 0.0;  m.r2c2 = 1.0;
+    return m;
 };
 
 /**
@@ -287,10 +293,10 @@ export const setScaleTrsl = (m: Mat3, a: Vec2, b: Vec2): Mat3 => {
  * @returns `m` set to be a copy of `n`
  */
 export const setM = (m: Mat3, n: Mat3): Mat3 => {
-  m.r0c0 = n.r0c0;  m.r0c1 = n.r0c1;  m.r0c2 = n.r0c2;
-  m.r1c0 = n.r1c0;  m.r1c1 = n.r1c1;  m.r1c2 = n.r1c2;
-  m.r2c0 = n.r2c0;  m.r2c1 = n.r2c1;  m.r2c2 = n.r2c2;
-  return m;
+    m.r0c0 = n.r0c0;  m.r0c1 = n.r0c1;  m.r0c2 = n.r0c2;
+    m.r1c0 = n.r1c0;  m.r1c1 = n.r1c1;  m.r1c2 = n.r1c2;
+    m.r2c0 = n.r2c0;  m.r2c1 = n.r2c1;  m.r2c2 = n.r2c2;
+    return m;
 };
 
 /**
@@ -309,15 +315,15 @@ export const setM = (m: Mat3, n: Mat3): Mat3 => {
  * @returns `m` with elements set to the given values
  */
 export const set = (
-  m: Mat3,
-  r0c0: number, r0c1: number, r0c2: number,
-  r1c0: number, r1c1: number, r1c2: number,
-  r2c0: number, r2c1: number, r2c2: number
+    m: Mat3,
+    r0c0: number, r0c1: number, r0c2: number,
+    r1c0: number, r1c1: number, r1c2: number,
+    r2c0: number, r2c1: number, r2c2: number
 ): Mat3 => {
-  m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;
-  m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;
-  m.r2c0 = r2c0;  m.r2c1 = r2c1;  m.r2c2 = r2c2;
-  return m;
+    m.r0c0 = r0c0;  m.r0c1 = r0c1;  m.r0c2 = r0c2;
+    m.r1c0 = r1c0;  m.r1c1 = r1c1;  m.r1c2 = r1c2;
+    m.r2c0 = r2c0;  m.r2c1 = r2c1;  m.r2c2 = r2c2;
+    return m;
 };
 
 /**
@@ -342,20 +348,20 @@ export const mulM = (m: Mat3, n: Mat3): Mat3 => mulMInto(m, n, m);
  * @returns `o` as the result of the multiplication
  */
 export const mulMInto = (m: Mat3, n: Mat3, o: Mat3): Mat3 => {
-  let c0, c1, c2;
-  c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0;
-  c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1;
-  c2 = m.r0c0 * n.r0c2  +  m.r0c1 * n.r1c2  +  m.r0c2 * n.r2c2;
-  o.r0c0 = c0;  o.r0c1 = c1;  o.r0c2 = c2;
-  c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0  +  m.r1c2 * n.r2c0;
-  c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1  +  m.r1c2 * n.r2c1;
-  c2 = m.r1c0 * n.r0c2  +  m.r1c1 * n.r1c2  +  m.r1c2 * n.r2c2;
-  o.r1c0 = c0;  o.r1c1 = c1;  o.r1c2 = c2;
-  c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0  +  m.r2c2 * n.r2c0;
-  c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1  +  m.r2c2 * n.r2c1;
-  c2 = m.r2c0 * n.r0c2  +  m.r2c1 * n.r1c2  +  m.r2c2 * n.r2c2;
-  o.r2c0 = c0;  o.r2c1 = c1;  o.r2c2 = c2;
-  return o;
+    let c0, c1, c2;
+    c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0  +  m.r0c2 * n.r2c0;
+    c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1  +  m.r0c2 * n.r2c1;
+    c2 = m.r0c0 * n.r0c2  +  m.r0c1 * n.r1c2  +  m.r0c2 * n.r2c2;
+    o.r0c0 = c0;  o.r0c1 = c1;  o.r0c2 = c2;
+    c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0  +  m.r1c2 * n.r2c0;
+    c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1  +  m.r1c2 * n.r2c1;
+    c2 = m.r1c0 * n.r0c2  +  m.r1c1 * n.r1c2  +  m.r1c2 * n.r2c2;
+    o.r1c0 = c0;  o.r1c1 = c1;  o.r1c2 = c2;
+    c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0  +  m.r2c2 * n.r2c0;
+    c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1  +  m.r2c2 * n.r2c1;
+    c2 = m.r2c0 * n.r0c2  +  m.r2c1 * n.r1c2  +  m.r2c2 * n.r2c2;
+    o.r2c0 = c0;  o.r2c1 = c1;  o.r2c2 = c2;
+    return o;
 };
 
 /**
@@ -370,17 +376,17 @@ export const mulMInto = (m: Mat3, n: Mat3, o: Mat3): Mat3 => {
  * @returns `m`, multiplied by `n`
  */
 export const mulM2 = (m: Mat3, n: Mat2): Mat3 => {
-  let c0, c1;
-  c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0;
-  c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1;
-  m.r0c0 = c0;  m.r0c1 = c1;
-  c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0;
-  c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1;
-  m.r1c0 = c0;  m.r1c1 = c1;
-  c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0;
-  c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1;
-  m.r2c0 = c0;  m.r2c1 = c1;
-  return m;
+    let c0, c1;
+    c0 = m.r0c0 * n.r0c0  +  m.r0c1 * n.r1c0;
+    c1 = m.r0c0 * n.r0c1  +  m.r0c1 * n.r1c1;
+    m.r0c0 = c0;  m.r0c1 = c1;
+    c0 = m.r1c0 * n.r0c0  +  m.r1c1 * n.r1c0;
+    c1 = m.r1c0 * n.r0c1  +  m.r1c1 * n.r1c1;
+    m.r1c0 = c0;  m.r1c1 = c1;
+    c0 = m.r2c0 * n.r0c0  +  m.r2c1 * n.r1c0;
+    c1 = m.r2c0 * n.r0c1  +  m.r2c1 * n.r1c1;
+    m.r2c0 = c0;  m.r2c1 = c1;
+    return m;
 };
 
 /**
@@ -396,10 +402,10 @@ export const mulM2 = (m: Mat3, n: Mat2): Mat3 => {
  * @returns `b` as the result of `m * a`
  */
 export const mulV = (m: Mat3, a: Vec3, b: Vec3): Vec3 => vec3.set(
-  b,
-  m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z,
-  m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z,
-  m.r2c0 * a.x  +  m.r2c1 * a.y  +  m.r2c2 * a.z
+    b,
+    m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2 * a.z,
+    m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2 * a.z,
+    m.r2c0 * a.x  +  m.r2c1 * a.y  +  m.r2c2 * a.z
 );
 
 /**
@@ -416,9 +422,9 @@ export const mulV = (m: Mat3, a: Vec3, b: Vec3): Vec3 => vec3.set(
  * @returns `b` as the result of `m * a`
  */
 export const mulV2 = (m: Mat3, a: Vec2, b: Vec2): Vec2 => vec2.set(
-  b,
-  m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2,
-  m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2
+    b,
+    m.r0c0 * a.x  +  m.r0c1 * a.y  +  m.r0c2,
+    m.r1c0 * a.x  +  m.r1c1 * a.y  +  m.r1c2
 );
 
 /**
@@ -428,8 +434,8 @@ export const mulV2 = (m: Mat3, a: Vec2, b: Vec2): Vec2 => vec2.set(
  * @returns the determinant of `m`
  */
 export const det = (m: Mat3): number => (
-     m.r0c0 * m.r1c1 * m.r2c2  +  m.r1c0 * m.r2c1 * m.r0c2  +  m.r2c0 * m.r0c1 * m.r1c2
-  -  m.r0c0 * m.r2c1 * m.r1c2  -  m.r2c0 * m.r1c1 * m.r0c2  -  m.r1c0 * m.r0c1 * m.r2c2
+       m.r0c0 * m.r1c1 * m.r2c2  +  m.r1c0 * m.r2c1 * m.r0c2  +  m.r2c0 * m.r0c1 * m.r1c2
+    -  m.r0c0 * m.r2c1 * m.r1c2  -  m.r2c0 * m.r1c1 * m.r0c2  -  m.r1c0 * m.r0c1 * m.r2c2
 );
 
 /**
@@ -448,25 +454,25 @@ export const inv = (m: Mat3): Mat3 => invInto(m, m);
  * @returns `n` as the inverse of `m`
  */
 export const invInto = (m: Mat3, n: Mat3): Mat3 => {
-  const r0c0r1c1 = m.r0c0 * m.r1c1,  r2c1r0c2 = m.r2c1 * m.r0c2,  r2c0r0c1 = m.r2c0 * m.r0c1;
-  const r0c0r2c1 = m.r0c0 * m.r2c1,  r2c0r1c1 = m.r2c0 * m.r1c1,  r1c0r0c1 = m.r1c0 * m.r0c1;
-  const det = (   r0c0r1c1 * m.r2c2  +  m.r1c0   * r2c1r0c2  +  r2c0r0c1 * m.r1c2
-               -  r0c0r2c1 * m.r1c2  -  r2c0r1c1 * m.r0c2    -  r1c0r0c1 * m.r2c2);
-  if (det != 0.0) {
-    const invDet = 1.0 / det;
-    const r0c1r1c2 = m.r0c1 * m.r1c2,  r0c0r2c2 = m.r0c0 * m.r2c2,  r0c2r2c0 = m.r0c2 * m.r2c0;
-    const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c0r1c2 = m.r0c0 * m.r1c2,  r1c0r2c1 = m.r1c0 * m.r2c1;
-    n.r0c0 = (m.r1c1 * m.r2c2  -  m.r1c2 * m.r2c1) * invDet;
-    n.r0c1 = (r2c1r0c2         -  m.r0c1 * m.r2c2) * invDet;
-    n.r0c2 = (r0c1r1c2         -  m.r0c2 * m.r1c1) * invDet;
-    n.r1c0 = (m.r1c2 * m.r2c0  -  m.r1c0 * m.r2c2) * invDet;
-    n.r1c1 = (r0c0r2c2         -  r0c2r2c0       ) * invDet;
-    n.r1c2 = (r0c2r1c0         -  r0c0r1c2       ) * invDet;
-    n.r2c0 = (r1c0r2c1         -  r2c0r1c1       ) * invDet;
-    n.r2c1 = (r2c0r0c1         -  r0c0r2c1       ) * invDet;
-    n.r2c2 = (r0c0r1c1         -  r1c0r0c1       ) * invDet;
-  }
-  return n;
+    const r0c0r1c1 = m.r0c0 * m.r1c1,  r2c1r0c2 = m.r2c1 * m.r0c2,  r2c0r0c1 = m.r2c0 * m.r0c1;
+    const r0c0r2c1 = m.r0c0 * m.r2c1,  r2c0r1c1 = m.r2c0 * m.r1c1,  r1c0r0c1 = m.r1c0 * m.r0c1;
+    const det = (   r0c0r1c1 * m.r2c2  +  m.r1c0   * r2c1r0c2  +  r2c0r0c1 * m.r1c2
+                 -  r0c0r2c1 * m.r1c2  -  r2c0r1c1 * m.r0c2    -  r1c0r0c1 * m.r2c2);
+    if (det !== 0.0) {
+        const invDet = 1.0 / det;
+        const r0c1r1c2 = m.r0c1 * m.r1c2,  r0c0r2c2 = m.r0c0 * m.r2c2,  r0c2r2c0 = m.r0c2 * m.r2c0;
+        const r0c2r1c0 = m.r0c2 * m.r1c0,  r0c0r1c2 = m.r0c0 * m.r1c2,  r1c0r2c1 = m.r1c0 * m.r2c1;
+        n.r0c0 = (m.r1c1 * m.r2c2  -  m.r1c2 * m.r2c1) * invDet;
+        n.r0c1 = (r2c1r0c2         -  m.r0c1 * m.r2c2) * invDet;
+        n.r0c2 = (r0c1r1c2         -  m.r0c2 * m.r1c1) * invDet;
+        n.r1c0 = (m.r1c2 * m.r2c0  -  m.r1c0 * m.r2c2) * invDet;
+        n.r1c1 = (r0c0r2c2         -  r0c2r2c0       ) * invDet;
+        n.r1c2 = (r0c2r1c0         -  r0c0r1c2       ) * invDet;
+        n.r2c0 = (r1c0r2c1         -  r2c0r1c1       ) * invDet;
+        n.r2c1 = (r2c0r0c1         -  r0c0r2c1       ) * invDet;
+        n.r2c2 = (r0c0r1c1         -  r1c0r0c1       ) * invDet;
+    }
+    return n;
 };
 
 /**
@@ -485,11 +491,11 @@ export const trsp = (m: Mat3): Mat3 => trspInto(m, m);
  * @returns `n` as the transpose of `m`
  */
 export const trspInto = (m: Mat3, n: Mat3): Mat3 => {
-  const t0t1 = m.r0c1,  t0t2 = m.r0c2,  t1t2 = m.r1c2;
-  n.r0c1 = m.r1c0;  n.r0c2 = m.r2c0;
-  n.r1c0 = t0t1;    n.r1c2 = m.r2c1;
-  n.r2c0 = t0t2;    n.r2c1 = t1t2;
-  return n;
+    const t0t1 = m.r0c1,  t0t2 = m.r0c2,  t1t2 = m.r1c2;
+    n.r0c1 = m.r1c0;  n.r0c2 = m.r2c0;
+    n.r1c0 = t0t1;    n.r1c2 = m.r2c1;
+    n.r2c0 = t0t2;    n.r2c1 = t1t2;
+    return n;
 };
 
 /**
@@ -503,10 +509,10 @@ export const trspInto = (m: Mat3, n: Mat3): Mat3 => {
  * @return `buffer`, filled with the elemenets of `m`
  */
 export const fill = <B extends FloatArray>(m: Mat3, buffer: B): B => {
-  buffer[0] = m.r0c0;  buffer[1] = m.r1c0;  buffer[2] = m.r2c0;
-  buffer[3] = m.r0c1;  buffer[4] = m.r1c1;  buffer[5] = m.r2c1;
-  buffer[6] = m.r0c2;  buffer[7] = m.r1c2;  buffer[8] = m.r2c2;
-  return buffer;
+    buffer[0] = m.r0c0;  buffer[1] = m.r1c0;  buffer[2] = m.r2c0;
+    buffer[3] = m.r0c1;  buffer[4] = m.r1c1;  buffer[5] = m.r2c1;
+    buffer[6] = m.r0c2;  buffer[7] = m.r1c2;  buffer[8] = m.r2c2;
+    return buffer;
 };
 
 /**
@@ -517,9 +523,9 @@ export const fill = <B extends FloatArray>(m: Mat3, buffer: B): B => {
  * @returns `true` if `m` and `n` are equal, `false` otherwise
  */
 export const equals = (m: Mat3, n: Mat3): boolean => (
-     m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2
-  && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2
-  && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2
+       m.r0c0 === n.r0c0 && m.r0c1 === n.r0c1 && m.r0c2 === n.r0c2
+    && m.r1c0 === n.r1c0 && m.r1c1 === n.r1c1 && m.r1c2 === n.r1c2
+    && m.r2c0 === n.r2c0 && m.r2c1 === n.r2c1 && m.r2c2 === n.r2c2
 );
 
 /**
@@ -529,7 +535,7 @@ export const equals = (m: Mat3, n: Mat3): boolean => (
  * @returns a string representation of `m`
  */
 export const toString = (m: Mat3): string => (
-    `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)}\n`
-  + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
-  + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`
+      `[ ${pad(m.r0c0)} ${pad(m.r0c1)} ${pad(m.r0c2)}\n`
+    + `  ${pad(m.r1c0)} ${pad(m.r1c1)} ${pad(m.r1c2)}\n`
+    + `  ${pad(m.r2c0)} ${pad(m.r2c1)} ${pad(m.r2c2)} ]`
 );

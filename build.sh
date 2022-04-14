@@ -1,5 +1,15 @@
 #!/bin/bash
 
-rm -rf ./*.d.ts ./*.js ./*.map ./build/*
+# Remove previous build
+echo "cleaning..."
+rm -rf ./*.d.ts ./*.js ./*.map ./*.tsbuildinfo ./dist/* ./build/*
 
-tsc
+
+# Compile typescript to javascript (configured by tsconfig.json)
+echo "compiling typescript..."
+npx tsc
+
+
+# Lint source code
+echo "linting source code..."
+npx eslint . --ext .js,.ts

@@ -1,11 +1,17 @@
 /**
- * `vec4` is a collection of functions to manipulate [[Vec4]] 4-element vector objects.
+ * `vec4` is a collection of functions to manipulate {@linkcode Vec4} 4-element vector objects.
  *
- * The primary use for a [[Vec4]] object is as homogeneous coordinates in 3D geometry, or to represent e.g.
- * RGBA colours.
+ * The primary use for a {@linkcode Vec4} object is as homogeneous coordinates in 3D geometry,
+ * or to represent e.g. RGBA colours.
+ *
+ * Example usage:
+ * ```
+ * import * as vec4 from '@spissvinkel/maths/vec4';
+ * ```
+ *
+ * @module
  */
 
-/** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Vec3, Vec4 } from './';
 import { fpad as pad, lerp as slerp } from './maths';
 
@@ -18,7 +24,7 @@ import { fpad as pad, lerp as slerp } from './maths';
  * @param w - the fourth element
  * @returns the new 4-element vector object
  */
-export const of = (x: number, y: number, z: number, w: number): Vec4 => ({ x, y, z, w } as Vec4);
+export const of = (x: number, y: number, z: number, w: number): Vec4 => ({ x, y, z, w });
 
 /**
  * Creates a new copy of the 4-element vector `b`
@@ -145,8 +151,8 @@ export const setV = (a: Vec4, b: Vec4): Vec4 => { a.x = b.x;  a.y = b.y;  a.z = 
  * @returns `a` with its first three elements set to be a copy of `b` and the fourth set to `w`
  */
 export const setV3 = (a: Vec4, b: Vec3, w: number): Vec4 => {
-  a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = w;
-  return a;
+    a.x = b.x;  a.y = b.y;  a.z = b.z;  a.w = w;
+    return a;
 };
 
 /**
@@ -160,8 +166,8 @@ export const setV3 = (a: Vec4, b: Vec3, w: number): Vec4 => {
  * @returns `a` with elements set to the given values
  */
 export const set = (a: Vec4, x: number, y: number, z: number, w: number): Vec4 => {
-  a.x = x;  a.y = y;  a.z = z;  a.w = w;
-  return a;
+    a.x = x;  a.y = y;  a.z = z;  a.w = w;
+    return a;
 };
 
 /**
@@ -186,11 +192,11 @@ export const addV = (a: Vec4, b: Vec4): Vec4 => addVInto(a, b, a);
  * @returns `c` as the result of `a + b`
  */
 export const addVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
-  c.x = a.x + b.x;
-  c.y = a.y + b.y;
-  c.z = a.z + b.z;
-  c.w = a.w + b.w;
-  return c;
+    c.x = a.x + b.x;
+    c.y = a.y + b.y;
+    c.z = a.z + b.z;
+    c.w = a.w + b.w;
+    return c;
 };
 
 /**
@@ -215,11 +221,11 @@ export const subV = (a: Vec4, b: Vec4): Vec4 => subVInto(a, b, a);
  * @returns `c` as the result of `a - b`
  */
 export const subVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
-  c.x = a.x - b.x;
-  c.y = a.y - b.y;
-  c.z = a.z - b.z;
-  c.w = a.w - b.w;
-  return c;
+    c.x = a.x - b.x;
+    c.y = a.y - b.y;
+    c.z = a.z - b.z;
+    c.w = a.w - b.w;
+    return c;
 };
 
 /**
@@ -246,11 +252,11 @@ export const addMul = (a: Vec4, b: Vec4, s: number): Vec4 => addMulInto(a, b, s,
  * @returns `c` as the result of `a + b * s`
  */
 export const addMulInto = (a: Vec4, b: Vec4, s: number, c: Vec4): Vec4 => {
-  c.x = a.x + b.x * s;
-  c.y = a.y + b.y * s;
-  c.z = a.z + b.z * s;
-  c.w = a.w + b.w * s;
-  return c;
+    c.x = a.x + b.x * s;
+    c.y = a.y + b.y * s;
+    c.z = a.z + b.z * s;
+    c.w = a.w + b.w * s;
+    return c;
 };
 
 /**
@@ -275,11 +281,11 @@ export const mulV = (a: Vec4, b: Vec4): Vec4 => mulVInto(a, b, a);
  * @returns `c` as the result of the multiplication
  */
 export const mulVInto = (a: Vec4, b: Vec4, c: Vec4): Vec4 => {
-  c.x = a.x * b.x;
-  c.y = a.y * b.y;
-  c.z = a.z * b.z;
-  c.w = a.w * b.w;
-  return c;
+    c.x = a.x * b.x;
+    c.y = a.y * b.y;
+    c.z = a.z * b.z;
+    c.w = a.w * b.w;
+    return c;
 };
 
 /**
@@ -304,11 +310,11 @@ export const mul = (a: Vec4, s: number): Vec4 => mulInto(a, s, a);
  * @returns `b` as the result of `a * s`
  */
 export const mulInto = (a: Vec4, s: number, b: Vec4): Vec4 => {
-  b.x = a.x * s;
-  b.y = a.y * s;
-  b.z = a.z * s;
-  b.w = a.w * s;
-  return b;
+    b.x = a.x * s;
+    b.y = a.y * s;
+    b.z = a.z * s;
+    b.w = a.w * s;
+    return b;
 };
 
 /**
@@ -333,11 +339,11 @@ export const pow = (a: Vec4, s: number): Vec4 => powInto(a, s, a);
  * @returns `b` as the result of `a ^ s`
  */
 export const powInto = (a: Vec4, s: number, b: Vec4): Vec4 => {
-  b.x = Math.pow(a.x, s);
-  b.y = Math.pow(a.y, s);
-  b.z = Math.pow(a.z, s);
-  b.w = Math.pow(a.w, s);
-  return b;
+    b.x = Math.pow(a.x, s);
+    b.y = Math.pow(a.y, s);
+    b.z = Math.pow(a.z, s);
+    b.w = Math.pow(a.w, s);
+    return b;
 };
 
 /**
@@ -360,11 +366,11 @@ export const inv = (a: Vec4): Vec4 => invInto(a, a);
  * @returns `b` as the inverse of `a`
  */
 export const invInto = (a: Vec4, b: Vec4): Vec4 => {
-  b.x = -a.x;
-  b.y = -a.y;
-  b.z = -a.z;
-  b.w = -a.w;
-  return b;
+    b.x = -a.x;
+    b.y = -a.y;
+    b.z = -a.z;
+    b.w = -a.w;
+    return b;
 };
 
 /**
@@ -391,11 +397,11 @@ export const clampV = (a: Vec4, min: Vec4, max: Vec4): Vec4 => clampVInto(a, min
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampVInto = (a: Vec4, min: Vec4, max: Vec4, b: Vec4): Vec4 => {
-  b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
-  b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
-  b.z = a.z < min.z ? min.z : (a.z > max.z ? max.z : a.z);
-  b.w = a.w < min.w ? min.w : (a.w > max.w ? max.w : a.w);
-  return b;
+    b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
+    b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
+    b.z = a.z < min.z ? min.z : (a.z > max.z ? max.z : a.z);
+    b.w = a.w < min.w ? min.w : (a.w > max.w ? max.w : a.w);
+    return b;
 };
 
 /**
@@ -420,11 +426,11 @@ export const clamp = (a: Vec4, min: number, max: number): Vec4 => clampInto(a, m
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampInto = (a: Vec4, min: number, max: number, b: Vec4): Vec4 => {
-  b.x = a.x < min ? min : (a.x > max ? max : a.x);
-  b.y = a.y < min ? min : (a.y > max ? max : a.y);
-  b.z = a.z < min ? min : (a.z > max ? max : a.z);
-  b.w = a.w < min ? min : (a.w > max ? max : a.w);
-  return b;
+    b.x = a.x < min ? min : (a.x > max ? max : a.x);
+    b.y = a.y < min ? min : (a.y > max ? max : a.y);
+    b.z = a.z < min ? min : (a.z > max ? max : a.z);
+    b.w = a.w < min ? min : (a.w > max ? max : a.w);
+    return b;
 };
 
 /**
@@ -486,11 +492,11 @@ export const lerp = (a: Vec4, b: Vec4, t: number, c: Vec4): Vec4 => addMul(mulIn
  * @returns `c` - the interpolation result
  */
 export const lerpE = (a: Vec4, b: Vec4, tx: number, ty: number, tz: number, tw: number, c: Vec4): Vec4 => set(
-  c,
-  slerp(a.x, b.x, tx),
-  slerp(a.y, b.y, ty),
-  slerp(a.z, b.z, tz),
-  slerp(a.w, b.w, tw)
+    c,
+    slerp(a.x, b.x, tx),
+    slerp(a.y, b.y, ty),
+    slerp(a.z, b.z, tz),
+    slerp(a.w, b.w, tw)
 );
 
 /**
@@ -519,7 +525,7 @@ export const lerpE = (a: Vec4, b: Vec4, tx: number, ty: number, tz: number, tw: 
  * @returns `c` - the interpolation result
  */
 export const lerp2 = (a1: Vec4, b1: Vec4, a2: Vec4, b2: Vec4, s: number, t: number, c: Vec4, tmp?: Vec4): Vec4 => (
-  lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
+    lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
 );
 
 /**

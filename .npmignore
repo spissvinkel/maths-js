@@ -1,0 +1,9 @@
+.*
+*.sh
+*.json
+
+build
+dist
+
+src
+docs

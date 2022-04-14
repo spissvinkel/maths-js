@@ -1,10 +1,16 @@
 /**
- * `vec2` is a collection of functions to manipulate [[Vec2]] two-element vector objects.
+ * `vec2` is a collection of functions to manipulate {@linkcode Vec2} two-element vector objects.
  *
- * The primary use for a [[Vec2]] object is in 2D geometry.
+ * The primary use for a {@linkcode Vec2} object is in 2D geometry.
+ *
+ * Example usage:
+ * ```
+ * import * as vec2 from '@spissvinkel/maths/vec2';
+ * ```
+ *
+ * @module
  */
 
-/** Import statements (dummy comment to satisfy TypeDoc generator) */
 import { Vec2 } from './';
 import { fpad as pad, lerp as slerp } from './maths';
 
@@ -15,7 +21,7 @@ import { fpad as pad, lerp as slerp } from './maths';
  * @param y - the second element
  * @returns the new 2-element vector object
  */
-export const of = (x: number, y: number): Vec2 => ({ x, y } as Vec2);
+export const of = (x: number, y: number): Vec2 => ({ x, y });
 
 /**
  * Creates a new copy of the 2-element vector `b`
@@ -126,9 +132,9 @@ export const addV = (a: Vec2, b: Vec2): Vec2 => addVInto(a, b, a);
  * @returns `c` as the result of `a + b`
  */
 export const addVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
-  c.x = a.x + b.x;
-  c.y = a.y + b.y;
-  return c;
+    c.x = a.x + b.x;
+    c.y = a.y + b.y;
+    return c;
 };
 
 /**
@@ -153,9 +159,9 @@ export const subV = (a: Vec2, b: Vec2): Vec2 => subVInto(a, b, a);
  * @returns `c` as the result of `a - b`
  */
 export const subVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
-  c.x = a.x - b.x;
-  c.y = a.y - b.y;
-  return c;
+    c.x = a.x - b.x;
+    c.y = a.y - b.y;
+    return c;
 };
 
 /**
@@ -182,9 +188,9 @@ export const addMul = (a: Vec2, b: Vec2, s: number): Vec2 => addMulInto(a, b, s,
  * @returns `c` as the result of `a + b * s`
  */
 export const addMulInto = (a: Vec2, b: Vec2, s: number, c: Vec2): Vec2 => {
-  c.x = a.x + b.x * s;
-  c.y = a.y + b.y * s;
-  return c;
+    c.x = a.x + b.x * s;
+    c.y = a.y + b.y * s;
+    return c;
 };
 
 /**
@@ -209,9 +215,9 @@ export const mulV = (a: Vec2, b: Vec2): Vec2 => mulVInto(a, b, a);
  * @returns `c` as the result of the multiplication
  */
 export const mulVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
-  c.x = a.x * b.x;
-  c.y = a.y * b.y;
-  return c;
+    c.x = a.x * b.x;
+    c.y = a.y * b.y;
+    return c;
 };
 
 /**
@@ -236,9 +242,9 @@ export const mul = (a: Vec2, s: number): Vec2 => mulInto(a, s, a);
  * @returns `b` as the result of `a * s`
  */
 export const mulInto = (a: Vec2, s: number, b: Vec2): Vec2 => {
-  b.x = a.x * s;
-  b.y = a.y * s;
-  return b;
+    b.x = a.x * s;
+    b.y = a.y * s;
+    return b;
 };
 
 /**
@@ -263,9 +269,9 @@ export const divV = (a: Vec2, b: Vec2): Vec2 => divVInto(a, b, a);
  * @returns `c` as the result of the division
  */
 export const divVInto = (a: Vec2, b: Vec2, c: Vec2): Vec2 => {
-  c.x = a.x / b.x;
-  c.y = a.y / b.y;
-  return c;
+    c.x = a.x / b.x;
+    c.y = a.y / b.y;
+    return c;
 };
 
 /**
@@ -290,9 +296,9 @@ export const div = (a: Vec2, s: number): Vec2 => divInto(a, s, a);
  * @returns `b` as the result of `a / s`
  */
 export const divInto = (a: Vec2, s: number, b: Vec2): Vec2 => {
-  b.x = a.x / s;
-  b.y = a.y / s;
-  return b;
+    b.x = a.x / s;
+    b.y = a.y / s;
+    return b;
 };
 
 /**
@@ -315,9 +321,9 @@ export const inv = (a: Vec2): Vec2 => invInto(a, a);
  * @returns `b` as the inverse of `a`
  */
 export const invInto = (a: Vec2, b: Vec2): Vec2 => {
-  b.x = -a.x;
-  b.y = -a.y;
-  return b;
+    b.x = -a.x;
+    b.y = -a.y;
+    return b;
 };
 
 /**
@@ -328,12 +334,12 @@ export const invInto = (a: Vec2, b: Vec2): Vec2 => {
  * @param a - a 2-element vector object
  * @returns `|a|²`
  */
-export const sqrMag = (a: Vec2): number => a.x * a.x  +  a.y * a.y
+export const sqrMag = (a: Vec2): number => a.x * a.x  +  a.y * a.y;
 
 /**
  * Calculates the magnitude of the two-element vector `a`
  *
- * (See also [[sqrMag]])
+ * (See also {@linkcode sqrMag})
  *
  * @param a - a 2-element vector object
  * @returns `|a|`
@@ -409,9 +415,9 @@ export const dot = (a: Vec2, b: Vec2): number => a.x * b.x  +  a.y * b.y;
  * @returns `b` as a vector perpendicular to `a`
  */
 export const perpInto = (a: Vec2, b: Vec2): Vec2 => {
-  b.x =  a.y;
-  b.y = -a.x;
-  return b;
+    b.x =  a.y;
+    b.y = -a.x;
+    return b;
 };
 
 /**
@@ -438,9 +444,9 @@ export const clampV = (a: Vec2, min: Vec2, max: Vec2): Vec2 => clampVInto(a, min
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampVInto = (a: Vec2, min: Vec2, max: Vec2, b: Vec2): Vec2 => {
-  b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
-  b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
-  return b;
+    b.x = a.x < min.x ? min.x : (a.x > max.x ? max.x : a.x);
+    b.y = a.y < min.y ? min.y : (a.y > max.y ? max.y : a.y);
+    return b;
 };
 
 /**
@@ -465,9 +471,9 @@ export const clamp = (a: Vec2, min: number, max: number): Vec2 => clampInto(a, m
  * @returns `b` as `a` clamped to `[min, max]`
  */
 export const clampInto = (a: Vec2, min: number, max: number, b: Vec2): Vec2 => {
-  b.x = a.x < min ? min : (a.x > max ? max : a.x);
-  b.y = a.y < min ? min : (a.y > max ? max : a.y);
-  return b;
+    b.x = a.x < min ? min : (a.x > max ? max : a.x);
+    b.y = a.y < min ? min : (a.y > max ? max : a.y);
+    return b;
 };
 
 /**
@@ -525,7 +531,7 @@ export const lerp = (a: Vec2, b: Vec2, t: number, c: Vec2): Vec2 => addMul(mulIn
  * @returns `c` - the interpolation result
  */
 export const lerpE = (a: Vec2, b: Vec2, tx: number, ty: number, c: Vec2): Vec2 => (
-  set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty))
+    set(c, slerp(a.x, b.x, tx), slerp(a.y, b.y, ty))
 );
 
 /**
@@ -553,7 +559,7 @@ export const lerpE = (a: Vec2, b: Vec2, tx: number, ty: number, c: Vec2): Vec2 =
  * @returns `c` - the interpolation result
  */
 export const lerp2 = (a1: Vec2, b1: Vec2, a2: Vec2, b2: Vec2, s: number, t: number, c: Vec2, tmp?: Vec2): Vec2 => (
-  lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
+    lerp(lerp(a1, b1, s, c), lerp(a2, b2, s, tmp ?? zero()), t, c)
 );
 
 /**
