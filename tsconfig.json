@@ -1,6 +1,7 @@
 {
     "include": [
-        "./src/**/*"
+        "./src/**/*",
+        "./test/**/*"
     ],
     "compileOnSave": true,
     "compilerOptions": {
@@ -9,9 +10,11 @@
         "module": "ES2020",
         "lib": [ "ES2020", "dom" ],
         "jsx": "react",
+        "sourceMap": true,
         "declaration": true,
         "declarationMap": true,
-        "sourceMap": true,
+        "experimentalDecorators": true,
+        "useDefineForClassFields": false,
         "outDir": "./build",
         "newLine": "LF",
         "strict": true,
@@ -28,7 +31,8 @@
         "baseUrl": "./",
         "paths": {
             "*": [
-                "node_modules/*"
+                "node_modules/*",
+                "src/types/*"
             ]
         },
         "esModuleInterop": true,

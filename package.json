@@ -1,6 +1,6 @@
 {
-    "name": "@spissvinkel/maths",
-    "version": "1.2.0",
+    "name": "@sstorsveen/maths",
+    "version": "2.0.0",
     "description": "Maths library for JS/TS",
     "keywords": [
         "vector",
@@ -11,17 +11,19 @@
     ],
     "author": "Simen Storsveen <code@simenstorsveen.no>",
     "license": "MIT",
-    "repository": "github:spissvinkel/maths-js",
-    "homepage": "https://spissvinkel.github.io/maths-js/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://codeberg.org/sstorsveen/maths-js.git"
+    },
+    "homepage": "https://sstorsveen.codeberg.page/maths-js/",
     "scripts": {
         "lint": "eslint . --ext .js,.ts"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^6.1.0",
-        "@typescript-eslint/parser": "^6.1.0",
-        "eslint": "^8.45.0",
+        "eslint": "^9.39.1",
         "showdown": "^2.1.0",
-        "typedoc": "^0.24.8",
-        "typescript": "^5.1.6"
+        "typedoc": "^0.28.14",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.46.3"
     }
 }

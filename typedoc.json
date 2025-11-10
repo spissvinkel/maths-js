@@ -2,7 +2,7 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPointStrategy": "expand",
   "out": "./docs/api",
-  "name": "@spissvinkel/maths",
+  "name": "@sstorsveen/maths",
   "includeVersion": true,
   "readme": "none",
   "excludeInternal": true,

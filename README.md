@@ -5,7 +5,7 @@ A small TypeScript/JavaScript library of mathematical functions, mainly vector a
 
 ## Documentation
 
-[TSDoc API reference](https://spissvinkel.github.io/maths-js/api/)
+[TSDoc API reference](https://sstorsveen.codeberg.page/maths-js/api/)
 
 
 ## Installation
@@ -13,7 +13,7 @@ A small TypeScript/JavaScript library of mathematical functions, mainly vector a
 As an npm package:
 
 ```bash
-$ npm install @spissvinkel/maths
+$ npm install @sstorsveen/maths
 ```
 
 
@@ -23,7 +23,7 @@ Create a file `sample.ts`:
 
 ```typescript
 // import a module
-import * as vec2 from '@spissvinkel/maths/vec2';
+import * as vec2 from '@sstorsveen/maths/vec2';
 
 // initialize a new vector object
 const v = vec2.of(1.0, 1.0);
@@ -47,7 +47,7 @@ Bundle with e.g. [Google Closure Compiler](https://github.com/google/closure-com
 $ google-closure-compiler                        \
     --process_common_js_modules=true             \
     --module_resolution=NODE                     \
-    --js=node_modules/@spissvinkel/maths/*.js    \
+    --js=node_modules/@sstorsveen/maths/*.js     \
     --js=sample.js                               \
     --js_output_file=out.js
 ```
