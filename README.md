@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> This repo is now archived on GitHub\
+> Any new development will happen on [Codeberg](https://codeberg.org/sstorsveen/maths-js)
+
 # maths-js
 
 A small TypeScript/JavaScript library of mathematical functions, mainly vector and matrix utilities.
